@@ -1,0 +1,45 @@
+2026-09-21 11:06:23,058 - INFO - Matched configs:
+          model  symbols  layers  matched_target_size_m  units  d_model  model_params  model_size_m  matched_param_abs_error_m  matched_param_rel_error
+           LSTM        4       2                    0.2    128        0        201220      0.201220                   0.001220                  0.00610
+            GRU        4       2                    0.2    160        0        234884      0.234884                   0.034884                  0.17442
+    Transformer        4       2                    0.2    256       64        234308      0.234308                   0.034308                  0.17154
+LinearAttention        4       2                    0.2    384       96        223972      0.223972                   0.023972                  0.11986
+      Performer        4       2                    0.2    320       80        187412      0.187412                   0.012588                  0.06294
+           RWKV        4       2                    0.2    384       96        225508      0.225508                   0.025508                  0.12754
+           LSTM        8       2                    0.2    128        0        203784      0.203784                   0.003784                  0.01892
+            GRU        8       2                    0.2    160        0        237448      0.237448                   0.037448                  0.18724
+    Transformer        8       2                    0.2    256       64        234824      0.234824                   0.034824                  0.17412
+LinearAttention        8       2                    0.2    384       96        224744      0.224744                   0.024744                  0.12372
+      Performer        8       2                    0.2    320       80        188056      0.188056                   0.011944                  0.05972
+           RWKV        8       2                    0.2    384       96        226280      0.226280                   0.026280                  0.13140
+2026-09-21 11:06:23,059 - INFO - Generating seeds for alphabet size 4
+2026-09-21 11:06:23,242 - INFO - Training GRU target=0.200M params=0.235M C=90 A=4 N=3500 L=2 U=160 D=0 run=0
+2026-09-21 11:07:35,587 - INFO - GRU loss=0.0488 acc=1.000 DL=0.000 JW=0.000
+2026-09-21 11:07:35,669 - INFO - Training Performer target=0.200M params=0.187M C=90 A=4 N=3500 L=2 U=320 D=80 run=0
+In file included from /software/python/anaconda3/include/python3.12/Python.h:12,
+                 from /home/xinye/slearn/exps/.venv/lib/python3.12/site-packages/triton/backends/nvidia/driver.c:9:
+/software/python/anaconda3/include/python3.12/pyconfig.h:1874:9: warning: ‘_POSIX_C_SOURCE’ redefined
+ 1874 | #define _POSIX_C_SOURCE 200809L
+      |         ^~~~~~~~~~~~~~~
+In file included from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/stdlib.h:26,
+                 from /home/xinye/slearn/exps/.venv/lib/python3.12/site-packages/triton/backends/nvidia/include/cuda.h:56,
+                 from /home/xinye/slearn/exps/.venv/lib/python3.12/site-packages/triton/backends/nvidia/driver.c:1:
+/usr/include/features.h:319:10: note: this is the location of the previous definition
+  319 | # define _POSIX_C_SOURCE        202405L
+      |          ^~~~~~~~~~~~~~~
+2026-09-21 11:09:13,068 - INFO - Performer loss=0.0442 acc=1.000 DL=0.000 JW=0.000
+2026-09-21 11:09:13,097 - INFO - Training GRU target=0.200M params=0.235M C=90 A=4 N=3500 L=2 U=160 D=0 run=0
+2026-09-21 11:10:16,227 - INFO - GRU loss=0.0445 acc=1.000 DL=0.000 JW=0.000
+2026-09-21 11:10:16,259 - INFO - Training Performer target=0.200M params=0.187M C=90 A=4 N=3500 L=2 U=320 D=80 run=0
+2026-09-21 11:11:56,388 - INFO - Performer loss=0.0345 acc=1.000 DL=0.000 JW=0.000
+2026-09-21 11:11:56,388 - INFO - Generating seeds for alphabet size 8
+2026-09-21 11:11:56,431 - INFO - Training GRU target=0.200M params=0.237M C=90 A=8 N=3500 L=2 U=160 D=0 run=0
+2026-09-21 11:12:47,809 - INFO - GRU loss=0.0474 acc=1.000 DL=0.000 JW=0.000
+2026-09-21 11:12:47,840 - INFO - Training Performer target=0.200M params=0.188M C=90 A=8 N=3500 L=2 U=320 D=80 run=0
+2026-09-21 11:14:32,505 - INFO - Performer loss=0.0491 acc=1.000 DL=0.000 JW=0.000
+2026-09-21 11:14:32,537 - INFO - Training GRU target=0.200M params=0.237M C=90 A=8 N=3500 L=2 U=160 D=0 run=0
+2026-09-21 11:15:18,051 - INFO - GRU loss=0.0434 acc=1.000 DL=0.000 JW=0.000
+2026-09-21 11:15:18,083 - INFO - Training Performer target=0.200M params=0.188M C=90 A=8 N=3500 L=2 U=320 D=80 run=0
+2026-09-21 11:16:45,346 - INFO - Performer loss=0.0391 acc=1.000 DL=0.000 JW=0.000
+2026-09-21 11:16:45,346 - INFO - Selected 8/48 configurations for this task

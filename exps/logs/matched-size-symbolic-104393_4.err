@@ -1,0 +1,33 @@
+2026-09-21 11:14:09,969 - INFO - Matched configs:
+          model  symbols  layers  matched_target_size_m  units  d_model  model_params  model_size_m  matched_param_abs_error_m  matched_param_rel_error
+           LSTM        4       2                    0.2    128        0        201220      0.201220                   0.001220                  0.00610
+            GRU        4       2                    0.2    160        0        234884      0.234884                   0.034884                  0.17442
+    Transformer        4       2                    0.2    256       64        234308      0.234308                   0.034308                  0.17154
+LinearAttention        4       2                    0.2    384       96        223972      0.223972                   0.023972                  0.11986
+      Performer        4       2                    0.2    320       80        187412      0.187412                   0.012588                  0.06294
+           RWKV        4       2                    0.2    384       96        225508      0.225508                   0.025508                  0.12754
+           LSTM        8       2                    0.2    128        0        203784      0.203784                   0.003784                  0.01892
+            GRU        8       2                    0.2    160        0        237448      0.237448                   0.037448                  0.18724
+    Transformer        8       2                    0.2    256       64        234824      0.234824                   0.034824                  0.17412
+LinearAttention        8       2                    0.2    384       96        224744      0.224744                   0.024744                  0.12372
+      Performer        8       2                    0.2    320       80        188056      0.188056                   0.011944                  0.05972
+           RWKV        8       2                    0.2    384       96        226280      0.226280                   0.026280                  0.13140
+2026-09-21 11:14:09,969 - INFO - Generating seeds for alphabet size 4
+2026-09-21 11:14:10,173 - INFO - Training Transformer target=0.200M params=0.234M C=90 A=4 N=3500 L=2 U=256 D=64 run=0
+2026-09-21 11:14:25,570 - INFO - Transformer loss=0.0397 acc=0.994 DL=0.000 JW=0.000
+2026-09-21 11:14:25,609 - INFO - Training RWKV target=0.200M params=0.226M C=90 A=4 N=3500 L=2 U=384 D=96 run=0
+2026-09-21 11:15:06,312 - INFO - RWKV loss=0.0329 acc=0.994 DL=0.430 JW=0.079
+2026-09-21 11:15:06,346 - INFO - Training Transformer target=0.200M params=0.234M C=90 A=4 N=3500 L=2 U=256 D=64 run=0
+2026-09-21 11:15:20,115 - INFO - Transformer loss=0.0309 acc=1.000 DL=0.000 JW=0.000
+2026-09-21 11:15:20,321 - INFO - Training RWKV target=0.200M params=0.226M C=90 A=4 N=3500 L=2 U=384 D=96 run=0
+2026-09-21 11:15:59,574 - INFO - RWKV loss=0.0362 acc=1.000 DL=0.000 JW=0.000
+2026-09-21 11:15:59,574 - INFO - Generating seeds for alphabet size 8
+2026-09-21 11:15:59,621 - INFO - Training Transformer target=0.200M params=0.235M C=90 A=8 N=3500 L=2 U=256 D=64 run=0
+2026-09-21 11:16:08,184 - INFO - Transformer loss=0.0499 acc=1.000 DL=0.000 JW=0.000
+2026-09-21 11:16:08,211 - INFO - Training RWKV target=0.200M params=0.226M C=90 A=8 N=3500 L=2 U=384 D=96 run=0
+2026-09-21 11:16:20,238 - INFO - RWKV loss=0.0370 acc=1.000 DL=0.000 JW=0.000
+2026-09-21 11:16:20,272 - INFO - Training Transformer target=0.200M params=0.235M C=90 A=8 N=3500 L=2 U=256 D=64 run=0
+2026-09-21 11:16:30,152 - INFO - Transformer loss=0.0470 acc=0.994 DL=0.040 JW=0.018
+2026-09-21 11:16:30,178 - INFO - Training RWKV target=0.200M params=0.226M C=90 A=8 N=3500 L=2 U=384 D=96 run=0
+2026-09-21 11:16:43,567 - INFO - RWKV loss=0.0328 acc=1.000 DL=0.000 JW=0.000
+2026-09-21 11:16:43,567 - INFO - Selected 8/48 configurations for this task

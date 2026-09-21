@@ -1,0 +1,87 @@
+{
+  "batch_sizes": [
+    128
+  ],
+  "complexities": [
+    90
+  ],
+  "d_models": [
+    32,
+    48,
+    64,
+    80,
+    96,
+    112,
+    128,
+    160,
+    192,
+    224,
+    256
+  ],
+  "device": "cuda",
+  "dry_run": false,
+  "ff_mult": 4,
+  "forecast_horizon": 100,
+  "layers": [
+    2
+  ],
+  "learning_rates": [
+    0.0003
+  ],
+  "lr_gamma": 0.5,
+  "lr_step_size": 100,
+  "max_epochs": 200,
+  "models": [
+    "LSTM",
+    "GRU",
+    "Transformer",
+    "LinearAttention",
+    "Performer",
+    "RWKV"
+  ],
+  "optimizers": [
+    "AdamW"
+  ],
+  "output_dir": "/home/xinye/slearn/exps/results_symbolic_matched_size/slurm_104393",
+  "patience": 10,
+  "recurrent_units": [
+    32,
+    48,
+    64,
+    80,
+    96,
+    112,
+    128,
+    160,
+    192,
+    224,
+    256,
+    320,
+    384,
+    448,
+    512,
+    640,
+    768
+  ],
+  "runs": 2,
+  "seed": 3407,
+  "seed_count": 2,
+  "sequence_lengths": [
+    3500
+  ],
+  "smoke": false,
+  "stopping_loss": 0.05,
+  "symbols": [
+    4,
+    8
+  ],
+  "target_sizes_m": [
+    0.2
+  ],
+  "task_count": 6,
+  "task_index": 5,
+  "weight_decays": [
+    0.01
+  ],
+  "window_size": 100
+}

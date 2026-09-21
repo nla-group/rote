@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: linformer
+Version: 0.2.3
+Summary: Linformer implementation in Pytorch
+Home-page: https://github.com/lucidrains/linformer
+Author: Phil Wang
+Author-email: lucidrains@gmail.com
+License: MIT
+Keywords: attention,artificial intelligence
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: torch
+

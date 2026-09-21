@@ -1,0 +1,33 @@
+2026-09-21 11:13:40,044 - INFO - Matched configs:
+          model  symbols  layers  matched_target_size_m  units  d_model  model_params  model_size_m  matched_param_abs_error_m  matched_param_rel_error
+           LSTM        4       2                    0.2    128        0        201220      0.201220                   0.001220                  0.00610
+            GRU        4       2                    0.2    160        0        234884      0.234884                   0.034884                  0.17442
+    Transformer        4       2                    0.2    256       64        234308      0.234308                   0.034308                  0.17154
+LinearAttention        4       2                    0.2    384       96        223972      0.223972                   0.023972                  0.11986
+      Performer        4       2                    0.2    320       80        187412      0.187412                   0.012588                  0.06294
+           RWKV        4       2                    0.2    384       96        225508      0.225508                   0.025508                  0.12754
+           LSTM        8       2                    0.2    128        0        203784      0.203784                   0.003784                  0.01892
+            GRU        8       2                    0.2    160        0        237448      0.237448                   0.037448                  0.18724
+    Transformer        8       2                    0.2    256       64        234824      0.234824                   0.034824                  0.17412
+LinearAttention        8       2                    0.2    384       96        224744      0.224744                   0.024744                  0.12372
+      Performer        8       2                    0.2    320       80        188056      0.188056                   0.011944                  0.05972
+           RWKV        8       2                    0.2    384       96        226280      0.226280                   0.026280                  0.13140
+2026-09-21 11:13:40,045 - INFO - Generating seeds for alphabet size 4
+2026-09-21 11:13:40,232 - INFO - Training GRU target=0.200M params=0.235M C=90 A=4 N=3500 L=2 U=160 D=0 run=1
+2026-09-21 11:14:47,066 - INFO - GRU loss=0.0502 acc=1.000 DL=0.000 JW=0.000
+2026-09-21 11:14:47,101 - INFO - Training Performer target=0.200M params=0.187M C=90 A=4 N=3500 L=2 U=320 D=80 run=1
+2026-09-21 11:17:21,128 - INFO - Performer loss=0.0217 acc=1.000 DL=0.000 JW=0.000
+2026-09-21 11:17:21,162 - INFO - Training GRU target=0.200M params=0.235M C=90 A=4 N=3500 L=2 U=160 D=0 run=1
+2026-09-21 11:18:29,409 - INFO - GRU loss=0.0499 acc=1.000 DL=0.000 JW=0.000
+2026-09-21 11:18:29,441 - INFO - Training Performer target=0.200M params=0.187M C=90 A=4 N=3500 L=2 U=320 D=80 run=1
+2026-09-21 11:20:57,688 - INFO - Performer loss=0.0169 acc=1.000 DL=0.000 JW=0.000
+2026-09-21 11:20:57,688 - INFO - Generating seeds for alphabet size 8
+2026-09-21 11:20:57,732 - INFO - Training GRU target=0.200M params=0.237M C=90 A=8 N=3500 L=2 U=160 D=0 run=1
+2026-09-21 11:21:44,614 - INFO - GRU loss=0.0451 acc=1.000 DL=0.000 JW=0.000
+2026-09-21 11:21:44,645 - INFO - Training Performer target=0.200M params=0.188M C=90 A=8 N=3500 L=2 U=320 D=80 run=1
+2026-09-21 11:23:04,363 - INFO - Performer loss=0.0358 acc=1.000 DL=0.000 JW=0.000
+2026-09-21 11:23:04,391 - INFO - Training GRU target=0.200M params=0.237M C=90 A=8 N=3500 L=2 U=160 D=0 run=1
+2026-09-21 11:23:58,046 - INFO - GRU loss=0.0475 acc=1.000 DL=0.000 JW=0.000
+2026-09-21 11:23:58,078 - INFO - Training Performer target=0.200M params=0.188M C=90 A=8 N=3500 L=2 U=320 D=80 run=1
+2026-09-21 11:25:12,106 - INFO - Performer loss=0.0448 acc=1.000 DL=0.000 JW=0.000
+2026-09-21 11:25:12,106 - INFO - Selected 8/48 configurations for this task

@@ -1,0 +1,218 @@
+Metadata-Version: 2.4
+Name: hyper-connections
+Version: 0.4.11
+Summary: Hyper-Connections
+Project-URL: Homepage, https://pypi.org/project/hyper-connections/
+Project-URL: Repository, https://github.com/lucidrains/hyper-connections
+Author-email: Phil Wang <lucidrains@gmail.com>
+License: MIT License
+        
+        Copyright (c) 2024 Phil Wang
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+License-File: LICENSE
+Keywords: artificial intelligence,deep learning,residual
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.9
+Requires-Dist: einops>=0.8.1
+Requires-Dist: torch-einops-utils>=0.0.20
+Requires-Dist: torch>=2.5
+Provides-Extra: examples
+Description-Content-Type: text/markdown
+
+<img src="./hyper-connections.png" width="450px"></img>
+
+## Hyper Connections
+
+Attempt to make multiple residual streams, proposed in [Hyper-Connections paper](https://arxiv.org/abs/2409.19606) out of Bytedance AI lab, accessible as an easy to use library, as well as for following any new research in this direction.
+
+[Write up on mHC from Subhadip Mitra](https://subhadipmitra.com/blog/2026/deepseek-mhc-manifold-constrained-hyper-connections/)
+
+## Install
+
+```bash
+$ pip install hyper-connections
+```
+
+## Usage
+
+```python
+import torch
+from torch import nn
+
+# a single branch layer
+
+branch = nn.Linear(512, 512)
+
+# before
+
+residual = torch.randn(2, 1024, 512)
+
+residual = branch(residual) + residual
+
+# after, say 4 streams in paper
+
+from hyper_connections import get_init_and_expand_reduce_stream_functions
+
+init_hyper_conn, expand_stream, reduce_stream = get_init_and_expand_reduce_stream_functions(4)
+
+# 1. wrap your branch function
+
+hyper_conn_branch = init_hyper_conn(dim = 512, branch = branch)
+
+# 2. expand to 4 streams, this must be done before your trunk, typically a for-loop with many branch functions
+
+residual = expand_stream(residual)
+
+# 3. forward your residual as usual into the wrapped branch function(s)
+
+residual = hyper_conn_branch(residual)
+
+# 4. reduce 4 streams with a summation, this has to be done after your for-loop trunk. for transformer, unsure whether to do before or after final norm
+
+residual = reduce_stream(residual)
+```
+
+Or doing it manually, as in the paper
+
+```python
+import torch
+from torch import nn
+
+# a single branch layer
+
+branch = nn.Linear(512, 512)
+
+# before
+
+residual = torch.randn(2, 1024, 512)
+
+residual = branch(residual) + residual
+
+# after, say 4 streams in paper
+
+from hyper_connections import get_init_and_expand_reduce_stream_functions
+
+init_hyper_conn, expand_stream, reduce_stream = get_init_and_expand_reduce_stream_functions(4)
+
+# 1. instantiate hyper connection with correct number of streams (4 in this case) - or use the init function above
+
+hyper_conn = init_hyper_conn(dim = 512)
+
+# 2. expand to 4 streams
+
+residual = expand_stream(residual)
+
+# 3. forward your residual into hyper connection for the branch input + add residual function (learned betas)
+
+branch_input, add_residual = hyper_conn(residual)
+
+branch_output = branch(branch_input)
+
+residual = add_residual(branch_output)
+
+# or you can do it in one line as so -> residual = hyper_conn.decorate_branch(branch)(residual)
+
+# 4. reduce 4 streams with a summation, this has to be done after your for loop trunk
+
+residual = reduce_stream(residual)
+```
+
+To compare hyper connections to plain residual without changing the code, just pass `disable = True` when fetching the functions
+
+```python
+get_init_and_expand_reduce_stream_functions(4, disable = True)
+```
+
+To use the fractionated feature dimensions proposed in [a follow up paper](https://arxiv.org/abs/2503.14125) by same authors, just instantiate with `num_fracs` greater than `1` as so
+
+```python
+get_init_and_expand_reduce_stream_functions(1, num_fracs = 4) # also allows you to mix streams and fractions of feature dimension
+```
+
+## Citation
+
+```bibtex
+@article{Zhu2024HyperConnections,
+    title   = {Hyper-Connections},
+    author  = {Defa Zhu and Hongzhi Huang and Zihao Huang and Yutao Zeng and Yunyao Mao and Banggu Wu and Qiyang Min and Xun Zhou},
+    journal = {ArXiv},
+    year    = {2024},
+    volume  = {abs/2409.19606},
+    url     = {https://api.semanticscholar.org/CorpusID:272987528}
+}
+```
+
+```bibtex
+@misc{Rubin2024,
+    author  = {Ohad Rubin},
+    url     = {https://medium.com/@ohadrubin/exploring-weight-decay-in-layer-normalization-challenges-and-a-reparameterization-solution-ad4d12c24950}
+}
+```
+
+```bibtex
+@article{Zhu2025FracConnectionsFE,
+    title   = {Frac-Connections: Fractional Extension of Hyper-Connections},
+    author  = {Defa Zhu and Hongzhi Huang and Jundong Zhou and Zihao Huang and Yutao Zeng and Banggu Wu and Qiyang Min and Xun Zhou},
+    journal = {ArXiv},
+    year    = {2025},
+    volume  = {abs/2503.14125},
+    url     = {https://api.semanticscholar.org/CorpusID:277104144}
+}
+```
+
+```bibtex
+@misc{xie2025mhcmanifoldconstrainedhyperconnections,
+    title   = {mHC: Manifold-Constrained Hyper-Connections},
+    author  = {Zhenda Xie and Yixuan Wei and Huanqi Cao and Chenggang Zhao and Chengqi Deng and Jiashi Li and Damai Dai and Huazuo Gao and Jiang Chang and Liang Zhao and Shangyan Zhou and Zhean Xu and Zhengyan Zhang and Wangding Zeng and Shengding Hu and Yuqing Wang and Jingyang Yuan and Lean Wang and Wenfeng Liang},
+    year    = {2025},
+    eprint  = {2512.24880},
+    archivePrefix = {arXiv},
+    primaryClass = {cs.CL},
+    url     = {https://arxiv.org/abs/2512.24880},
+}
+```
+
+```bibtex
+@misc{oh2026revisitingresidualconnectionsorthogonal,
+    title   = {Revisiting Residual Connections: Orthogonal Updates for Stable and Efficient Deep Networks},
+    author  = {Giyeong Oh and Woohyun Cho and Siyeol Kim and Suhwan Choi and Youngjae Yu},
+    year    = {2026},
+    eprint  = {2505.11881},
+    archivePrefix = {arXiv},
+    primaryClass = {cs.CV},
+    url     = {https://arxiv.org/abs/2505.11881},
+}
+```
+
+```bibtex
+@misc{lu2026meanmodescreamingmeanvariance,
+    title   = {Mean Mode Screaming: Mean--Variance Split Residuals for 1000-Layer Diffusion Transformers},
+    author  = {Pengqi Lu},
+    year    = {2026},
+    eprint  = {2605.06169},
+    archivePrefix = {arXiv},
+    primaryClass = {cs.LG},
+    url     = {https://arxiv.org/abs/2605.06169},
+}
+```

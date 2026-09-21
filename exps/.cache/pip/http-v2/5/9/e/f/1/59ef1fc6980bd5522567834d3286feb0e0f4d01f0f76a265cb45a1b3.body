@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: linear-attention-transformer
+Version: 0.19.1
+Summary: Linear Attention Transformer
+Home-page: https://github.com/lucidrains/linear-attention-transformer
+Author: Phil Wang
+Author-email: lucidrains@gmail.com
+License: MIT
+Keywords: transformers,attention,artificial intelligence
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Requires-Dist: axial-positional-embedding
+Requires-Dist: einops
+Requires-Dist: linformer (>=0.1.0)
+Requires-Dist: local-attention
+Requires-Dist: product-key-memory (>=0.1.5)
+Requires-Dist: torch
+
+UNKNOWN
+
+

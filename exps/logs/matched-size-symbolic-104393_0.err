@@ -1,0 +1,33 @@
+2026-09-21 11:06:15,541 - INFO - Matched configs:
+          model  symbols  layers  matched_target_size_m  units  d_model  model_params  model_size_m  matched_param_abs_error_m  matched_param_rel_error
+           LSTM        4       2                    0.2    128        0        201220      0.201220                   0.001220                  0.00610
+            GRU        4       2                    0.2    160        0        234884      0.234884                   0.034884                  0.17442
+    Transformer        4       2                    0.2    256       64        234308      0.234308                   0.034308                  0.17154
+LinearAttention        4       2                    0.2    384       96        223972      0.223972                   0.023972                  0.11986
+      Performer        4       2                    0.2    320       80        187412      0.187412                   0.012588                  0.06294
+           RWKV        4       2                    0.2    384       96        225508      0.225508                   0.025508                  0.12754
+           LSTM        8       2                    0.2    128        0        203784      0.203784                   0.003784                  0.01892
+            GRU        8       2                    0.2    160        0        237448      0.237448                   0.037448                  0.18724
+    Transformer        8       2                    0.2    256       64        234824      0.234824                   0.034824                  0.17412
+LinearAttention        8       2                    0.2    384       96        224744      0.224744                   0.024744                  0.12372
+      Performer        8       2                    0.2    320       80        188056      0.188056                   0.011944                  0.05972
+           RWKV        8       2                    0.2    384       96        226280      0.226280                   0.026280                  0.13140
+2026-09-21 11:06:15,543 - INFO - Generating seeds for alphabet size 4
+2026-09-21 11:06:15,729 - INFO - Training LSTM target=0.200M params=0.201M C=90 A=4 N=3500 L=2 U=128 D=0 run=0
+2026-09-21 11:07:53,590 - INFO - LSTM loss=0.0482 acc=1.000 DL=0.000 JW=0.000
+2026-09-21 11:07:53,622 - INFO - Training LinearAttention target=0.200M params=0.224M C=90 A=4 N=3500 L=2 U=384 D=96 run=0
+2026-09-21 11:08:02,107 - INFO - LinearAttention loss=0.0274 acc=1.000 DL=0.000 JW=0.000
+2026-09-21 11:08:02,136 - INFO - Training LSTM target=0.200M params=0.201M C=90 A=4 N=3500 L=2 U=128 D=0 run=0
+2026-09-21 11:09:41,452 - INFO - LSTM loss=0.0568 acc=1.000 DL=0.000 JW=0.000
+2026-09-21 11:09:41,481 - INFO - Training LinearAttention target=0.200M params=0.224M C=90 A=4 N=3500 L=2 U=384 D=96 run=0
+2026-09-21 11:09:48,888 - INFO - LinearAttention loss=0.0453 acc=1.000 DL=0.000 JW=0.000
+2026-09-21 11:09:48,889 - INFO - Generating seeds for alphabet size 8
+2026-09-21 11:09:48,928 - INFO - Training LSTM target=0.200M params=0.204M C=90 A=8 N=3500 L=2 U=128 D=0 run=0
+2026-09-21 11:11:56,433 - INFO - LSTM loss=0.0427 acc=1.000 DL=0.000 JW=0.000
+2026-09-21 11:11:56,464 - INFO - Training LinearAttention target=0.200M params=0.225M C=90 A=8 N=3500 L=2 U=384 D=96 run=0
+2026-09-21 11:12:02,307 - INFO - LinearAttention loss=0.0286 acc=1.000 DL=0.000 JW=0.000
+2026-09-21 11:12:02,334 - INFO - Training LSTM target=0.200M params=0.204M C=90 A=8 N=3500 L=2 U=128 D=0 run=0
+2026-09-21 11:13:35,892 - INFO - LSTM loss=0.0563 acc=1.000 DL=0.000 JW=0.000
+2026-09-21 11:13:35,921 - INFO - Training LinearAttention target=0.200M params=0.225M C=90 A=8 N=3500 L=2 U=384 D=96 run=0
+2026-09-21 11:13:41,758 - INFO - LinearAttention loss=0.0277 acc=1.000 DL=0.000 JW=0.000
+2026-09-21 11:13:41,759 - INFO - Selected 8/48 configurations for this task

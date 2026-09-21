@@ -137,27 +137,17 @@ sphinx-build -b html docs/source docs/build/html
 
 If you use `slearn` or the LZW symbolic string library, please cite:
 
-```bibtex
-@inproceedings{cahuantzi2023comparison,
-  title = {A Comparison of LSTM and GRU Networks for Learning Symbolic Sequences},
-  author = {Cahuantzi, Roberto and Chen, Xinye and Guettel, Stefan},
-  booktitle = {Intelligent Computing},
-  pages = {771--785},
-  year = {2023},
-  publisher = {Springer Nature Switzerland}
-}
-```
+[1] Cahuantzi, R., Chen, X. and Güttel, S. (2023) ‘A comparison of LSTM and GRU networks for learning symbolic sequences’, in Intelligent Computing. Springer Nature Switzerland, pp. 771–785. Available at: https://doi.org/10.1007/978-3-031-37963-5_53
+
 
 If you use the ABBA/fABBA symbolic time-series tools, please cite:
 
-```bibtex
-@phdthesis{chen2024fast,
-  title = {Fast Aggregation-Based Algorithms for Knowledge Discovery},
-  author = {Chen, Xinye},
-  school = {The University of Manchester},
-  year = {2024}
-}
-```
+[2] Chen, X. (2024) Fast aggregation-based algorithms for knowledge discovery. PhD thesis. The University of Manchester.
+
+[3]  Chen, X. and Güttel, S. (2023) ‘An efficient aggregation method for the symbolic representation of temporal data’, ACM Transactions on Knowledge Discovery from Data, 17(1), article 22. Available at: https://doi.org/10.1145/3532622
+
+
+
 
 ## License
 

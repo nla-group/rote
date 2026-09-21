@@ -1,0 +1,107 @@
+Metadata-Version: 2.4
+Name: axial_positional_embedding
+Version: 0.3.12
+Summary: Axial Positional Embedding
+Project-URL: Homepage, https://pypi.org/project/axial_positional_embedding/
+Project-URL: Repository, https://github.com/lucidrains/axial_positional_embedding
+Author-email: Phil Wang <lucidrains@gmail.com>
+License: MIT License
+        
+        Copyright (c) 2020 Phil Wang
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+License-File: LICENSE
+Keywords: artificial intelligence,deep learning,positional embedding
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.8
+Requires-Dist: einops>=0.8.0
+Requires-Dist: torch>=2.0
+Provides-Extra: examples
+Description-Content-Type: text/markdown
+
+## Axial Positional Embedding
+
+[![PyPI version](https://badge.fury.io/py/axial-positional-embedding.svg)](https://badge.fury.io/py/axial-positional-embedding)
+
+A type of positional embedding that is very effective when working with attention networks on multi-dimensional data, or for language models in general.
+
+## Install
+
+```bash
+$ pip install axial-positional-embedding
+```
+
+## Usage
+
+```python
+import torch
+from axial_positional_embedding import AxialPositionalEmbedding
+
+pos_emb = AxialPositionalEmbedding(
+    dim = 512,
+    axial_shape = (64, 64),          # axial shape will multiply up to the maximum sequence length allowed (64 * 64 = 4096)
+    axial_dims = (256, 256)          # if not specified, dimensions will default to 'dim' for all axials and summed at the end. if specified, each axial will have the specified dimension and be concatted together. the concatted dimensions needs to sum up to the `dim` (256 + 256 = 512)
+)
+
+tokens = torch.randn(1, 1024, 512)  # assume are tokens
+tokens = pos_emb(tokens) + tokens   # add positional embedding to token embeddings
+```
+
+A continuous version with better extrapolation ability (each axis parameterized by a 2 layer MLP)
+
+```python
+import torch
+from axial_positional_embedding import ContinuousAxialPositionalEmbedding
+
+pos_emb = ContinuousAxialPositionalEmbedding(
+    dim = 512,
+    num_axial_dims = 3
+)
+
+tokens = torch.randn(1, 8, 16, 32, 512) # say a video with 8 frames, 16 x 32 image dimension
+
+axial_pos_emb = pos_emb((8, 16, 32)) # pass in the size from above
+
+tokens = axial_pos_emb + tokens   # add positional embedding to token embeddings
+```
+
+## Citations
+
+```bibtex
+@inproceedings{kitaev2020reformer,
+    title       = {Reformer: The Efficient Transformer},
+    author      = {Nikita Kitaev and Lukasz Kaiser and Anselm Levskaya},
+    booktitle   = {International Conference on Learning Representations},
+    year        = {2020},
+    url         = {https://openreview.net/forum?id=rkgNKkHtvB}
+}
+```
+
+```bibtex
+@misc{ho2019axial,
+    title   = {Axial Attention in Multidimensional Transformers},
+    author  = {Jonathan Ho and Nal Kalchbrenner and Dirk Weissenborn and Tim Salimans},
+    year    = {2019},
+    archivePrefix = {arXiv}
+}
+```

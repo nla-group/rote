@@ -1,0 +1,79 @@
+Starting matched-size symbolic Slurm job.
+Raw script dir: /var/spool/slurmd/job104393
+Submit dir: /home/xinye/slearn/exps
+Resolved script dir: /home/xinye/slearn/exps/scripts
+Resolved exps dir: /home/xinye/slearn/exps
+Resolved repo root: /home/xinye/slearn
+Ensuring output directory: /home/xinye/slearn/exps/results_symbolic_matched_size
+Ensuring output directory: /home/xinye/slearn/exps/logs
+Ensuring runtime directory: /home/xinye/slearn/exps/.cache
+Ensuring runtime directory: /home/xinye/slearn/exps/.cache/pip
+Ensuring runtime directory: /home/xinye/slearn/exps/.cache/torch_extensions
+Ensuring runtime directory: /home/xinye/slearn/exps/tmp
+Node: node08
+Submit dir: /home/xinye/slearn/exps
+Repo root: /home/xinye/slearn
+Exps dir: /home/xinye/slearn/exps
+XDG_CACHE_HOME=/home/xinye/slearn/exps/.cache
+PIP_CACHE_DIR=/home/xinye/slearn/exps/.cache/pip
+TORCH_EXTENSIONS_DIR=/home/xinye/slearn/exps/.cache/torch_extensions
+TMPDIR=/home/xinye/slearn/exps/tmp
+Job: 104393
+Array task: 5/6
+CUDA_VISIBLE_DEVICES=0
+Python: /home/xinye/slearn/exps/.venv/bin/python
+Python 3.12.11
+torch=2.14.0+cu130
+cuda_available=True
+cuda=13.0
+cudnn=92400
+NVIDIA A100 80GB PCIe MIG 3g.40gb
+unable to import cuda code for auto-regressive Performer. will default to the memory inefficient non-cuda version
+unable to import cuda code for auto-regressive Performer. will default to the memory inefficient non-cuda version
+unable to import cuda code for auto-regressive Performer. will default to the memory inefficient non-cuda version
+unable to import cuda code for auto-regressive Performer. will default to the memory inefficient non-cuda version
+unable to import cuda code for auto-regressive Performer. will default to the memory inefficient non-cuda version
+unable to import cuda code for auto-regressive Performer. will default to the memory inefficient non-cuda version
+unable to import cuda code for auto-regressive Performer. will default to the memory inefficient non-cuda version
+unable to import cuda code for auto-regressive Performer. will default to the memory inefficient non-cuda version
+unable to import cuda code for auto-regressive Performer. will default to the memory inefficient non-cuda version
+unable to import cuda code for auto-regressive Performer. will default to the memory inefficient non-cuda version
+unable to import cuda code for auto-regressive Performer. will default to the memory inefficient non-cuda version
+unable to import cuda code for auto-regressive Performer. will default to the memory inefficient non-cuda version
+unable to import cuda code for auto-regressive Performer. will default to the memory inefficient non-cuda version
+unable to import cuda code for auto-regressive Performer. will default to the memory inefficient non-cuda version
+unable to import cuda code for auto-regressive Performer. will default to the memory inefficient non-cuda version
+unable to import cuda code for auto-regressive Performer. will default to the memory inefficient non-cuda version
+unable to import cuda code for auto-regressive Performer. will default to the memory inefficient non-cuda version
+unable to import cuda code for auto-regressive Performer. will default to the memory inefficient non-cuda version
+unable to import cuda code for auto-regressive Performer. will default to the memory inefficient non-cuda version
+unable to import cuda code for auto-regressive Performer. will default to the memory inefficient non-cuda version
+unable to import cuda code for auto-regressive Performer. will default to the memory inefficient non-cuda version
+unable to import cuda code for auto-regressive Performer. will default to the memory inefficient non-cuda version
+unable to import cuda code for auto-regressive Performer. will default to the memory inefficient non-cuda version
+unable to import cuda code for auto-regressive Performer. will default to the memory inefficient non-cuda version
+unable to import cuda code for auto-regressive Performer. will default to the memory inefficient non-cuda version
+unable to import cuda code for auto-regressive Performer. will default to the memory inefficient non-cuda version
+unable to import cuda code for auto-regressive Performer. will default to the memory inefficient non-cuda version
+unable to import cuda code for auto-regressive Performer. will default to the memory inefficient non-cuda version
+unable to import cuda code for auto-regressive Performer. will default to the memory inefficient non-cuda version
+unable to import cuda code for auto-regressive Performer. will default to the memory inefficient non-cuda version
+unable to import cuda code for auto-regressive Performer. will default to the memory inefficient non-cuda version
+unable to import cuda code for auto-regressive Performer. will default to the memory inefficient non-cuda version
+unable to import cuda code for auto-regressive Performer. will default to the memory inefficient non-cuda version
+unable to import cuda code for auto-regressive Performer. will default to the memory inefficient non-cuda version
+unable to import cuda code for auto-regressive Performer. will default to the memory inefficient non-cuda version
+unable to import cuda code for auto-regressive Performer. will default to the memory inefficient non-cuda version
+unable to import cuda code for auto-regressive Performer. will default to the memory inefficient non-cuda version
+unable to import cuda code for auto-regressive Performer. will default to the memory inefficient non-cuda version
+unable to import cuda code for auto-regressive Performer. will default to the memory inefficient non-cuda version
+unable to import cuda code for auto-regressive Performer. will default to the memory inefficient non-cuda version
+unable to import cuda code for auto-regressive Performer. will default to the memory inefficient non-cuda version
+unable to import cuda code for auto-regressive Performer. will default to the memory inefficient non-cuda version
+unable to import cuda code for auto-regressive Performer. will default to the memory inefficient non-cuda version
+unable to import cuda code for auto-regressive Performer. will default to the memory inefficient non-cuda version
+Processing: 1 of 2Processing: 2 of 2Processing: 1 of 2Processing: 2 of 2Finished. Results shard: /home/xinye/slearn/exps/results_symbolic_matched_size/slurm_104393/results_task_005.csv
+Merge after completion with:
+  cd /home/xinye/slearn/exps && bash scripts/merge_symbolic_results.sh /home/xinye/slearn/exps/results_symbolic_matched_size/slurm_104393
+Visualize after merging with:
+  cd /home/xinye/slearn/exps && bash scripts/run_symbolic_visualizations.sh /home/xinye/slearn/exps/results_symbolic_matched_size/slurm_104393/results_merged.csv /home/xinye/slearn/exps/results_symbolic_matched_size/slurm_104393/figures

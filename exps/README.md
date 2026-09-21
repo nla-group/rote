@@ -121,6 +121,61 @@ The script writes each analysis as a separate figure in PNG and PDF by default:
 
 All plots use shared font-size constants for axis labels, ticks, titles, annotations, and legends. Multi-model legends are placed outside the axes at the bottom center.
 
+
+### Matched-Size Robustness Check
+
+The matched-size experiment is a small high-complexity robustness check for the manuscript. It does not change the main benchmark defaults. Instead, for each model family it searches a width grid and selects the candidate whose trainable parameter count is closest to a target size. The default run uses the hardest LZW setting, two alphabet sizes, and the six model families most relevant to the model-size concern:
+
+```text
+models: LSTM GRU Transformer LinearAttention Performer RWKV
+target size: 0.2M parameters
+symbols: 4 8
+complexity: 90
+seeds: 2
+runs: 2
+```
+
+This gives `6 models x 2 alphabet sizes x 2 seeds x 2 runs = 48` model fits, sharded across a six-way Slurm array by default.
+
+Submit from `exps/`:
+
+```bash
+cd exps
+sbatch scripts/run_matched_size_symbolic_slurm.sh
+```
+
+Each task writes one shard under `results_symbolic_matched_size/slurm_<array_job_id>/`. After completion, merge and plot with the same helper scripts used by the main benchmark:
+
+```bash
+bash scripts/merge_symbolic_results.sh results_symbolic_matched_size/slurm_<array_job_id>
+bash scripts/run_symbolic_visualizations.sh \
+  results_symbolic_matched_size/slurm_<array_job_id>/results_merged.csv \
+  results_symbolic_matched_size/slurm_<array_job_id>/figures
+```
+
+The matched-size script also writes `matched_configs.csv`, which records the selected width, `d_model`, target size, achieved parameter count, and matching error for each model and alphabet size. This file is useful for reporting how closely each family could be matched to the requested target.
+
+Common overrides:
+
+```bash
+TARGET_SIZES_M="0.2 0.5" \
+SYMBOLS="8" \
+RUNS=1 \
+SEED_COUNT=1 \
+sbatch scripts/run_matched_size_symbolic_slurm.sh
+```
+
+For a dry run that only computes the matched configurations after installing dependencies, use the Python entry point directly:
+
+```bash
+python matched_size_symbolic_benchmark.py \
+  --models LSTM GRU Transformer LinearAttention Performer RWKV \
+  --target-sizes-m 0.2 \
+  --symbols 4 8 \
+  --complexities 90 \
+  --dry-run
+```
+
 ## Legacy Experiments
 
 The older `it_*_scale.py` and `test_low_*.py` scripts are retained for reproducibility and now recognize the added model names. For new manuscript runs, prefer `symbolic_sequence_benchmark.py` because it avoids target leakage in the Transformer decoder path and initializes rollouts from the observed prefix instead of the withheld target.

@@ -144,16 +144,26 @@ cd exps
 sbatch scripts/run_matched_size_symbolic_slurm.sh
 ```
 
-Each task writes one shard under `results_symbolic_matched_size/slurm_<array_job_id>/`. After completion, merge and plot with the same helper scripts used by the main benchmark:
+Each task writes one shard under `results_symbolic_matched_size/slurm_<array_job_id>/`. After completion, merge the shards:
 
 ```bash
 bash scripts/merge_symbolic_results.sh results_symbolic_matched_size/slurm_<array_job_id>
-bash scripts/run_symbolic_visualizations.sh \
-  results_symbolic_matched_size/slurm_<array_job_id>/results_merged.csv \
-  results_symbolic_matched_size/slurm_<array_job_id>/figures
 ```
 
+Keep the main benchmark figures and the matched-size robustness figure separate. Main benchmark figures should be generated from `results_symbolic/slurm_<array_job_id>/results_merged.csv` with `run_symbolic_visualizations.sh`; the matched-size track is used for the paired high-complexity robustness comparison below.
+
 The matched-size script also writes `matched_configs.csv`, which records the selected width, `d_model`, target size, achieved parameter count, and matching error for each model and alphabet size. This file is useful for reporting how closely each family could be matched to the requested target.
+
+To regenerate the appendix comparison figure between the fixed-budget and matched-size tracks, run:
+
+```bash
+bash scripts/run_matched_size_comparison_visualization.sh \
+  results_symbolic/slurm_102076/results_merged.csv \
+  results_symbolic_matched_size/slurm_104393/results_merged.csv \
+  results_symbolic_matched_size/slurm_104393/figures
+```
+
+When called without arguments, the helper selects the newest `results_symbolic/slurm_*/results_merged.csv` and newest `results_symbolic_matched_size/slurm_*/results_merged.csv`. It writes `matched_size_comparison.pdf`, `matched_size_comparison.png`, and `matched_size_fixed_budget_comparison.csv`. The matched-size comparison plot uses `MATCHED_COMPARISON_FONT_SIZE` in `visualize_symbolic_results.py` for panel titles, axis labels, tick labels, and legend text.
 
 Common overrides:
 

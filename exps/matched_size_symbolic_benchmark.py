@@ -213,12 +213,15 @@ def run(args):
         LOGGER.info("Generating seeds for alphabet size %s", symbols)
         seed_df = generate_seed_strings(symbols, args.complexities, args.seed_count, args.seed)
         for complexity in args.complexities:
-            subset = seed_df[seed_df["LZW_complexity"] == complexity]
+            target_complexity = int(complexity)
+            measured = seed_df["LZW_complexity"].astype(int)
+            subset = seed_df[measured == target_complexity]
             if subset.empty:
-                LOGGER.warning("No seed for symbols=%s complexity=%s", symbols, complexity)
+                LOGGER.warning("No exact seed for symbols=%s target_complexity=%s", symbols, target_complexity)
                 continue
             for seed_idx, row in subset.head(args.seed_count).reset_index(drop=True).iterrows():
                 seed_string = str(row["string"])
+                measured_complexity = int(row["LZW_complexity"])
                 for target_size_m in args.target_sizes_m:
                     for model_name in args.models:
                         for layer in args.layers:
@@ -261,7 +264,7 @@ def run(args):
                                                         model_name,
                                                         target_size_m,
                                                         n_params / 1e6,
-                                                        complexity,
+                                                        measured_complexity,
                                                         symbols,
                                                         sequence_length,
                                                         layer,
@@ -287,7 +290,9 @@ def run(args):
                                                         "experiment": "matched_size_high_complexity",
                                                         "model": model_name,
                                                         "symbols": symbols,
-                                                        "complexity": complexity,
+                                                        "target_complexity": target_complexity,
+                                                        "complexity": measured_complexity,
+                                                        "measured_lzw_complexity": measured_complexity,
                                                         "seed_index": seed_idx,
                                                         "seed_string": seed_string,
                                                         "target_string": data["target"],

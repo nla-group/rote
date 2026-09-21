@@ -33,7 +33,6 @@
 import random
 import numpy as np
 from .mkc import *
-from random import randint
 import pandas as pd
 from itertools import product
 import warnings
@@ -206,6 +205,7 @@ def lzw_string_generator(nr_symbols, target_complexity, priorise_complexity=True
     """
 
     np.random.seed(random_state)
+    py_rng = random.Random(random_state)
     
     # Caping the highest value of number of symbols to 52.
     if nr_symbols > 52:
@@ -248,7 +248,7 @@ def lzw_string_generator(nr_symbols, target_complexity, priorise_complexity=True
     while complexity_0 < target_complexity or not stop:
 
         # Limits the pool of symbols to select
-        symbol_i = randint(0, symbol_max-1)
+        symbol_i = py_rng.randint(0, symbol_max-1)
         string += symbols_pool[symbol_i]
         complexity_0 = len(lzwcompress(reduce(string)))
 

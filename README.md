@@ -1,10 +1,10 @@
 # ROTE
 
 [![Tests](https://github.com/nla-group/rote/actions/workflows/tests.yml/badge.svg)](https://github.com/nla-group/rote/actions/workflows/tests.yml)
-[![Documentation Status](https://readthedocs.org/projects/slearn/badge/?version=latest)](https://slearn.readthedocs.io/en/latest/?badge=latest)
-[![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://github.com/nla-group/slearn/blob/main/pyproject.toml)
+[![Documentation Status](https://readthedocs.org/projects/rote/badge/?version=latest)](https://rote.readthedocs.io/en/latest/?badge=latest)
+[![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://github.com/nla-group/rote/blob/main/pyproject.toml)
 [![Distribution: rote-bench](https://img.shields.io/badge/distribution-rote--bench-006C70.svg)](pyproject.toml)
-[![License: MIT](https://img.shields.io/badge/License-MIT-008080.svg)](https://github.com/nla-group/slearn/blob/main/LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-008080.svg)](https://github.com/nla-group/rote/blob/main/LICENSE)
 
 **ROTE** (Rollout Testing of Exact memorization) is a reproducible benchmark for learning and extending controlled symbolic sequences. It generates seeds at specified Lempel-Ziv-Welch (LZW) complexity, trains finite-context next-symbol predictors, and evaluates both teacher-forced prediction and closed-loop rollout. The package includes the fixed-budget comparison and a high-complexity matched-size check used in the accompanying manuscript.
 
@@ -14,7 +14,7 @@ ROTE is currently installed from source; a PyPI release has not yet been publish
 
 ```bash
 git clone https://github.com/nla-group/rote.git
-cd slearn
+cd rote
 python -m pip install -e .                 # seed generation and rollout metrics
 python -m pip install -e '.[neural,plot]'   # custom PyTorch models and figures
 python -m pip install -e '.[all]'           # full paper architecture set
@@ -25,7 +25,7 @@ or simply via
 pip install rote-bench
 ```
 
-The current clone URL is `slearn`; when the repository is renamed, use `https://github.com/nla-group/rote.git` for new clones. The package import and commands will stay the same. Python 3.10 or newer is required. The core install uses NumPy and pandas. The optional experiment dependencies include PyTorch, `minGRU-pytorch`, `linear-attention-transformer`, and `performer-pytorch`. The RWKV-style baseline is implemented in PyTorch and needs no separate RWKV package.
+The current clone URL is `rote`; when the repository is renamed, use `https://github.com/nla-group/rote.git` for new clones. The package import and commands will stay the same. Python 3.10 or newer is required. The core install uses NumPy and pandas. The optional experiment dependencies include PyTorch, `minGRU-pytorch`, `linear-attention-transformer`, and `performer-pytorch`. The RWKV-style baseline is implemented in PyTorch and needs no separate RWKV package.
 
 ## Quick Start
 

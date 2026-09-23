@@ -1,83 +1,58 @@
 Installation
 ============
 
-Core Package
-------------
-
-Install the released package from PyPI:
-
-.. code-block:: bash
-
-   pip install slearn
-
-or from conda-forge:
-
-.. code-block:: bash
-
-   conda install -c conda-forge slearn
-
-For development, clone the repository and install it in editable mode:
+ROTE requires Python 3.10 or newer. Its distribution name is
+``rote-bench`` and its import name is ``rote_benchmark``. It is currently
+distributed from source; the PyPI release is not published yet.
 
 .. code-block:: bash
 
    git clone https://github.com/chenxinye/slearn.git
    cd slearn
-   python -m venv .venv
-   source .venv/bin/activate
-   python -m pip install --upgrade pip setuptools wheel
    python -m pip install -e .
 
-The core package depends on NumPy, pandas, scikit-learn, requests, and PyTorch.
-The symbolic representation and string-distance utilities are lightweight. The
-neural benchmark has additional optional dependencies described below.
-
-Experiment Dependencies
------------------------
-
-The manuscript experiments live under ``exps/``. They use a separate virtual
-environment by default so that experimental PyTorch and sequence-model packages
-do not interfere with the core package installation.
+The core install contains LZW seed generation and rollout metrics without
+importing PyTorch. Choose only the optional dependencies needed for your task:
 
 .. code-block:: bash
 
-   git clone https://github.com/chenxinye/slearn.git
-   cd slearn
-   bash exps/scripts/install_experiment_deps.sh
-   source exps/.venv/bin/activate
+   python -m pip install -e '.[neural]'        # custom PyTorch evaluation
+   python -m pip install -e '.[neural,plot]'   # evaluation plus figures
+   python -m pip install -e '.[experiment]'
+   python -m pip install -e '.[plot]'
+   # or install both groups
+   python -m pip install -e '.[all]'
 
-The script installs ``slearn`` in editable mode and then installs
-``requirements-experiments.txt``. The benchmark dependencies include
-``minGRU-pytorch``, ``linear-attention-transformer``, ``performer-pytorch``,
-``transformers``, matplotlib, seaborn, SciPy, pandas, scikit-learn, and
-``textdistance``.
+The ``experiment`` extra installs the optional architecture packages used by
+the manuscript; ``neural`` installs only PyTorch and is sufficient for the
+self-contained toy examples. ``plot`` installs Matplotlib and seaborn. The
+distribution is named ``rote-bench``, but Python imports remain
+``rote_benchmark``; this avoids colliding with an unrelated ``rote`` package
+on PyPI. ``pip install rote-bench`` is not a working release instruction
+until this project has actually been published.
 
-Set ``INSTALL_RWKV_TRAINER=1`` only if you also want the separate
-``rwkv-trainer`` package:
+The current repository URL is ``https://github.com/chenxinye/slearn.git``.
+When the repository is renamed to ``rote``, use
+``https://github.com/chenxinye/rote.git`` for new clones. The distribution
+name, import path and console commands do not need to change. Repository
+links in ``pyproject.toml``, ``CITATION.cff``, README badges and Furo source
+links should be switched as part of the repository rename; they continue
+to point to the live location until then.
+
+Verify a source install with ``python -c "import rote_benchmark"``. For the
+neural adapter, run ``python examples/evaluate_your_model.py``. A GPU is not
+required for these examples. To run on CUDA, install a PyTorch build compatible
+with the local driver and set ``EvaluationConfig(device="cuda")``.
+
+For the Slurm workflow, ``bash exps/scripts/install_experiment_deps.sh``
+creates ``exps/.venv`` and installs the same ``all`` extra. The Slurm array
+scripts call this installer automatically when needed. A GPU-enabled PyTorch
+installation should be checked against the local CUDA environment before
+submitting compute-intensive jobs.
+
+Build the Furo documentation locally with:
 
 .. code-block:: bash
 
-   INSTALL_RWKV_TRAINER=1 bash exps/scripts/install_experiment_deps.sh
-
-The default RWKV baseline used by the benchmark is implemented directly in
-``exps/models.py`` and does not require ``rwkv-trainer``.
-
-Documentation Dependencies
---------------------------
-
-Build the documentation locally with Sphinx:
-
-.. code-block:: bash
-
-   python -m pip install -r docs/requirements.txt
-   sphinx-build -b html docs/source docs/build/html
-
-The documentation prefers ``pydata-sphinx-theme`` for a modern scientific Python
-style and falls back to ``sphinx_rtd_theme`` when the PyData theme is not
-installed.
-
-Version Notes
--------------
-
-The current package version is read from ``slearn.__version__``. The package
-metadata currently supports Python 3.7 and later. The experiment environment is
-best tested with a recent Python and PyTorch stack, especially on GPU clusters.
+   python -m pip install -e '.[docs]'
+   sphinx-build -b html -W docs/source docs/build/html

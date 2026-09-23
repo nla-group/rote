@@ -1,0 +1,66 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rote-bench"
+version = "0.1.0"
+description = "Rollout testing of exact symbolic memorization"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+    {name = "Xinye Chen"},
+]
+keywords = ["symbolic sequences", "LZW", "memorization", "benchmark"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = ["numpy>=1.23", "pandas>=1.5"]
+
+[project.optional-dependencies]
+neural = ["torch>=2.4"]
+experiment = [
+    "torch>=2.4",
+    "minGRU-pytorch>=0.2.1",
+    "linear-attention-transformer>=0.19.1",
+    "performer-pytorch>=1.1.4",
+]
+plot = ["matplotlib>=3.7", "seaborn>=0.12"]
+all = [
+    "torch>=2.4",
+    "minGRU-pytorch>=0.2.1",
+    "linear-attention-transformer>=0.19.1",
+    "performer-pytorch>=1.1.4",
+    "matplotlib>=3.7",
+    "seaborn>=0.12",
+]
+test = ["pytest>=8"]
+docs = ["sphinx>=7", "furo>=2024.8.6"]
+
+[project.scripts]
+rote-bench = "rote_benchmark.cli:benchmark"
+rote-benchmark = "rote_benchmark.cli:benchmark"
+rote-matched-size = "rote_benchmark.cli:matched_size"
+rote-plot = "rote_benchmark.cli:plot"
+rote-plot-matched = "rote_benchmark.cli:plot_matched"
+
+[project.urls]
+Homepage = "https://github.com/chenxinye/slearn"
+Documentation = "https://github.com/chenxinye/slearn/tree/main/docs"
+Repository = "https://github.com/chenxinye/slearn"
+Issues = "https://github.com/chenxinye/slearn/issues"
+
+[tool.setuptools]
+packages = ["rote_benchmark"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

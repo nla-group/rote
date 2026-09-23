@@ -1,2 +1,2 @@
-furo
-sphinx_rtd_theme
+sphinx>=7
+furo>=2024.8.6

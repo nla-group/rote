@@ -21,7 +21,7 @@ cd "${REPO_ROOT}"
 
 PYTHON_BIN="${PYTHON:-python3}"
 VENV_DIR="${VENV_DIR:-${EXPS_DIR}/.venv}"
-READY_FILE="${VENV_DIR}/.slearn_experiment_deps_ready"
+READY_FILE="${VENV_DIR}/.rote_experiment_deps_ready"
 
 EXPS_CACHE_DIR="${EXPS_CACHE_DIR:-${EXPS_DIR}/.cache}"
 EXPS_TMPDIR="${EXPS_TMPDIR:-${EXPS_DIR}/tmp}"
@@ -51,12 +51,7 @@ source "${VENV_DIR}/bin/activate"
 
 python -m ensurepip --upgrade
 python -m pip install --upgrade pip setuptools wheel
-python -m pip install -e "${REPO_ROOT}"
-python -m pip install -r "${REPO_ROOT}/requirements-experiments.txt"
-
-if [[ "${INSTALL_RWKV_TRAINER:-0}" == "1" ]]; then
-  python -m pip install rwkv-trainer
-fi
+python -m pip install -e "${REPO_ROOT}[all]"
 
 python - <<'PYCHECK'
 import torch

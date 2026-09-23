@@ -1,0 +1,6 @@
+include CITATION.cff
+include exps/logs/.gitkeep
+include docs/requirements.txt
+recursive-include docs/source *.rst *.py *.png
+recursive-include examples *.py
+recursive-include exps *.py *.sh *.md

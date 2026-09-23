@@ -83,7 +83,7 @@ echo "Array task: ${SLURM_ARRAY_TASK_ID:-0}/${SLURM_ARRAY_TASK_COUNT:-1}"
 echo "CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-unset}"
 
 VENV_DIR="${VENV_DIR:-${EXPS_DIR}/.venv}"
-READY_FILE="${VENV_DIR}/.slearn_experiment_deps_ready"
+READY_FILE="${VENV_DIR}/.rote_experiment_deps_ready"
 LOCK_DIR="${VENV_DIR}.lock"
 
 if [[ ! -f "${READY_FILE}" || ! -f "${VENV_DIR}/bin/activate" ]]; then
@@ -134,9 +134,6 @@ PY
 
 export OMP_NUM_THREADS="${SLURM_CPUS_PER_TASK:-12}"
 export MKL_NUM_THREADS="${SLURM_CPUS_PER_TASK:-12}"
-export TOKENIZERS_PARALLELISM=false
-export TRANSFORMERS_NO_TF=1
-export USE_TF=0
 
 MODELS="${MODELS:-LSTM GRU Transformer LinearAttention Performer RWKV}"
 TARGET_SIZES_M="${TARGET_SIZES_M:-0.2}"
@@ -156,6 +153,10 @@ MAX_EPOCHS="${MAX_EPOCHS:-200}"
 PATIENCE="${PATIENCE:-10}"
 STOPPING_LOSS="${STOPPING_LOSS:-0.05}"
 OUTPUT_DIR="${OUTPUT_DIR:-${EXPS_DIR}/results_symbolic_matched_size/slurm_${SLURM_ARRAY_JOB_ID:-manual}}"
+SEED_ARGS=()
+if [[ -n "${SEED_MANIFEST:-}" ]]; then
+  SEED_ARGS=(--seed-manifest "${SEED_MANIFEST}")
+fi
 
 python "${EXPS_DIR}/matched_size_symbolic_benchmark.py" \
   --models ${MODELS} \
@@ -166,6 +167,7 @@ python "${EXPS_DIR}/matched_size_symbolic_benchmark.py" \
   --window-size 100 \
   --forecast-horizon 100 \
   --seed-count "${SEED_COUNT}" \
+  "${SEED_ARGS[@]}" \
   --runs "${RUNS}" \
   --layers ${LAYERS} \
   --recurrent-units ${RECURRENT_UNITS} \
@@ -188,5 +190,5 @@ printf -v shard "%03d" "${task_id}"
 echo "Finished. Results shard: ${OUTPUT_DIR}/results_task_${shard}.csv"
 echo "Merge after completion with:"
 echo "  cd ${EXPS_DIR} && bash scripts/merge_symbolic_results.sh ${OUTPUT_DIR}"
-echo "Visualize after merging with:"
-echo "  cd ${EXPS_DIR} && bash scripts/run_symbolic_visualizations.sh ${OUTPUT_DIR}/results_merged.csv ${OUTPUT_DIR}/figures"
+echo "Compare with fixed-budget results after merging both tracks:"
+echo "  bash ${SCRIPT_DIR}/run_matched_size_comparison_visualization.sh <fixed-results_merged.csv> ${OUTPUT_DIR}/results_merged.csv"

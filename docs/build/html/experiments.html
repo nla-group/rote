@@ -1,71 +1,209 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="genindex.html"><link rel="search" title="Search" href="search.html"><link rel="next" title="API Reference" href="api.html"><link rel="prev" title="Results and Visualization" href="visualization.html">
+
+    <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+        <title>Experiments and Reproducibility - ROTE documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=8dab3a3b" />
+    
+    
 
 
-<!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="./">
-<head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Symbolic Benchmark Experiments &mdash; slearn documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=beddf052" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=42d1e199" />
-
+<style>
+  body {
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
+  --color-brand-primary: #006c70;
+  --color-brand-content: #006c70;
   
-      <script src="_static/jquery.js?v=5d32c60e"></script>
-      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=14672bda"></script>
-      <script src="_static/doctools.js?v=fd6eb6e6"></script>
-      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
-    <script src="_static/js/theme.js"></script>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="API Reference" href="api.html" />
-    <link rel="prev" title="String Distances And Similarities" href="dmetric.html" /> 
-</head>
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #6cddd0;
+  --color-brand-content: #6cddd0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #6cddd0;
+  --color-brand-content: #6cddd0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
 
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
 
-          
-          
-          <a href="index.html" class="icon icon-home">
-            slearn
-          </a>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">ROTE documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  <span class="sidebar-brand-text">ROTE documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="applications.html">Applications</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="symbol_seeds.html">LZW-Controlled Symbolic Seeds</a></li>
-<li class="toctree-l1"><a class="reference internal" href="symbols_machine_learning.html">Symbolic Machine Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="predict_with_symbols_representation.html">Symbolic Time-Series Representation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dmetric.html">String Distances And Similarities</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Symbolic Benchmark Experiments</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#purpose">Purpose</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#model-families">Model Families</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#local-smoke-test">Local Smoke Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#default-run">Default Run</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#slurm-workflow">Slurm Workflow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#configurable-slurm-variables">Configurable Slurm Variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#visualization">Visualization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#output-columns">Output Columns</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#reproducibility-notes">Reproducibility Notes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#performer-note">Performer Note</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="custom_models.html">Evaluating Your Own Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="methodology.html">Data and Metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualization.html">Results and Visualization</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Experiments and Reproducibility</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul>
@@ -74,194 +212,235 @@
 <li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
 </ul>
 
-        </div>
+</div>
+</div>
+
       </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">slearn</a>
-      </nav>
-
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Symbolic Benchmark Experiments</li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="_sources/experiments.rst.txt" rel="nofollow"> View page source</a>
-      </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
-  <section id="symbolic-benchmark-experiments">
-<h1>Symbolic Benchmark Experiments<a class="headerlink" href="#symbolic-benchmark-experiments" title="Link to this heading"></a></h1>
-<section id="purpose">
-<h2>Purpose<a class="headerlink" href="#purpose" title="Link to this heading"></a></h2>
-<p>The benchmark in <code class="docutils literal notranslate"><span class="pre">exps/</span></code> evaluates neural architectures as finite-context
-conditional predictors on controlled symbolic sequences. A seed string is
-generated with a requested alphabet size and LZW complexity, repeated to the
-selected sequence length, and split chronologically. Models are trained on
-one-step prediction from observed context windows and then evaluated both by
-teacher forcing and by closed-loop rollout.</p>
-<p>The protocol is designed to separate several quantities that are often
-confounded in sequence-model comparisons: alphabet size, symbolic
-compressibility, finite-context identifiability, model size, and compute budget.</p>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="https://github.com/chenxinye/slearn/blob/main/docs/source/experiments.rst?plain=true" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div><div class="edit-this-page">
+  <a class="muted-link" href="https://github.com/chenxinye/slearn/edit/main/docs/source/experiments.rst" rel="edit" title="Edit this page">
+    <svg><use href="#svg-pencil"></use></svg>
+    <span class="visually-hidden">Edit this page</span>
+  </a>
+</div><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="experiments-and-reproducibility">
+<h1>Experiments and Reproducibility<a class="headerlink" href="#experiments-and-reproducibility" title="Link to this heading">¶</a></h1>
+<section id="protocol">
+<h2>Protocol<a class="headerlink" href="#protocol" title="Link to this heading">¶</a></h2>
+<p>For each alphabet size <span class="math notranslate nohighlight">\(n\)</span> and target LZW code count <span class="math notranslate nohighlight">\(c\)</span>, ROTE
+generates a seed <span class="math notranslate nohighlight">\(u\)</span>, repeats it to length <span class="math notranslate nohighlight">\(T\)</span>, and forms
+chronologically ordered context-target pairs
+<span class="math notranslate nohighlight">\((x_{t-w:t-1}, x_t)\)</span> of window size <span class="math notranslate nohighlight">\(w\)</span>. A model predicts the next
+symbol from a one-hot context. The experiment keeps a withheld suffix of length
+<span class="math notranslate nohighlight">\(H\)</span> for free-running rollout. Teacher-forced test loss and accuracy use
+observed contexts; rollout feeds each prediction back into the next context.</p>
+<p>The rollout distances are normalized DL and JW. A rollout is exact when its
+DL distance is zero. The benchmark also records model parameters, training
+time, epochs, time per epoch, and peak GPU memory where available. These are
+separate measurements: low one-step loss does not imply exact rollout.</p>
 </section>
-<section id="model-families">
-<h2>Model Families<a class="headerlink" href="#model-families" title="Link to this heading"></a></h2>
-<p>Supported model names are:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>LSTM GRU minGRU minLSTM Transformer BERT GPT LinearAttention Performer RWKV
-</pre></div>
-</div>
-<p>The benchmark currently includes gated recurrent models, minimal recurrent
-models, standard attention baselines, efficient-attention baselines, and a compact
-RWKV-style time-mixing model implemented in PyTorch.</p>
+<section id="models">
+<h2>Models<a class="headerlink" href="#models" title="Link to this heading">¶</a></h2>
+<p>The fixed-budget track includes LSTM, GRU, minGRU, minLSTM, Transformer,
+LinearAttention, Performer, and a compact RWKV-style PyTorch model. The
+matched-size check includes LSTM, GRU, Transformer, LinearAttention, Performer,
+and RWKV. The latter searches a width grid for the closest trainable parameter
+count to a target size; its <code class="docutils literal notranslate"><span class="pre">matched_configs.csv</span></code> records the achieved sizes.</p>
 </section>
-<section id="local-smoke-test">
-<h2>Local Smoke Test<a class="headerlink" href="#local-smoke-test" title="Link to this heading"></a></h2>
-<p>Run this first after installation:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>exps/symbolic_sequence_benchmark.py<span class="w"> </span>--smoke<span class="w"> </span>--device<span class="w"> </span>cpu
+<section id="local-commands">
+<h2>Local Commands<a class="headerlink" href="#local-commands" title="Link to this heading">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;.[all]&#39;</span>
+rote-bench<span class="w"> </span>--smoke<span class="w"> </span>--device<span class="w"> </span>cpu<span class="w"> </span>--output-dir<span class="w"> </span>/tmp/rote-smoke
+rote-bench<span class="w"> </span>--help
+rote-matched-size<span class="w"> </span>--help
+rote-plot<span class="w"> </span>--help
+rote-plot-matched<span class="w"> </span>--help
 </pre></div>
 </div>
-<p>The smoke test uses one alphabet, one complexity, one seed, one run, small model
-widths, and a short sequence. It verifies the installation rather than producing
-paper-quality numbers.</p>
-</section>
-<section id="default-run">
-<h2>Default Run<a class="headerlink" href="#default-run" title="Link to this heading"></a></h2>
-<p>The default configuration is pilot-sized but nontrivial:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>exps/symbolic_sequence_benchmark.py
-</pre></div>
-</div>
-<p>Defaults include eight models, four alphabet sizes, five LZW complexity targets,
-two generated seeds, two runs, context window 100, forecast horizon 100, sequence
-length 3500, AdamW, learning rate <code class="docutils literal notranslate"><span class="pre">3e-4</span></code>, weight decay <code class="docutils literal notranslate"><span class="pre">0.01</span></code>, at most 200
-epochs, and patience 10.</p>
-<p>Results are written incrementally to:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>exps/results_symbolic/results.csv
-exps/results_symbolic/config.json
-</pre></div>
-</div>
+<p>The default fixed-budget run sweeps four alphabet sizes, five LZW complexity
+targets, two generated seeds, and two training runs. The default matched-size
+check uses <span class="math notranslate nohighlight">\(c=90\)</span>, two alphabet sizes, two seeds, and two runs. Both
+write <code class="docutils literal notranslate"><span class="pre">config.json</span></code> and incremental <code class="docutils literal notranslate"><span class="pre">results.csv</span></code>. Defaults and all
+overrides are included in the saved configuration. The smoke run is only an
+installation check.</p>
 </section>
 <section id="slurm-workflow">
-<h2>Slurm Workflow<a class="headerlink" href="#slurm-workflow" title="Link to this heading"></a></h2>
-<p>On the LIP6 Convergence cluster, submit from <code class="docutils literal notranslate"><span class="pre">exps/</span></code> so logs, virtual
-environment files, result shards, and merged outputs remain inside the experiment
-directory:</p>
+<h2>Slurm Workflow<a class="headerlink" href="#slurm-workflow" title="Link to this heading">¶</a></h2>
+<p>Submit from the repository’s <code class="docutils literal notranslate"><span class="pre">exps/</span></code> directory so that array logs resolve
+correctly:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>exps
 sbatch<span class="w"> </span>scripts/run_symbolic_benchmark_slurm.sh
+sbatch<span class="w"> </span>scripts/run_matched_size_symbolic_slurm.sh
 </pre></div>
 </div>
-<p>The Slurm script requests one node, 12 CPU threads, 64 GB RAM, one
-<code class="docutils literal notranslate"><span class="pre">a100_3g.40gb</span></code> GPU, 48 hours, and an eight-task array with at most five tasks
-active at once. Each array task writes one CSV shard under:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>exps/results_symbolic/slurm_&lt;array_job_id&gt;/results_task_&lt;task_id&gt;.csv
+<p>Each task writes <code class="docutils literal notranslate"><span class="pre">results_task_*.csv</span></code>. After the array completes, merge its
+shards from the repository root:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>..
+bash<span class="w"> </span>exps/scripts/merge_symbolic_results.sh<span class="w"> </span>exps/results_symbolic/slurm_&lt;job_id&gt;
+bash<span class="w"> </span>exps/scripts/merge_symbolic_results.sh<span class="w"> </span>exps/results_symbolic_matched_size/slurm_&lt;matched_job_id&gt;
 </pre></div>
 </div>
-<p>The script creates <code class="docutils literal notranslate"><span class="pre">exps/.venv</span></code> if needed. A filesystem lock ensures that only
-one array task installs dependencies while the others wait for the ready marker
-<code class="docutils literal notranslate"><span class="pre">exps/.venv/.slearn_experiment_deps_ready</span></code>.</p>
-<p>After the job finishes, merge shards from <code class="docutils literal notranslate"><span class="pre">exps/</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bash<span class="w"> </span>scripts/merge_symbolic_results.sh<span class="w"> </span>results_symbolic/slurm_&lt;array_job_id&gt;
-</pre></div>
-</div>
-<p>The merged file is:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>exps/results_symbolic/slurm_&lt;array_job_id&gt;/results_merged.csv
-</pre></div>
-</div>
+<p>The Slurm scripts request one A100 40 GB GPU, 12 CPU threads and 64 GB RAM on
+the Convergence partition. Runtime statistics describe this environment and
+should not be interpreted as hardware-independent architecture properties.
+Performer may use a slower, more memory-intensive non-CUDA autoregressive
+fallback when its optional CUDA kernel is unavailable.</p>
 </section>
-<section id="configurable-slurm-variables">
-<h2>Configurable Slurm Variables<a class="headerlink" href="#configurable-slurm-variables" title="Link to this heading"></a></h2>
-<p>The Slurm script exposes common sweep settings as environment variables:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">MODELS</span><span class="o">=</span><span class="s2">&quot;LSTM GRU minGRU minLSTM Transformer LinearAttention Performer RWKV&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="nv">SYMBOLS</span><span class="o">=</span><span class="s2">&quot;2 4 6 8&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="nv">COMPLEXITIES</span><span class="o">=</span><span class="s2">&quot;10 30 50 70 90&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="nv">MAX_EPOCHS</span><span class="o">=</span><span class="m">200</span><span class="w"> </span><span class="se">\</span>
-<span class="nv">RUNS</span><span class="o">=</span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
-<span class="nv">SEED_COUNT</span><span class="o">=</span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
-sbatch<span class="w"> </span>scripts/run_symbolic_benchmark_slurm.sh
+<section id="figures">
+<h2>Figures<a class="headerlink" href="#figures" title="Link to this heading">¶</a></h2>
+<p>Generate main and matched-size figures separately, on a machine with the
+<code class="docutils literal notranslate"><span class="pre">plot</span></code> extra installed:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bash<span class="w"> </span>exps/scripts/run_symbolic_visualizations.sh<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>exps/results_symbolic/slurm_&lt;job_id&gt;/results_merged.csv
+
+bash<span class="w"> </span>exps/scripts/run_matched_size_comparison_visualization.sh<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>exps/results_symbolic/slurm_&lt;job_id&gt;/results_merged.csv<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>exps/results_symbolic_matched_size/slurm_&lt;matched_job_id&gt;/results_merged.csv
 </pre></div>
 </div>
+<p>The first command generates one PDF and PNG per analysis. The second generates
+<code class="docutils literal notranslate"><span class="pre">matched_size_comparison.pdf</span></code> and <code class="docutils literal notranslate"><span class="pre">.png</span></code>. The archived manuscript data are
+in <code class="docutils literal notranslate"><span class="pre">legacy/exps/results_symbolic/slurm_102076</span></code> and
+<code class="docutils literal notranslate"><span class="pre">legacy/exps/results_symbolic_matched_size/slurm_104393</span></code>; pass those CSV paths
+to the same scripts to reproduce figures without retraining. No files in
+<code class="docutils literal notranslate"><span class="pre">legacy/</span></code> are written by the new workflow.</p>
 </section>
-<section id="visualization">
-<h2>Visualization<a class="headerlink" href="#visualization" title="Link to this heading"></a></h2>
-<p>Visualization is intentionally separate from the Slurm job. After merging, run:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bash<span class="w"> </span>scripts/run_symbolic_visualizations.sh<span class="w"> </span>results_symbolic/slurm_&lt;array_job_id&gt;/results_merged.csv
+<section id="historical-seed-replay">
+<h2>Historical Seed Replay<a class="headerlink" href="#historical-seed-replay" title="Link to this heading">¶</a></h2>
+<p>The archived runs used the process-global Python random stream inside the
+LZW generator. A later change made that stream independent for each seed.
+Consequently, <code class="docutils literal notranslate"><span class="pre">config.json</span></code> alone with the current generator does not
+recreate the original strings. The result CSVs record every
+<code class="docutils literal notranslate"><span class="pre">seed_string</span></code>. Pass the corresponding CSV as <code class="docutils literal notranslate"><span class="pre">--seed-manifest</span></code> to replay
+those exact strings in a new run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rote-bench<span class="w"> </span>--seed-manifest<span class="w"> </span>legacy/exps/results_symbolic/slurm_102076/results_merged.csv
+rote-matched-size<span class="w"> </span>--seed-manifest<span class="w"> </span>legacy/exps/results_symbolic_matched_size/slurm_104393/results_merged.csv
 </pre></div>
 </div>
-<p>When a merged result file can be inferred automatically, this shorter command is
-enough:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bash<span class="w"> </span>scripts/run_symbolic_visualizations.sh
-</pre></div>
-</div>
-<p>The plotting script writes one PNG and one PDF for each analysis by default. It
-uses consistent model colors, markers, marker fill states, and line styles across
-figures. Legends are placed outside the axes, below the plot region. Figure-level
-layout controls such as <code class="docutils literal notranslate"><span class="pre">legend_y</span></code> and <code class="docutils literal notranslate"><span class="pre">bottom</span></code> are collected in
-<code class="docutils literal notranslate"><span class="pre">FIGURE_LAYOUTS</span></code> in <code class="docutils literal notranslate"><span class="pre">exps/visualize_symbolic_results.py</span></code>.</p>
+<p>For Slurm, export <code class="docutils literal notranslate"><span class="pre">SEED_MANIFEST</span></code> with the corresponding CSV path before
+submitting the job. The loader validates the alphabet size, LZW complexity,
+and unique seed index; it accepts either a results CSV or a seed table. The
+archived main track contains 40 distinct seeds, and the matched-size track
+contains four.</p>
 </section>
-<section id="output-columns">
-<h2>Output Columns<a class="headerlink" href="#output-columns" title="Link to this heading"></a></h2>
-<p>The benchmark records configuration fields such as model name, alphabet size,
-LZW complexity, sequence length, window size, forecast horizon, layer count,
-hidden width, optimizer, learning rate, weight decay, batch size, run index, and
-seed index. It also records trainable parameter count, training time, epoch
-count, time per epoch, peak GPU memory, teacher-forced test loss and accuracy,
-and rollout distances <code class="docutils literal notranslate"><span class="pre">dl</span></code> and <code class="docutils literal notranslate"><span class="pre">jw</span></code>.</p>
-</section>
-<section id="reproducibility-notes">
-<h2>Reproducibility Notes<a class="headerlink" href="#reproducibility-notes" title="Link to this heading"></a></h2>
-<p>The script fixes Python, NumPy, and PyTorch random seeds, disables cuDNN’s
-non-deterministic fast path, saves the exact parsed configuration to
-<code class="docutils literal notranslate"><span class="pre">config.json</span></code>, and writes one result row per completed model fit. Hardware,
-CUDA, PyTorch, and optional attention-kernel versions can still affect runtime
-and low-level floating-point behavior, so exact wall-clock timing should be
-reported with the cluster resource description and software environment.</p>
-</section>
-<section id="performer-note">
-<h2>Performer Note<a class="headerlink" href="#performer-note" title="Link to this heading"></a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">performer-pytorch</span></code> may print a warning when its optional CUDA kernel for
-auto-regressive attention is unavailable. With the benchmark’s causal Performer
-configuration, the model still runs; the fallback is less memory efficient and
-can be slower. For strict compute comparisons, report whether the CUDA kernel was
-available in the experiment environment.</p>
+<section id="reproducibility-limits">
+<h2>Reproducibility Limits<a class="headerlink" href="#reproducibility-limits" title="Link to this heading">¶</a></h2>
+<p>The training scripts seed Python, NumPy and PyTorch, save parsed configuration,
+and write each completed fit. Exact floating-point trajectories and timing may
+vary with PyTorch, CUDA, cuDNN, optional kernels, and hardware. LZW target
+complexity is checked against the generated seed, but it is distinct from
+finite-window identifiability. Use the archived CSV and configuration files
+for the exact results reported in the manuscript.</p>
 </section>
 </section>
 
-
-           </div>
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="api.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">API Reference</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="visualization.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Results and Visualization</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="dmetric.html" class="btn btn-neutral float-left" title="String Distances And Similarities" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="api.html" class="btn btn-neutral float-right" title="API Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
     </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Experiments and Reproducibility</a><ul>
+<li><a class="reference internal" href="#protocol">Protocol</a></li>
+<li><a class="reference internal" href="#models">Models</a></li>
+<li><a class="reference internal" href="#local-commands">Local Commands</a></li>
+<li><a class="reference internal" href="#slurm-workflow">Slurm Workflow</a></li>
+<li><a class="reference internal" href="#figures">Figures</a></li>
+<li><a class="reference internal" href="#historical-seed-replay">Historical Seed Replay</a></li>
+<li><a class="reference internal" href="#reproducibility-limits">Reproducibility Limits</a></li>
+</ul>
+</li>
+</ul>
 
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright 2021-2026, Numerical Linear Algebra Group, The University of Manchester.</p>
-  </div>
-
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
-
-</footer>
+          </div>
         </div>
       </div>
-    </section>
+      
+      
+    </aside>
   </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
-
-</body>
+</div><script src="_static/documentation_options.js?v=01f34227"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/scripts/furo.js?v=46bd48cc"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    </body>
 </html>

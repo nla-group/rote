@@ -1,8 +1,10 @@
 Citations
 =========
 
-If you use ``slearn`` for LZW-controlled symbolic sequence generation or the
-symbolic neural benchmark, please cite the symbolic sequence learning paper:
+If you use ROTE, cite its published manuscript when a final citation becomes
+available. The software's current citation metadata is in ``CITATION.cff``.
+
+ROTE builds on the earlier symbolic sequence learning study:
 
 .. code-block:: bibtex
 
@@ -12,19 +14,6 @@ symbolic neural benchmark, please cite the symbolic sequence learning paper:
      booktitle = {Intelligent Computing},
      pages = {771--785},
      year = {2023},
-     publisher = {Springer Nature Switzerland}
+     publisher = {Springer Nature Switzerland},
+     doi = {10.1007/978-3-031-37963-5_53}
    }
-
-If you use the ABBA/fABBA symbolic time-series tools, please also cite:
-
-.. code-block:: bibtex
-
-   @phdthesis{chen2024fast,
-     title = {Fast Aggregation-Based Algorithms for Knowledge Discovery},
-     author = {Chen, Xinye},
-     school = {The University of Manchester},
-     year = {2024}
-   }
-
-The repository also includes ``CITATION.cff`` for citation managers that support
-GitHub citation metadata.

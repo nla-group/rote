@@ -13,8 +13,15 @@
 
 set -euo pipefail
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-EXPS_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
+RAW_SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+if [[ -n "${SLURM_SUBMIT_DIR:-}" && -f "${SLURM_SUBMIT_DIR}/symbolic_sequence_benchmark.py" ]]; then
+  EXPS_DIR="$(cd "${SLURM_SUBMIT_DIR}" && pwd)"
+elif [[ -n "${SLURM_SUBMIT_DIR:-}" && -f "${SLURM_SUBMIT_DIR}/exps/symbolic_sequence_benchmark.py" ]]; then
+  EXPS_DIR="$(cd "${SLURM_SUBMIT_DIR}/exps" && pwd)"
+else
+  EXPS_DIR="$(cd "${RAW_SCRIPT_DIR}/.." && pwd)"
+fi
+SCRIPT_DIR="${EXPS_DIR}/scripts"
 REPO_ROOT="$(cd "${EXPS_DIR}/.." && pwd)"
 cd "${REPO_ROOT}"
 
@@ -29,7 +36,7 @@ echo "Array task: ${SLURM_ARRAY_TASK_ID:-0}/${SLURM_ARRAY_TASK_COUNT:-1}"
 echo "CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-unset}"
 
 VENV_DIR="${VENV_DIR:-${EXPS_DIR}/.venv}"
-READY_FILE="${VENV_DIR}/.slearn_experiment_deps_ready"
+READY_FILE="${VENV_DIR}/.rote_experiment_deps_ready"
 LOCK_DIR="${VENV_DIR}.lock"
 
 if [[ ! -f "${READY_FILE}" || ! -f "${VENV_DIR}/bin/activate" ]]; then
@@ -64,15 +71,14 @@ python - <<'PY'
 import torch
 print(f"torch={torch.__version__}")
 print(f"cuda_available={torch.cuda.is_available()}")
+print(f"cuda={torch.version.cuda}")
+print(f"cudnn={torch.backends.cudnn.version()}")
 if torch.cuda.is_available():
     print(torch.cuda.get_device_name(0))
 PY
 
 export OMP_NUM_THREADS="${SLURM_CPUS_PER_TASK:-12}"
 export MKL_NUM_THREADS="${SLURM_CPUS_PER_TASK:-12}"
-export TOKENIZERS_PARALLELISM=false
-export TRANSFORMERS_NO_TF=1
-export USE_TF=0
 
 MODELS="${MODELS:-LSTM GRU minGRU minLSTM Transformer LinearAttention Performer RWKV}"
 SYMBOLS="${SYMBOLS:-2 4 6 8}"
@@ -90,6 +96,10 @@ MAX_EPOCHS="${MAX_EPOCHS:-200}"
 PATIENCE="${PATIENCE:-10}"
 STOPPING_LOSS="${STOPPING_LOSS:-0.05}"
 OUTPUT_DIR="${OUTPUT_DIR:-${EXPS_DIR}/results_symbolic/slurm_${SLURM_ARRAY_JOB_ID:-manual}}"
+SEED_ARGS=()
+if [[ -n "${SEED_MANIFEST:-}" ]]; then
+  SEED_ARGS=(--seed-manifest "${SEED_MANIFEST}")
+fi
 
 python "${EXPS_DIR}/symbolic_sequence_benchmark.py" \
   --models ${MODELS} \
@@ -99,6 +109,7 @@ python "${EXPS_DIR}/symbolic_sequence_benchmark.py" \
   --window-size 100 \
   --forecast-horizon 100 \
   --seed-count "${SEED_COUNT}" \
+  "${SEED_ARGS[@]}" \
   --runs "${RUNS}" \
   --layers ${LAYERS} \
   --units ${UNITS} \

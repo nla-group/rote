@@ -1,165 +1,126 @@
-Symbolic Benchmark Experiments
-==============================
+Experiments and Reproducibility
+===============================
 
-Purpose
--------
+Protocol
+--------
 
-The benchmark in ``exps/`` evaluates neural architectures as finite-context
-conditional predictors on controlled symbolic sequences. A seed string is
-generated with a requested alphabet size and LZW complexity, repeated to the
-selected sequence length, and split chronologically. Models are trained on
-one-step prediction from observed context windows and then evaluated both by
-teacher forcing and by closed-loop rollout.
+For each alphabet size :math:`n` and target LZW code count :math:`c`, ROTE
+generates a seed :math:`u`, repeats it to length :math:`T`, and forms
+chronologically ordered context-target pairs
+:math:`(x_{t-w:t-1}, x_t)` of window size :math:`w`. A model predicts the next
+symbol from a one-hot context. The experiment keeps a withheld suffix of length
+:math:`H` for free-running rollout. Teacher-forced test loss and accuracy use
+observed contexts; rollout feeds each prediction back into the next context.
 
-The protocol is designed to separate several quantities that are often
-confounded in sequence-model comparisons: alphabet size, symbolic
-compressibility, finite-context identifiability, model size, and compute budget.
+The rollout distances are normalized DL and JW. A rollout is exact when its
+DL distance is zero. The benchmark also records model parameters, training
+time, epochs, time per epoch, and peak GPU memory where available. These are
+separate measurements: low one-step loss does not imply exact rollout.
 
-Model Families
+Models
+------
+
+The fixed-budget track includes LSTM, GRU, minGRU, minLSTM, Transformer,
+LinearAttention, Performer, and a compact RWKV-style PyTorch model. The
+matched-size check includes LSTM, GRU, Transformer, LinearAttention, Performer,
+and RWKV. The latter searches a width grid for the closest trainable parameter
+count to a target size; its ``matched_configs.csv`` records the achieved sizes.
+
+Local Commands
 --------------
 
-Supported model names are:
-
-.. code-block:: text
-
-   LSTM GRU minGRU minLSTM Transformer BERT GPT LinearAttention Performer RWKV
-
-The benchmark currently includes gated recurrent models, minimal recurrent
-models, standard attention baselines, efficient-attention baselines, and a compact
-RWKV-style time-mixing model implemented in PyTorch.
-
-Local Smoke Test
-----------------
-
-Run this first after installation:
-
 .. code-block:: bash
 
-   python exps/symbolic_sequence_benchmark.py --smoke --device cpu
+   python -m pip install -e '.[all]'
+   rote-bench --smoke --device cpu --output-dir /tmp/rote-smoke
+   rote-bench --help
+   rote-matched-size --help
+   rote-plot --help
+   rote-plot-matched --help
 
-The smoke test uses one alphabet, one complexity, one seed, one run, small model
-widths, and a short sequence. It verifies the installation rather than producing
-paper-quality numbers.
-
-Default Run
------------
-
-The default configuration is pilot-sized but nontrivial:
-
-.. code-block:: bash
-
-   python exps/symbolic_sequence_benchmark.py
-
-Defaults include eight models, four alphabet sizes, five LZW complexity targets,
-two generated seeds, two runs, context window 100, forecast horizon 100, sequence
-length 3500, AdamW, learning rate ``3e-4``, weight decay ``0.01``, at most 200
-epochs, and patience 10.
-
-Results are written incrementally to:
-
-.. code-block:: text
-
-   exps/results_symbolic/results.csv
-   exps/results_symbolic/config.json
+The default fixed-budget run sweeps four alphabet sizes, five LZW complexity
+targets, two generated seeds, and two training runs. The default matched-size
+check uses :math:`c=90`, two alphabet sizes, two seeds, and two runs. Both
+write ``config.json`` and incremental ``results.csv``. Defaults and all
+overrides are included in the saved configuration. The smoke run is only an
+installation check.
 
 Slurm Workflow
 --------------
 
-On the LIP6 Convergence cluster, submit from ``exps/`` so logs, virtual
-environment files, result shards, and merged outputs remain inside the experiment
-directory:
+Submit from the repository's ``exps/`` directory so that array logs resolve
+correctly:
 
 .. code-block:: bash
 
    cd exps
    sbatch scripts/run_symbolic_benchmark_slurm.sh
+   sbatch scripts/run_matched_size_symbolic_slurm.sh
 
-The Slurm script requests one node, 12 CPU threads, 64 GB RAM, one
-``a100_3g.40gb`` GPU, 48 hours, and an eight-task array with at most five tasks
-active at once. Each array task writes one CSV shard under:
-
-.. code-block:: text
-
-   exps/results_symbolic/slurm_<array_job_id>/results_task_<task_id>.csv
-
-The script creates ``exps/.venv`` if needed. A filesystem lock ensures that only
-one array task installs dependencies while the others wait for the ready marker
-``exps/.venv/.slearn_experiment_deps_ready``.
-
-After the job finishes, merge shards from ``exps/``:
+Each task writes ``results_task_*.csv``. After the array completes, merge its
+shards from the repository root:
 
 .. code-block:: bash
 
-   bash scripts/merge_symbolic_results.sh results_symbolic/slurm_<array_job_id>
+   cd ..
+   bash exps/scripts/merge_symbolic_results.sh exps/results_symbolic/slurm_<job_id>
+   bash exps/scripts/merge_symbolic_results.sh exps/results_symbolic_matched_size/slurm_<matched_job_id>
 
-The merged file is:
+The Slurm scripts request one A100 40 GB GPU, 12 CPU threads and 64 GB RAM on
+the Convergence partition. Runtime statistics describe this environment and
+should not be interpreted as hardware-independent architecture properties.
+Performer may use a slower, more memory-intensive non-CUDA autoregressive
+fallback when its optional CUDA kernel is unavailable.
 
-.. code-block:: text
+Figures
+-------
 
-   exps/results_symbolic/slurm_<array_job_id>/results_merged.csv
-
-Configurable Slurm Variables
-----------------------------
-
-The Slurm script exposes common sweep settings as environment variables:
-
-.. code-block:: bash
-
-   MODELS="LSTM GRU minGRU minLSTM Transformer LinearAttention Performer RWKV" \
-   SYMBOLS="2 4 6 8" \
-   COMPLEXITIES="10 30 50 70 90" \
-   MAX_EPOCHS=200 \
-   RUNS=2 \
-   SEED_COUNT=2 \
-   sbatch scripts/run_symbolic_benchmark_slurm.sh
-
-Visualization
--------------
-
-Visualization is intentionally separate from the Slurm job. After merging, run:
+Generate main and matched-size figures separately, on a machine with the
+``plot`` extra installed:
 
 .. code-block:: bash
 
-   bash scripts/run_symbolic_visualizations.sh results_symbolic/slurm_<array_job_id>/results_merged.csv
+   bash exps/scripts/run_symbolic_visualizations.sh \
+     exps/results_symbolic/slurm_<job_id>/results_merged.csv
 
-When a merged result file can be inferred automatically, this shorter command is
-enough:
+   bash exps/scripts/run_matched_size_comparison_visualization.sh \
+     exps/results_symbolic/slurm_<job_id>/results_merged.csv \
+     exps/results_symbolic_matched_size/slurm_<matched_job_id>/results_merged.csv
+
+The first command generates one PDF and PNG per analysis. The second generates
+``matched_size_comparison.pdf`` and ``.png``. The archived manuscript data are
+in ``legacy/exps/results_symbolic/slurm_102076`` and
+``legacy/exps/results_symbolic_matched_size/slurm_104393``; pass those CSV paths
+to the same scripts to reproduce figures without retraining. No files in
+``legacy/`` are written by the new workflow.
+
+Historical Seed Replay
+----------------------
+
+The archived runs used the process-global Python random stream inside the
+LZW generator. A later change made that stream independent for each seed.
+Consequently, ``config.json`` alone with the current generator does not
+recreate the original strings. The result CSVs record every
+``seed_string``. Pass the corresponding CSV as ``--seed-manifest`` to replay
+those exact strings in a new run:
 
 .. code-block:: bash
 
-   bash scripts/run_symbolic_visualizations.sh
+   rote-bench --seed-manifest legacy/exps/results_symbolic/slurm_102076/results_merged.csv
+   rote-matched-size --seed-manifest legacy/exps/results_symbolic_matched_size/slurm_104393/results_merged.csv
 
-The plotting script writes one PNG and one PDF for each analysis by default. It
-uses consistent model colors, markers, marker fill states, and line styles across
-figures. Legends are placed outside the axes, below the plot region. Figure-level
-layout controls such as ``legend_y`` and ``bottom`` are collected in
-``FIGURE_LAYOUTS`` in ``exps/visualize_symbolic_results.py``.
+For Slurm, export ``SEED_MANIFEST`` with the corresponding CSV path before
+submitting the job. The loader validates the alphabet size, LZW complexity,
+and unique seed index; it accepts either a results CSV or a seed table. The
+archived main track contains 40 distinct seeds, and the matched-size track
+contains four.
 
-Output Columns
---------------
+Reproducibility Limits
+----------------------
 
-The benchmark records configuration fields such as model name, alphabet size,
-LZW complexity, sequence length, window size, forecast horizon, layer count,
-hidden width, optimizer, learning rate, weight decay, batch size, run index, and
-seed index. It also records trainable parameter count, training time, epoch
-count, time per epoch, peak GPU memory, teacher-forced test loss and accuracy,
-and rollout distances ``dl`` and ``jw``.
-
-Reproducibility Notes
----------------------
-
-The script fixes Python, NumPy, and PyTorch random seeds, disables cuDNN's
-non-deterministic fast path, saves the exact parsed configuration to
-``config.json``, and writes one result row per completed model fit. Hardware,
-CUDA, PyTorch, and optional attention-kernel versions can still affect runtime
-and low-level floating-point behavior, so exact wall-clock timing should be
-reported with the cluster resource description and software environment.
-
-Performer Note
---------------
-
-``performer-pytorch`` may print a warning when its optional CUDA kernel for
-auto-regressive attention is unavailable. With the benchmark's causal Performer
-configuration, the model still runs; the fallback is less memory efficient and
-can be slower. For strict compute comparisons, report whether the CUDA kernel was
-available in the experiment environment.
+The training scripts seed Python, NumPy and PyTorch, save parsed configuration,
+and write each completed fit. Exact floating-point trajectories and timing may
+vary with PyTorch, CUDA, cuDNN, optional kernels, and hardware. LZW target
+complexity is checked against the generated seed, but it is distinct from
+finite-window identifiability. Use the archived CSV and configuration files
+for the exact results reported in the manuscript.

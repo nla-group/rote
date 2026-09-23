@@ -1,0 +1,51 @@
+name: Tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  core:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install core and test dependencies
+        run: python -m pip install -e '.[test]'
+      - name: Test core
+        run: python -m pytest -q tests/test_core.py tests/test_seed_manifest.py tests/test_artifacts.py tests/test_evaluation.py
+      - name: Check package contents
+        run: |
+          python -m pip wheel --no-deps . -w /tmp/rote-wheels
+          python -c 'import glob,zipfile; paths=glob.glob("/tmp/rote-wheels/rote_bench-*.whl"); assert len(paths)==1; names=zipfile.ZipFile(paths[0]).namelist(); assert all(name.startswith(("rote_benchmark/", "rote_bench-")) for name in names)'
+
+  benchmark:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install CPU PyTorch
+        run: python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+      - name: Install benchmark dependencies
+        run: python -m pip install -e '.[experiment,plot,test]'
+      - name: Test benchmark protocol
+        run: python -m pytest -q tests/test_benchmark.py tests/test_artifacts.py tests/test_evaluation.py
+
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install documentation dependencies
+        run: python -m pip install -e '.[docs]'
+      - name: Build documentation with warnings as errors
+        run: sphinx-build -b html -W docs/source docs/build/html

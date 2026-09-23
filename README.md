@@ -1,9 +1,9 @@
 # ROTE
 
-[![Tests](https://github.com/chenxinye/slearn/actions/workflows/tests.yml/badge.svg)](https://github.com/chenxinye/slearn/actions/workflows/tests.yml)
-[![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://github.com/chenxinye/slearn/blob/main/pyproject.toml)
+[![Tests](https://github.com/nla-group/slearn/actions/workflows/tests.yml/badge.svg)](https://github.com/nla-group/slearn/actions/workflows/tests.yml)
+[![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://github.com/nla-group/slearn/blob/main/pyproject.toml)
 [![Distribution: rote-bench](https://img.shields.io/badge/distribution-rote--bench-006C70.svg)](pyproject.toml)
-[![License: MIT](https://img.shields.io/badge/License-MIT-008080.svg)](https://github.com/chenxinye/slearn/blob/main/LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-008080.svg)](https://github.com/nla-group/slearn/blob/main/LICENSE)
 
 **ROTE** (Rollout Testing of Exact memorization) is a reproducible benchmark for learning and extending controlled symbolic sequences. It generates seeds at specified Lempel-Ziv-Welch (LZW) complexity, trains finite-context next-symbol predictors, and evaluates both teacher-forced prediction and closed-loop rollout. The package includes the fixed-budget comparison and a high-complexity matched-size check used in the accompanying manuscript.
 
@@ -12,14 +12,18 @@
 ROTE is currently installed from source; a PyPI release has not yet been published. The intended PyPI distribution name is `rote-bench` and the import name is `rote_benchmark`. The shorter [`rote`](https://pypi.org/project/rote/) name belongs to an unrelated PyPI project. `rote-bench` is not yet published or reserved on PyPI.
 
 ```bash
-git clone https://github.com/chenxinye/slearn.git
+git clone https://github.com/nla-group/rote.git
 cd slearn
 python -m pip install -e .                 # seed generation and rollout metrics
 python -m pip install -e '.[neural,plot]'   # custom PyTorch models and figures
 python -m pip install -e '.[all]'           # full paper architecture set
 ```
 
-The current clone URL is `slearn`; when the repository is renamed, use `https://github.com/chenxinye/rote.git` for new clones. The package import and commands will stay the same. Python 3.10 or newer is required. The core install uses NumPy and pandas. The optional experiment dependencies include PyTorch, `minGRU-pytorch`, `linear-attention-transformer`, and `performer-pytorch`. The RWKV-style baseline is implemented in PyTorch and needs no separate RWKV package.
+or simply via
+``
+pip install rote-bench
+``
+The current clone URL is `slearn`; when the repository is renamed, use `https://github.com/nla-group/rote.git` for new clones. The package import and commands will stay the same. Python 3.10 or newer is required. The core install uses NumPy and pandas. The optional experiment dependencies include PyTorch, `minGRU-pytorch`, `linear-attention-transformer`, and `performer-pytorch`. The RWKV-style baseline is implemented in PyTorch and needs no separate RWKV package.
 
 ## Quick Start
 

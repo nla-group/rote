@@ -1,6 +1,6 @@
 # ROTE
 
-[![Tests](https://github.com/nla-group/slearn/actions/workflows/tests.yml/badge.svg)](https://github.com/nla-group/slearn/actions/workflows/tests.yml)
+[![Tests](https://github.com/nla-group/rote/actions/workflows/tests.yml/badge.svg)](https://github.com/nla-group/rote/actions/workflows/tests.yml)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://github.com/nla-group/slearn/blob/main/pyproject.toml)
 [![Distribution: rote-bench](https://img.shields.io/badge/distribution-rote--bench-006C70.svg)](pyproject.toml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-008080.svg)](https://github.com/nla-group/slearn/blob/main/LICENSE)

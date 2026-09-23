@@ -21,9 +21,10 @@ python -m pip install -e '.[all]'           # full paper architecture set
 ```
 
 or simply via
-``
+```bash
 pip install rote-bench
-``
+```
+
 The current clone URL is `slearn`; when the repository is renamed, use `https://github.com/nla-group/rote.git` for new clones. The package import and commands will stay the same. Python 3.10 or newer is required. The core install uses NumPy and pandas. The optional experiment dependencies include PyTorch, `minGRU-pytorch`, `linear-attention-transformer`, and `performer-pytorch`. The RWKV-style baseline is implemented in PyTorch and needs no separate RWKV package.
 
 ## Quick Start

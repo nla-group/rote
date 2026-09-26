@@ -10,8 +10,7 @@
 
 ## Install
 
-ROTE is currently installed from source; a PyPI release has not yet been published. The intended PyPI distribution name is `rote-bench` and the import name is `rote_benchmark`. The shorter [`rote`](https://pypi.org/project/rote/) name belongs to an unrelated PyPI project. `rote-bench` is not yet published or reserved on PyPI.
-
+ROTE is currently installed from source; a PyPI release has not yet been published. The intended PyPI distribution name is `rote-bench` and the import name is `rote_benchmark`. 
 ```bash
 git clone https://github.com/nla-group/rote.git
 cd rote

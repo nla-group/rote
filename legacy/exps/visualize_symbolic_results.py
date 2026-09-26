@@ -1,7 +1,13 @@
-"""Generate publication-style figures for symbolic sequence experiments."""
+"""Generate publication-style figures for symbolic sequence experiments.
+
+Every figure is drawn at the size it is printed at in the manuscript (6.5 in text width), so
+font sizes are true point sizes. With LaTeX on the PATH the text is typeset in Times with
+Computer Modern math, matching the manuscript; otherwise a Times-like fallback is used.
+"""
 
 import argparse
 import os
+import shutil
 from pathlib import Path
 
 os.environ.setdefault("XDG_CACHE_HOME", "/tmp/slearn-cache")
@@ -14,7 +20,7 @@ import matplotlib
 
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-import seaborn as sns
+from matplotlib.lines import Line2D
 
 
 MODEL_ORDER = [
@@ -30,11 +36,11 @@ MODEL_ORDER = [
     "RWKV",
 ]
 
-FONT = {"title": 16, "label": 14, "tick": 12, "legend": 12, "annotation": 10}
-FONT_WEIGHT = "semibold"
-LINE_WIDTH = 2.25
-MARKER_SIZE = 8.6
-MARKER_EDGE_WIDTH = 1.45
+TEXT_WIDTH = 6.5  # inches, manuscript \textwidth
+FONT_SIZE = 8
+LINE_WIDTH = 1.1
+MARKER_SIZE = 3.6
+MARKER_EDGE_WIDTH = 0.8
 
 MODEL_STYLES = {
     "LSTM": {"color": "#0072B2", "marker": "o", "linestyle": "-", "filled": True},
@@ -59,13 +65,10 @@ METRIC_LABELS = {
     "memory_mb": r"Memory usage (MB)",
     "model_size_m": r"Trainable parameters, $|\theta|$ (M)",
 }
-
-DEFAULT_LAYOUT = {"figsize": (6.8, 4.2), "legend_y": -0.05, "bottom": 0.28, "legend_ncol": 5}
-FIGURE_LAYOUTS = {
-    "rollout_error_vs_horizon": {"figsize": (7.4, 4.7), "legend_y": 0.12, "bottom": 0.24, "legend_ncol": 5},
-    "compute_performance_pareto": {"figsize": (7.0, 4.9), "legend_y": 0.12, "bottom": 0.24, "legend_ncol": 5},
-    "test_loss_vs_model_params": {"figsize": (7.0, 4.6), "legend_y": 0.02, "bottom": 0.24, "legend_ncol": 5},
-    "dl_vs_model_params": {"figsize": (7.0, 4.6), "legend_y": -.02, "bottom": 0.24, "legend_ncol": 5},
+# Two-line variants for the half-width panels, whose axes are too short for one line.
+SHORT_AXIS_LABELS = {
+    "test_loss": "Next-token\ncross-entropy",
+    "DL": "Normalized\n" r"$\mathrm{DL}$ distance",
 }
 
 
@@ -83,35 +86,29 @@ def parse_args():
 
 
 def configure_style():
-    sns.set_theme(style="whitegrid", context="paper")
-    plt.rcParams.update(
-        {
-            "axes.titlesize": FONT["title"],
-            "axes.labelsize": FONT["label"],
-            "xtick.labelsize": FONT["tick"],
-            "ytick.labelsize": FONT["tick"],
-            "legend.fontsize": FONT["legend"],
-            "legend.title_fontsize": FONT["legend"],
-            "font.family": "serif",
-            "font.serif": ["Times New Roman", "Times", "DejaVu Serif"],
-            "font.size": FONT["tick"],
-            "font.weight": FONT_WEIGHT,
-            "axes.titleweight": FONT_WEIGHT,
-            "axes.labelweight": FONT_WEIGHT,
-            "axes.spines.top": False,
-            "axes.spines.right": False,
-            "axes.linewidth": 1.0,
-            "figure.constrained_layout.use": False,
-            "figure.facecolor": "white",
-            "savefig.facecolor": "white",
-            "savefig.edgecolor": "white",
-            "mathtext.fontset": "stix",
-            "lines.solid_capstyle": "round",
-            "lines.dash_capstyle": "round",
-            "xtick.direction": "out",
-            "ytick.direction": "out",
-        }
-    )
+    use_latex = shutil.which("latex") is not None and shutil.which("dvipng") is not None
+    params = {
+        "text.usetex": use_latex,
+        "text.latex.preamble": r"\usepackage[T1]{fontenc}\usepackage{times}" if use_latex else "",
+        "font.family": "serif",
+        "axes.titlesize": FONT_SIZE * 1.2,
+        "axes.labelsize": FONT_SIZE,
+        "font.size": FONT_SIZE,
+        "legend.fontsize": FONT_SIZE,
+        "xtick.labelsize": FONT_SIZE,
+        "ytick.labelsize": FONT_SIZE,
+        "lines.linewidth": 0.4,
+        "figure.facecolor": "white",
+    }
+    if not use_latex:
+        params["font.serif"] = ["Times New Roman", "Times", "STIXGeneral", "DejaVu Serif"]
+        params["mathtext.fontset"] = "stix"
+    plt.rcParams.update(params)
+
+
+def new_figure(width_fraction, height):
+    """A print-sized figure: `width_fraction` of the text width by `height` inches."""
+    return plt.figure(figsize=(width_fraction * TEXT_WIDTH, height), layout="constrained")
 
 
 def load_results(path):
@@ -157,16 +154,20 @@ def aggregate(df, metrics):
 
 
 def save_figure(fig, output_dir, stem, formats, dpi):
+    # Constrained layout cannot shrink a legend wider than the figure; it gets clipped instead.
+    renderer = fig.canvas.get_renderer()
+    for legend in fig.legends:
+        box = legend.get_window_extent(renderer)
+        if box.x0 < fig.bbox.x0 or box.x1 > fig.bbox.x1:
+            raise RuntimeError(f"{stem}: legend is wider than the figure")
     output_dir.mkdir(parents=True, exist_ok=True)
-    for fmt in formats:
-        fig.savefig(output_dir / f"{stem}.{fmt}", dpi=dpi, bbox_inches="tight")
+    # Each save re-runs constrained layout starting from the previous save's positions, so the
+    # PDF goes first to come out the same whichever other formats are requested.
+    for fmt in sorted(formats, key=lambda fmt: fmt != "pdf"):
+        # Figures are print-sized, so no tight bounding box; no timestamp keeps reruns identical.
+        metadata = {"CreationDate": None} if fmt == "pdf" else None
+        fig.savefig(output_dir / f"{stem}.{fmt}", dpi=dpi, metadata=metadata)
     plt.close(fig)
-
-
-def figure_layout(stem):
-    layout = DEFAULT_LAYOUT.copy()
-    layout.update(FIGURE_LAYOUTS.get(stem, {}))
-    return layout
 
 
 def model_style(model):
@@ -185,9 +186,7 @@ def ordered_models(values):
     return ordered
 
 
-def legend_handle(model):
-    from matplotlib.lines import Line2D
-
+def legend_handle(model, markers=True):
     style = model_style(model)
     return Line2D(
         [0],
@@ -195,7 +194,7 @@ def legend_handle(model):
         color=style["color"],
         linestyle=style["linestyle"],
         linewidth=LINE_WIDTH,
-        marker=style["marker"],
+        marker=style["marker"] if markers else None,
         markersize=MARKER_SIZE,
         markerfacecolor=marker_facecolor(style),
         markeredgecolor=style["color"],
@@ -204,17 +203,39 @@ def legend_handle(model):
     )
 
 
-def plot_model_series(
-    ax,
-    data,
-    x,
-    y,
-    yerr=None,
-    show_markers=True,
-    marker_size=MARKER_SIZE,
-    marker_edge_width=MARKER_EDGE_WIDTH,
-    markevery=None,
-):
+def place_bottom_legend(fig, models, ncol, markers=True, compact=False):
+    fig.legend(
+        handles=[legend_handle(model, markers) for model in models],
+        loc="outside lower center",
+        ncol=ncol,
+        frameon=False,
+        handlelength=1.9 if compact else 2.6,
+        handletextpad=0.3 if compact else 0.4,
+        columnspacing=0.55 if compact else 1.0,
+        borderaxespad=0.0,
+    )
+
+
+def style_axes(ax, xlabel, ylabel=None, x_from_zero=False):
+    ax.set_xlabel(xlabel)
+    if ylabel is not None:
+        ax.set_ylabel(ylabel)
+    if x_from_zero:
+        ax.set_xlim(left=0)
+    ax.grid(True, which="major", color="grey", alpha=0.2, linewidth=0.3)
+    ax.tick_params(which="major", axis="y", direction="in", width=0.5, color="grey")
+    ax.tick_params(which="major", axis="x", direction="in", width=0.5, color="grey")
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+    ax.spines["bottom"].set_color("grey")
+    ax.spines["bottom"].set_linewidth(0.5)
+    ax.spines["left"].set_color("grey")
+    ax.spines["left"].set_linewidth(0.5)
+    if not x_from_zero:
+        ax.margins(x=0.035)
+
+
+def plot_model_series(ax, data, x, y, yerr=None, show_markers=True, markevery=None):
     for model in ordered_models(data["model"]):
         model_data = data[data["model"].astype(str) == model].sort_values(x)
         if model_data.empty:
@@ -223,15 +244,14 @@ def plot_model_series(
         ax.plot(
             model_data[x],
             model_data[y],
-            label=model,
             color=style["color"],
             linestyle=style["linestyle"],
             linewidth=LINE_WIDTH,
             marker=style["marker"] if show_markers else None,
-            markersize=marker_size if show_markers else 0,
-            markerfacecolor=marker_facecolor(style) if show_markers else "none",
-            markeredgecolor=style["color"] if show_markers else "none",
-            markeredgewidth=marker_edge_width if show_markers else 0,
+            markersize=MARKER_SIZE,
+            markerfacecolor=marker_facecolor(style),
+            markeredgecolor=style["color"],
+            markeredgewidth=MARKER_EDGE_WIDTH,
             markevery=markevery,
             alpha=0.98,
             zorder=3,
@@ -244,54 +264,11 @@ def plot_model_series(
                 fmt="none",
                 color=style["color"],
                 alpha=0.42,
-                capsize=3.2,
-                capthick=1.0,
-                elinewidth=1.05,
+                capsize=1.6,
+                capthick=0.5,
+                elinewidth=0.6,
                 zorder=1,
             )
-
-
-def place_bottom_legend(fig, axes, title="Model", layout=None):
-    layout = layout or DEFAULT_LAYOUT
-    labels = []
-    for ax in np.ravel(axes):
-        _, axis_labels = ax.get_legend_handles_labels()
-        for label in axis_labels:
-            if label and not label.startswith("_") and label not in labels:
-                labels.append(label)
-        legend = ax.get_legend()
-        if legend is not None:
-            legend.remove()
-    labels = ordered_models(labels)
-    if labels:
-        fig.legend(
-            [legend_handle(label) for label in labels],
-            labels,
-            title=title,
-            loc="lower center",
-            bbox_to_anchor=(0.5, -0.09),
-            ncol=min(5, len(labels)),
-            frameon=False,
-            prop={"size": FONT["legend"], "weight": FONT_WEIGHT},
-            handlelength=3.0,
-            handletextpad=0.55,
-            columnspacing=1.25,
-            borderaxespad=0.0,
-            markerscale=1.08,
-        )
-        fig.subplots_adjust(bottom=layout["bottom"])
-
-
-def style_axes(ax, xlabel, ylabel):
-    ax.set_xlabel(xlabel, fontsize=FONT["label"], fontweight=FONT_WEIGHT, labelpad=7)
-    ax.set_ylabel(ylabel, fontsize=FONT["label"], fontweight=FONT_WEIGHT, labelpad=9)
-    ax.tick_params(axis="both", labelsize=FONT["tick"], width=0.9, length=4.5)
-    for tick_label in [*ax.get_xticklabels(), *ax.get_yticklabels()]:
-        tick_label.set_fontweight(FONT_WEIGHT)
-    ax.set_axisbelow(True)
-    ax.grid(True, axis="y", alpha=0.22, linestyle="--", linewidth=0.75)
-    ax.grid(True, axis="x", alpha=0.10, linestyle="--", linewidth=0.65)
-    ax.margins(x=0.035)
 
 
 def plot_metric_vs_complexity(df, metric, ylabel, output_dir, formats, dpi):
@@ -299,14 +276,15 @@ def plot_metric_vs_complexity(df, metric, ylabel, output_dir, formats, dpi):
         return
     summary = aggregate(df, [metric])
     symbols = sorted(summary["symbols"].dropna().unique())
-    fig, axes = plt.subplots(1, len(symbols), figsize=(4.2 * len(symbols), 3.6), sharey=True)
-    axes = np.atleast_1d(axes)
-    for ax, symbol_count in zip(axes, symbols):
+    fig = new_figure(1.0, 1.87)
+    axes = np.atleast_1d(fig.subplots(1, len(symbols), sharey=True))
+    for index, (ax, symbol_count) in enumerate(zip(axes, symbols)):
         sub = summary[summary["symbols"] == symbol_count]
         plot_model_series(ax, sub, "complexity", metric, yerr=f"{metric}_sem")
-        ax.set_title(rf"$|\Sigma| = {int(symbol_count)}$", fontsize=FONT["title"], fontweight=FONT_WEIGHT, pad=10)
-        style_axes(ax, r"$\mathrm{LZW}$ complexity, $c$", ylabel)
-    place_bottom_legend(fig, axes)
+        ax.set_title(rf"$|\Sigma| = {int(symbol_count)}$")
+        ax.set_xticks(sorted(summary["complexity"].unique()))
+        style_axes(ax, r"$\mathrm{LZW}$ complexity, $c$", ylabel if index == 0 else None)
+    place_bottom_legend(fig, ordered_models(summary["model"]), ncol=8, compact=True)
     save_figure(fig, output_dir, f"{metric}_vs_lzw_complexity", formats, dpi)
 
 
@@ -329,14 +307,13 @@ def plot_rollout_error_by_horizon(df, output_dir, formats, dpi):
         return
     horizon_df = pd.DataFrame(rows)
     summary = horizon_df.groupby(["model", "step"], observed=True)["cumulative_error"].mean().reset_index()
-    stem = "rollout_error_vs_horizon"
-    layout = figure_layout(stem)
-    fig, ax = plt.subplots(figsize=layout["figsize"])
+    fig = new_figure(0.62, 2.46)
+    ax = fig.subplots()
     plot_model_series(ax, summary, "step", "cumulative_error", markevery=10)
-    style_axes(ax, r"Forecast horizon, $k$", r"Cumulative rollout error")
+    style_axes(ax, r"Forecast horizon, $k$", r"Cumulative rollout error", x_from_zero=True)
     ax.set_ylim(0, min(1.0, max(0.05, summary["cumulative_error"].max() * 1.15)))
-    place_bottom_legend(fig, [ax], layout=layout)
-    save_figure(fig, output_dir, stem, formats, dpi)
+    place_bottom_legend(fig, ordered_models(summary["model"]), ncol=4)
+    save_figure(fig, output_dir, "rollout_error_vs_horizon", formats, dpi)
 
 
 def plot_pareto(df, output_dir, formats, dpi):
@@ -345,13 +322,11 @@ def plot_pareto(df, output_dir, formats, dpi):
     summary = df.groupby("model", observed=True).agg(
         train_time=("train_time", "median"), dl=("DL", "median"), model_size_m=("model_size_m", "median")
     ).reset_index()
-    stem = "compute_performance_pareto"
-    layout = figure_layout(stem)
-    fig, ax = plt.subplots(figsize=layout["figsize"])
-    sizes = 90 + 440 * summary["model_size_m"] / max(summary["model_size_m"].max(), 1e-9)
+    fig = new_figure(0.495, 2.05)
+    ax = fig.subplots()
+    sizes = 12 + 60 * summary["model_size_m"] / max(summary["model_size_m"].max(), 1e-9)
     for idx, row in summary.iterrows():
-        model = str(row["model"])
-        style = model_style(model)
+        style = model_style(row["model"])
         ax.scatter(
             row["train_time"],
             row["dl"],
@@ -359,38 +334,37 @@ def plot_pareto(df, output_dir, formats, dpi):
             marker=style["marker"],
             facecolor=marker_facecolor(style),
             edgecolor=style["color"],
-            linewidth=1.35,
+            linewidth=0.8,
             alpha=0.88,
-            label=model,
         )
-    style_axes(ax, r"Median training time (s)", r"Median normalized $\mathrm{DL}$ distance")
+    style_axes(ax, r"Median training time (s)", "Median normalized\n" r"$\mathrm{DL}$ distance")
     if summary["train_time"].min() > 0:
         ax.set_xscale("log")
-    place_bottom_legend(fig, [ax], layout=layout)
-    save_figure(fig, output_dir, stem, formats, dpi)
+    place_bottom_legend(fig, ordered_models(summary["model"]), ncol=4, compact=True)
+    save_figure(fig, output_dir, "compute_performance_pareto", formats, dpi)
 
 
 def plot_scaling(df, output_dir, formats, dpi):
     candidates = [
-        ("model_params", "test_loss", r"Model parameters, $|\theta|$", METRIC_LABELS["test_loss"], "test_loss_vs_model_params"),
-        ("sequence_length", "test_loss", r"Training sequence length, $N$", METRIC_LABELS["test_loss"], "test_loss_vs_sequence_length"),
-        ("model_params", "DL", r"Model parameters, $|\theta|$", METRIC_LABELS["DL"], "dl_vs_model_params"),
+        ("model_params", "test_loss", r"Model parameters, $|\theta|$", "test_loss_vs_model_params"),
+        ("sequence_length", "test_loss", r"Training sequence length, $N$", "test_loss_vs_sequence_length"),
+        ("model_params", "DL", r"Model parameters, $|\theta|$", "dl_vs_model_params"),
     ]
-    for x_col, y_col, xlabel, ylabel, stem in candidates:
+    for x_col, y_col, xlabel, stem in candidates:
         if not {x_col, y_col}.issubset(df.columns):
             continue
         summary = df.groupby(["model", x_col], observed=True)[y_col].mean().reset_index()
         if summary[x_col].nunique() < 2:
             continue
-        layout = figure_layout(stem)
-        fig, ax = plt.subplots(figsize=layout["figsize"])
+        fig = new_figure(0.495, 1.93)
+        ax = fig.subplots()
         plot_model_series(ax, summary, x_col, y_col)
-        style_axes(ax, xlabel, ylabel)
+        style_axes(ax, xlabel, SHORT_AXIS_LABELS[y_col])
         if summary[x_col].min() > 0:
             ax.set_xscale("log")
         if y_col == "test_loss" and summary[y_col].min() > 0:
             ax.set_yscale("log")
-        place_bottom_legend(fig, [ax], layout=layout)
+        place_bottom_legend(fig, ordered_models(summary["model"]), ncol=4, compact=True)
         save_figure(fig, output_dir, stem, formats, dpi)
 
 
@@ -398,35 +372,36 @@ def plot_context_sensitivity(df, output_dir, formats, dpi):
     if not {"window_size", "DL"}.issubset(df.columns) or df["window_size"].nunique() < 2:
         return
     summary = df.groupby(["model", "window_size"], observed=True)["DL"].mean().reset_index()
-    fig, ax = plt.subplots(figsize=(6.8, 4.2))
+    fig = new_figure(0.62, 2.46)
+    ax = fig.subplots()
     plot_model_series(ax, summary, "window_size", "DL")
-    style_axes(ax, r"Context window size, $w$", r"Normalized $\mathrm{DL}$ distance")
-    place_bottom_legend(fig, [ax])
+    style_axes(ax, r"Context window size, $w$", METRIC_LABELS["DL"])
+    place_bottom_legend(fig, ordered_models(summary["model"]), ncol=4)
     save_figure(fig, output_dir, "context_sensitivity", formats, dpi)
 
 
 def plot_metric_heatmap(df, metric, output_dir, formats, dpi):
     if metric not in df.columns:
         return
+    import seaborn as sns
+
     summary = df.groupby(["model", "complexity"], observed=True)[metric].mean().reset_index()
     pivot = summary.pivot(index="model", columns="complexity", values=metric)
     pivot = pivot.reindex([model for model in MODEL_ORDER if model in pivot.index])
-    fig, ax = plt.subplots(figsize=(7.2, 4.8))
+    fig = new_figure(0.62, 2.6)
+    ax = fig.subplots()
     sns.heatmap(
         pivot,
         ax=ax,
         cmap="YlGnBu_r" if metric in {"DL", "test_loss"} else "YlGnBu",
         annot=True,
         fmt=".3f",
-        annot_kws={"fontsize": FONT["annotation"], "fontweight": FONT_WEIGHT},
+        annot_kws={"fontsize": FONT_SIZE - 1},
         cbar_kws={"label": METRIC_LABELS.get(metric, metric)},
     )
-    style_axes(ax, r"$\mathrm{LZW}$ complexity, $c$", "Model")
-    cbar = ax.collections[0].colorbar
-    cbar.ax.tick_params(labelsize=FONT["tick"])
-    for tick_label in cbar.ax.get_yticklabels():
-        tick_label.set_fontweight(FONT_WEIGHT)
-    cbar.set_label(METRIC_LABELS.get(metric, metric), fontsize=FONT["label"], fontweight=FONT_WEIGHT)
+    ax.set_xlabel(r"$\mathrm{LZW}$ complexity, $c$")
+    ax.set_ylabel("Model")
+    ax.tick_params(axis="both", length=0)
     save_figure(fig, output_dir, f"{metric}_complexity_heatmap", formats, dpi)
 
 

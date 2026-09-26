@@ -131,9 +131,9 @@ enough:
 
 The plotting script writes one PNG and one PDF for each analysis by default. It
 uses consistent model colors, markers, marker fill states, and line styles across
-figures. Legends are placed outside the axes, below the plot region. Figure-level
-layout controls such as ``legend_y`` and ``bottom`` are collected in
-``FIGURE_LAYOUTS`` in ``exps/visualize_symbolic_results.py``.
+figures. Legends are placed outside the axes, below the plot region. Each figure is
+drawn at its printed size in the manuscript, so fonts are true point sizes; with
+LaTeX installed the text is typeset in Times with Computer Modern math.
 
 Output Columns
 --------------

@@ -13,15 +13,10 @@ import pandas as pd
 import matplotlib
 
 matplotlib.use("Agg")
-import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
 from matplotlib.ticker import MaxNLocator
 
-from visualize_symbolic_results import MODEL_ORDER, configure_style, load_results, save_figure
-
-
-MATCHED_SIZE_COMPARISON_FONT_SIZE = 7.0
-MATCHED_SIZE_COMPARISON_FONT_WEIGHT = "semibold"
+from visualize_symbolic_results import FONT_SIZE, MODEL_ORDER, configure_style, load_results, new_figure, save_figure, style_axes
 
 
 def parse_args():
@@ -34,26 +29,6 @@ def parse_args():
     parser.add_argument("--comparison-complexity", type=int, default=90)
     parser.add_argument("--comparison-symbols", nargs="+", type=int, default=[4, 8])
     return parser.parse_args()
-
-
-def style_matched_comparison_axes(ax, title):
-    font_size = MATCHED_SIZE_COMPARISON_FONT_SIZE
-    font_weight = MATCHED_SIZE_COMPARISON_FONT_WEIGHT
-    ax.set_title(title, fontsize=font_size, fontweight=font_weight, pad=8)
-    ax.set_xlabel("Model", fontsize=font_size, fontweight=font_weight, labelpad=7)
-    ax.tick_params(axis="both", labelsize=font_size, width=0.65, length=3.5)
-    ax.set_axisbelow(True)
-    ax.grid(True, axis="y", alpha=0.28, linestyle="-", linewidth=0.45)
-    ax.grid(False, axis="x")
-    ax.spines["top"].set_visible(False)
-    ax.spines["right"].set_visible(False)
-    ax.spines["left"].set_linewidth(0.8)
-    ax.spines["bottom"].set_linewidth(0.8)
-    ax.spines["left"].set_zorder(0)
-    ax.spines["bottom"].set_zorder(0)
-    ax.yaxis.set_major_locator(MaxNLocator(nbins=5))
-    for tick_label in [*ax.get_xticklabels(), *ax.get_yticklabels()]:
-        tick_label.set_fontweight(font_weight)
 
 
 def comparison_model_label(model):
@@ -121,83 +96,63 @@ def plot_matched_size_comparison(fixed_df, matched_df, output_dir, formats, dpi,
     x = np.arange(len(models))
     offsets = {"Fixed budget": -0.12, "Matched size": 0.12}
     track_styles = {
-        "Fixed budget": {"color": "#1B4F9C", "marker": "o", "facecolor": "white", "markeredgewidth": 1.1},
-        "Matched size": {"color": "#D95F02", "marker": "D", "facecolor": "#D95F02", "markeredgewidth": 0.9},
+        "Fixed budget": {"color": "#1B4F9C", "marker": "o", "facecolor": "white", "markeredgewidth": 0.9},
+        "Matched size": {"color": "#D95F02", "marker": "D", "facecolor": "#D95F02", "markeredgewidth": 0.7},
     }
     panels = [
         ("DL_mean", "DL_std", r"$\mathrm{DL}$ distance"),
         ("test_loss_mean", "test_loss_std", r"Test loss"),
     ]
 
-    font_size = MATCHED_SIZE_COMPARISON_FONT_SIZE
-    font_weight = MATCHED_SIZE_COMPARISON_FONT_WEIGHT
-    fig, axes = plt.subplots(1, 2, figsize=(7.8, 4.45))
-    fig.suptitle(
-        r"Fixed-budget versus matched-size results at high $\mathrm{LZW}$ complexity",
-        fontsize=font_size + 2,
-        fontweight=font_weight,
-        x=0.53,
-        y=0.928,
-    )
+    fig = new_figure(1.0, 3.57)
+    axes = fig.subplots(1, 2)
+    fig.suptitle(r"Fixed-budget versus matched-size results at high $\mathrm{LZW}$ complexity")
 
     for ax, (mean_col, std_col, title) in zip(axes, panels):
         track_subsets = {
             track: summary[summary["track"].astype(str) == track].set_index("model").reindex(models)
             for track in track_styles
         }
+        means = {track: subset[mean_col].to_numpy(dtype=float) for track, subset in track_subsets.items()}
+        stds = {track: subset[std_col].fillna(0.0).to_numpy(dtype=float) for track, subset in track_subsets.items()}
         for model_index in range(len(models)):
-            y_pair = [
-                track_subsets["Fixed budget"].iloc[model_index][mean_col],
-                track_subsets["Matched size"].iloc[model_index][mean_col],
-            ]
             ax.plot(
                 [x[model_index] + offsets["Fixed budget"], x[model_index] + offsets["Matched size"]],
-                y_pair,
+                [means["Fixed budget"][model_index], means["Matched size"][model_index]],
                 color="#B8B8B8",
-                linewidth=0.55,
+                linewidth=0.5,
                 zorder=1,
                 clip_on=False,
             )
         for track, style in track_styles.items():
-            subset = track_subsets[track]
-            positions = x + offsets[track]
-            values = subset[mean_col].to_numpy(dtype=float)
-            std = subset[std_col].fillna(0.0).to_numpy(dtype=float)
-            lower_err = np.minimum(std, np.maximum(values, 0.0))
-            yerr = np.vstack([lower_err, std])
+            lower_err = np.minimum(stds[track], np.maximum(means[track], 0.0))
             ax.errorbar(
-                positions,
-                values,
-                yerr=yerr,
+                x + offsets[track],
+                means[track],
+                yerr=np.vstack([lower_err, stds[track]]),
                 fmt=style["marker"],
-                markersize=5.5,
+                markersize=4.2,
                 color=style["color"],
                 markerfacecolor=style["facecolor"],
                 markeredgecolor=style["color"],
                 markeredgewidth=style["markeredgewidth"],
                 elinewidth=0.7,
-                capsize=2.4,
+                capsize=2.0,
                 linestyle="none",
-                label=track,
                 zorder=5,
                 clip_on=False,
             )
-        upper = 0.0
-        for subset in track_subsets.values():
-            upper = max(upper, (subset[mean_col] + subset[std_col].fillna(0.0)).max())
-        y_top = max(upper * 1.12, 1e-3)
-        ax.set_ylim(bottom=0.0, top=y_top)
+        upper = max((means[track] + stds[track]).max() for track in track_styles)
+        ax.set_ylim(0.0, max(upper * 1.12, 1e-3))
         ax.set_xticks(x)
         ax.set_xticklabels(
-            [comparison_model_label(model) for model in models],
-            fontsize=font_size,
-            fontweight=font_weight,
-            rotation=18,
-            ha="right",
-            rotation_mode="anchor",
+            [comparison_model_label(model) for model in models], rotation=18, ha="right", rotation_mode="anchor"
         )
-        style_matched_comparison_axes(ax, title)
-        ax.margins(x=0.03)
+        ax.set_title(title)
+        ax.yaxis.set_major_locator(MaxNLocator(nbins=5))
+        style_axes(ax, "Model")
+        ax.grid(False, axis="x")
+        ax.tick_params(axis="x", length=0)
 
     legend_handles = [
         Line2D(
@@ -209,33 +164,26 @@ def plot_matched_size_comparison(fixed_df, matched_df, output_dir, formats, dpi,
             markerfacecolor=style["facecolor"],
             markeredgecolor=style["color"],
             markeredgewidth=style["markeredgewidth"],
-            markersize=5.5,
+            markersize=4.2,
             label=track,
         )
         for track, style in track_styles.items()
     ]
+    note = (
+        r"Points show means; vertical bars show one standard deviation over runs at "
+        rf"$c={complexity}$ and $n\in\{{{','.join(str(symbol) for symbol in symbols)}\}}$."
+    )
     fig.legend(
         handles=legend_handles,
-        loc="lower center",
-        bbox_to_anchor=(0.5, 0.108),
+        loc="outside lower center",
         ncol=2,
         frameon=False,
-        prop={"size": font_size, "weight": font_weight},
-        handletextpad=0.55,
+        title=note,
+        title_fontsize=FONT_SIZE,
         columnspacing=1.9,
-        borderaxespad=0.0,
+        handletextpad=0.5,
     )
-    fig.text(
-        0.5,
-        0.065,
-        rf"Points show means; vertical bars show one standard deviation over runs at $c={complexity}$ and $n\in\{{{','.join(str(symbol) for symbol in symbols)}\}}$.",
-        ha="center",
-        va="center",
-        fontsize=font_size + 2,
-        fontweight=font_weight,
-        color="#404040",
-    )
-    fig.subplots_adjust(left=0.08, right=0.985, bottom=0.305, top=0.835, wspace=0.26)
+    fig.get_layout_engine().set(wspace=0.08)
     save_figure(fig, output_dir, "matched_size_comparison", formats, dpi)
 
 

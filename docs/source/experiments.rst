@@ -88,7 +88,10 @@ Generate main and matched-size figures separately, on a machine with the
      exps/results_symbolic_matched_size/slurm_<matched_job_id>/results_merged.csv
 
 The first command generates one PDF and PNG per analysis. The second generates
-``matched_size_comparison.pdf`` and ``.png``. The archived manuscript data are
+``matched_size_comparison.pdf`` and ``.png``. Figures are drawn at their printed
+size in the manuscript; with LaTeX (``latex`` and ``dvipng``) on the ``PATH`` the
+text is typeset in Times with Computer Modern math, as in the manuscript, and
+otherwise a Times-like font is used. The archived manuscript data are
 in ``legacy/exps/results_symbolic/slurm_102076`` and
 ``legacy/exps/results_symbolic_matched_size/slurm_104393``; pass those CSV paths
 to the same scripts to reproduce figures without retraining. No files in

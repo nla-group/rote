@@ -118,4 +118,4 @@ sphinx-build -b html -W docs/source docs/build/html
 
 ## Citation and License
 
-The benchmark builds on Cahuantzi, Chen, and Guettel, [*A Comparison of LSTM and GRU Networks for Learning Symbolic Sequences*](https://doi.org/10.1007/978-3-031-37963-5_53) (2023), and Chen, Güttel, and Mozaffari, [*ROTE: Benchmarking Neural Memorization on Complexity-Controlled Symbolic Sequences*](https://arxiv.org/abs/2609.31918) (2026). For the ROTE manuscript, cite the final published version when available. ROTE is distributed under the [MIT License](LICENSE). The historical software and results are preserved in `legacy/`.
+The benchmark builds on Chen, Güttel, and Mozaffari, [*ROTE: Benchmarking Neural Memorization on Complexity-Controlled Symbolic Sequences*](paper.bib) (2026), and Cahuantzi, Chen, and Guettel, [*A Comparison of LSTM and GRU Networks for Learning Symbolic Sequences*](https://doi.org/10.1007/978-3-031-37963-5_53) (2023). For the ROTE manuscript, see [`paper.bib`](paper.bib) and cite the final published version when available. ROTE is distributed under the [MIT License](LICENSE). The historical software and results are preserved in `legacy/`.

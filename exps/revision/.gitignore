@@ -1,0 +1,6 @@
+.venv/
+.cache/
+tmp/
+results/
+logs/*
+!logs/.gitkeep

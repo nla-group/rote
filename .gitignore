@@ -14,6 +14,11 @@ exps/results_symbolic/
 exps/results_symbolic_matched_size/
 exps/figures_symbolic/
 exps/figures_symbolic_matched_size/
+exps/revision/.cache/
+exps/revision/tmp/
+exps/revision/results/
+exps/revision/logs/*
+!exps/revision/logs/.gitkeep
 docs/build/
 rote-example-single/
 rote-example-toys/

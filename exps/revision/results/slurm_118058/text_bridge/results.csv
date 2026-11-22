@@ -1,0 +1,3195 @@
+train_time,epochs,time_per_epoch,memory_mb,test_loss,test_accuracy,DL,JW,forecast,train_loss,train_accuracy,valid_loss,valid_accuracy,reached_stopping_loss,track,model,symbols,complexity,seed_index,seed_string,seed_length,predictive_order,alpha_w,bayes_error_w,conditional_entropy_w,sequence_length,window_size,forecast_horizon,run,optimizer,learning_rate,warmup_epochs,weight_decay,batch_size,layers,units,d_model,random_seed,model_params,train_windows,valid_windows,test_windows,phase_exposure,target_string,exact,source_type,source_offset,source_sha256,case_id,stage
+79.27350664138794,70,1.132478666305542,249.0390625,2.40745218594869,0.36363636363636365,0.84,0.4842857142857143,n ant to the the the the the the the the the the the the the the the the the the the the the the the,1.8511013360250563,0.4662878787878788,2.5387608210245767,0.29393939393939394,0,text_bridge,GRU,52,,0,"First Citizen:
+Before we proceed any further, hear me speak.
+
+All:
+Speak, speak.
+
+First Citizen:
+You are all resolved rather to die than to famish?
+
+All:
+Resolved. resolved.
+
+First Citizen:
+First, you know Caius Marcius is chief enemy to the people.
+
+All:
+We know't, we know't.
+
+First Citizen:
+Let us kill him, and we'll have corn at our own price.
+Is't a verdict?
+
+All:
+No more talking on't; let it be done: away, away!
+
+Second Citizen:
+One word, good citizens.
+
+First Citizen:
+We are accounted poor citizens, the patricians good.
+What authority surfeits on would relieve us: if they
+would yield us but the superfluity, while it were
+wholesome, we might guess they relieved us humanely;
+but they think we are too dear: the leanness that
+afflicts us, the object of our misery, is as an
+inventory to particularise their abundance; our
+sufferance is a gain to them Let us revenge this with
+our pikes, ere we become rakes: for the gods know I
+speak this in hunger for bread, not in thirst for revenge.
+
+Second Citizen:
+Would you proceed especially against Caius Marcius?
+
+All:
+Against him first: he's a very dog to the commonalty.
+
+Second Citizen:
+Consider you what services he has done for his country?
+
+First Citizen:
+Very well; and could be content to give him good
+report fort, but that he pays himself with being proud.
+
+Second Citizen:
+Nay, but speak not maliciously.
+
+First Citizen:
+I say unto you, what he hath done famously, he did
+it to that end: though soft-conscienced men can be
+content to say it was for his country he did it to
+please his mother and to be partly proud; which he
+is, even till the altitude of his virtue.
+
+Second Citizen:
+What he cannot help in his nature, you account a
+vice in him. You must in no way say he is covetous.
+
+First Citizen:
+If I must not, I need not be barren of accusations;
+he hath faults, with surplus, to tire in repetition.
+What shouts are these? The other side o' the city
+is risen: why stay we prating here? to the Capitol!
+
+All:
+Come, come.
+
+First Citizen:
+Soft! who comes here?
+
+Second Citizen:
+Worthy Menenius Agrippa; one that hath always loved
+the people.
+
+First Citizen:
+He's one honest enough: would all the rest were so!
+
+MENENIUS:
+What work's, my countrymen, in hand? where go you
+With bats and clubs? The matter? speak, I pray you.
+
+First Citizen:
+Our business is not unknown to the senate; they have
+had inkling this fortnight what we intend to do,
+which now we'll show 'em in deeds. They say poor
+suitors have strong breaths: they shall know we
+have strong arms too.
+
+MENENIUS:
+Why, masters, my good friends, mine honest neighbours,
+Will you undo yourselves?
+
+First Citizen:
+We cannot, sir, we are undone already.
+
+MENENIUS:
+I tell you, friends, most charitable care
+Have the patricians of you. For your wants,
+Your suffering in this dearth, you may as well
+Strike at the heaven with your staves as lift them
+Against the Roman state, whose course will on
+The way it takes, cracking ten thousand curbs
+Of more strong link asunder than can ever
+Appear in your impediment. For the dearth,
+The gods, not the patricians, make it, and
+Your knees to them, not arms, must help. Alack,
+You are transported by calamity
+Thither where more attends you, and you slander
+The helms o' the state, who care for you like fathers,
+When you curse them as enemies.
+
+First Citizen:
+Care for us! True, indeed! They ne'er cared for us
+yet: suffer us to famish, and their store-houses
+crammed with grain; make edicts for usury, to
+support usurers; repeal daily an",3500,,,,,3500,100,100,0,AdamW,0.0003,0,0.01,128,2,128,256,3407,175668,2640,330,330,,"nd their store-houses
+crammed with grain; make edicts for usury, to
+support usurers; repeal daily an",0,nonperiodic_natural_text,0,86c4e6aa9db7c042ec79f339dcb96d42b0075e16b8fc2e86bf0ca57e2dc565ed,962e82bda58881ea86f5,text_bridge
+88.20066380500793,78,1.1307777410898454,249.28955078125,2.3629355430603027,0.38484848484848483,0.78,0.49151351351351347,nt the to the to the to the to the to the to the to the to the to the to the to the to the to the to,1.772818582398551,0.4810606060606061,2.5058353741963706,0.3181818181818182,0,text_bridge,GRU,52,,0,"First Citizen:
+Before we proceed any further, hear me speak.
+
+All:
+Speak, speak.
+
+First Citizen:
+You are all resolved rather to die than to famish?
+
+All:
+Resolved. resolved.
+
+First Citizen:
+First, you know Caius Marcius is chief enemy to the people.
+
+All:
+We know't, we know't.
+
+First Citizen:
+Let us kill him, and we'll have corn at our own price.
+Is't a verdict?
+
+All:
+No more talking on't; let it be done: away, away!
+
+Second Citizen:
+One word, good citizens.
+
+First Citizen:
+We are accounted poor citizens, the patricians good.
+What authority surfeits on would relieve us: if they
+would yield us but the superfluity, while it were
+wholesome, we might guess they relieved us humanely;
+but they think we are too dear: the leanness that
+afflicts us, the object of our misery, is as an
+inventory to particularise their abundance; our
+sufferance is a gain to them Let us revenge this with
+our pikes, ere we become rakes: for the gods know I
+speak this in hunger for bread, not in thirst for revenge.
+
+Second Citizen:
+Would you proceed especially against Caius Marcius?
+
+All:
+Against him first: he's a very dog to the commonalty.
+
+Second Citizen:
+Consider you what services he has done for his country?
+
+First Citizen:
+Very well; and could be content to give him good
+report fort, but that he pays himself with being proud.
+
+Second Citizen:
+Nay, but speak not maliciously.
+
+First Citizen:
+I say unto you, what he hath done famously, he did
+it to that end: though soft-conscienced men can be
+content to say it was for his country he did it to
+please his mother and to be partly proud; which he
+is, even till the altitude of his virtue.
+
+Second Citizen:
+What he cannot help in his nature, you account a
+vice in him. You must in no way say he is covetous.
+
+First Citizen:
+If I must not, I need not be barren of accusations;
+he hath faults, with surplus, to tire in repetition.
+What shouts are these? The other side o' the city
+is risen: why stay we prating here? to the Capitol!
+
+All:
+Come, come.
+
+First Citizen:
+Soft! who comes here?
+
+Second Citizen:
+Worthy Menenius Agrippa; one that hath always loved
+the people.
+
+First Citizen:
+He's one honest enough: would all the rest were so!
+
+MENENIUS:
+What work's, my countrymen, in hand? where go you
+With bats and clubs? The matter? speak, I pray you.
+
+First Citizen:
+Our business is not unknown to the senate; they have
+had inkling this fortnight what we intend to do,
+which now we'll show 'em in deeds. They say poor
+suitors have strong breaths: they shall know we
+have strong arms too.
+
+MENENIUS:
+Why, masters, my good friends, mine honest neighbours,
+Will you undo yourselves?
+
+First Citizen:
+We cannot, sir, we are undone already.
+
+MENENIUS:
+I tell you, friends, most charitable care
+Have the patricians of you. For your wants,
+Your suffering in this dearth, you may as well
+Strike at the heaven with your staves as lift them
+Against the Roman state, whose course will on
+The way it takes, cracking ten thousand curbs
+Of more strong link asunder than can ever
+Appear in your impediment. For the dearth,
+The gods, not the patricians, make it, and
+Your knees to them, not arms, must help. Alack,
+You are transported by calamity
+Thither where more attends you, and you slander
+The helms o' the state, who care for you like fathers,
+When you curse them as enemies.
+
+First Citizen:
+Care for us! True, indeed! They ne'er cared for us
+yet: suffer us to famish, and their store-houses
+crammed with grain; make edicts for usury, to
+support usurers; repeal daily an",3500,,,,,3500,100,100,1,AdamW,0.0003,0,0.01,128,2,128,256,3408,175668,2640,330,330,,"nd their store-houses
+crammed with grain; make edicts for usury, to
+support usurers; repeal daily an",0,nonperiodic_natural_text,0,86c4e6aa9db7c042ec79f339dcb96d42b0075e16b8fc2e86bf0ca57e2dc565ed,90049a55726c6ffb4f32,text_bridge
+90.27005743980408,82,1.100854359022001,275.18408203125,2.6447474161783853,0.30303030303030304,0.79,0.5380392156862746,o the ao tor te te te te te te te te te te te te te te te te te te te te te te te te te te te te te ,2.2277297973632812,0.37537878787878787,2.770050048828125,0.23636363636363636,0,text_bridge,LSTM,52,,0,"First Citizen:
+Before we proceed any further, hear me speak.
+
+All:
+Speak, speak.
+
+First Citizen:
+You are all resolved rather to die than to famish?
+
+All:
+Resolved. resolved.
+
+First Citizen:
+First, you know Caius Marcius is chief enemy to the people.
+
+All:
+We know't, we know't.
+
+First Citizen:
+Let us kill him, and we'll have corn at our own price.
+Is't a verdict?
+
+All:
+No more talking on't; let it be done: away, away!
+
+Second Citizen:
+One word, good citizens.
+
+First Citizen:
+We are accounted poor citizens, the patricians good.
+What authority surfeits on would relieve us: if they
+would yield us but the superfluity, while it were
+wholesome, we might guess they relieved us humanely;
+but they think we are too dear: the leanness that
+afflicts us, the object of our misery, is as an
+inventory to particularise their abundance; our
+sufferance is a gain to them Let us revenge this with
+our pikes, ere we become rakes: for the gods know I
+speak this in hunger for bread, not in thirst for revenge.
+
+Second Citizen:
+Would you proceed especially against Caius Marcius?
+
+All:
+Against him first: he's a very dog to the commonalty.
+
+Second Citizen:
+Consider you what services he has done for his country?
+
+First Citizen:
+Very well; and could be content to give him good
+report fort, but that he pays himself with being proud.
+
+Second Citizen:
+Nay, but speak not maliciously.
+
+First Citizen:
+I say unto you, what he hath done famously, he did
+it to that end: though soft-conscienced men can be
+content to say it was for his country he did it to
+please his mother and to be partly proud; which he
+is, even till the altitude of his virtue.
+
+Second Citizen:
+What he cannot help in his nature, you account a
+vice in him. You must in no way say he is covetous.
+
+First Citizen:
+If I must not, I need not be barren of accusations;
+he hath faults, with surplus, to tire in repetition.
+What shouts are these? The other side o' the city
+is risen: why stay we prating here? to the Capitol!
+
+All:
+Come, come.
+
+First Citizen:
+Soft! who comes here?
+
+Second Citizen:
+Worthy Menenius Agrippa; one that hath always loved
+the people.
+
+First Citizen:
+He's one honest enough: would all the rest were so!
+
+MENENIUS:
+What work's, my countrymen, in hand? where go you
+With bats and clubs? The matter? speak, I pray you.
+
+First Citizen:
+Our business is not unknown to the senate; they have
+had inkling this fortnight what we intend to do,
+which now we'll show 'em in deeds. They say poor
+suitors have strong breaths: they shall know we
+have strong arms too.
+
+MENENIUS:
+Why, masters, my good friends, mine honest neighbours,
+Will you undo yourselves?
+
+First Citizen:
+We cannot, sir, we are undone already.
+
+MENENIUS:
+I tell you, friends, most charitable care
+Have the patricians of you. For your wants,
+Your suffering in this dearth, you may as well
+Strike at the heaven with your staves as lift them
+Against the Roman state, whose course will on
+The way it takes, cracking ten thousand curbs
+Of more strong link asunder than can ever
+Appear in your impediment. For the dearth,
+The gods, not the patricians, make it, and
+Your knees to them, not arms, must help. Alack,
+You are transported by calamity
+Thither where more attends you, and you slander
+The helms o' the state, who care for you like fathers,
+When you curse them as enemies.
+
+First Citizen:
+Care for us! True, indeed! They ne'er cared for us
+yet: suffer us to famish, and their store-houses
+crammed with grain; make edicts for usury, to
+support usurers; repeal daily an",3500,,,,,3500,100,100,0,AdamW,0.0003,0,0.01,128,2,128,256,3407,231988,2640,330,330,,"nd their store-houses
+crammed with grain; make edicts for usury, to
+support usurers; repeal daily an",0,nonperiodic_natural_text,0,86c4e6aa9db7c042ec79f339dcb96d42b0075e16b8fc2e86bf0ca57e2dc565ed,d7dfdbb91bbb358d5c44,text_bridge
+108.51148128509521,99,1.0960755685363153,275.18408203125,2.5960985819498696,0.3,0.8,0.48340540540540544,n to the to the to the to the to the to the to the to the to the to the to the to the to the to the ,2.0761577912739346,0.4212121212121212,2.6962145964304605,0.2636363636363636,0,text_bridge,LSTM,52,,0,"First Citizen:
+Before we proceed any further, hear me speak.
+
+All:
+Speak, speak.
+
+First Citizen:
+You are all resolved rather to die than to famish?
+
+All:
+Resolved. resolved.
+
+First Citizen:
+First, you know Caius Marcius is chief enemy to the people.
+
+All:
+We know't, we know't.
+
+First Citizen:
+Let us kill him, and we'll have corn at our own price.
+Is't a verdict?
+
+All:
+No more talking on't; let it be done: away, away!
+
+Second Citizen:
+One word, good citizens.
+
+First Citizen:
+We are accounted poor citizens, the patricians good.
+What authority surfeits on would relieve us: if they
+would yield us but the superfluity, while it were
+wholesome, we might guess they relieved us humanely;
+but they think we are too dear: the leanness that
+afflicts us, the object of our misery, is as an
+inventory to particularise their abundance; our
+sufferance is a gain to them Let us revenge this with
+our pikes, ere we become rakes: for the gods know I
+speak this in hunger for bread, not in thirst for revenge.
+
+Second Citizen:
+Would you proceed especially against Caius Marcius?
+
+All:
+Against him first: he's a very dog to the commonalty.
+
+Second Citizen:
+Consider you what services he has done for his country?
+
+First Citizen:
+Very well; and could be content to give him good
+report fort, but that he pays himself with being proud.
+
+Second Citizen:
+Nay, but speak not maliciously.
+
+First Citizen:
+I say unto you, what he hath done famously, he did
+it to that end: though soft-conscienced men can be
+content to say it was for his country he did it to
+please his mother and to be partly proud; which he
+is, even till the altitude of his virtue.
+
+Second Citizen:
+What he cannot help in his nature, you account a
+vice in him. You must in no way say he is covetous.
+
+First Citizen:
+If I must not, I need not be barren of accusations;
+he hath faults, with surplus, to tire in repetition.
+What shouts are these? The other side o' the city
+is risen: why stay we prating here? to the Capitol!
+
+All:
+Come, come.
+
+First Citizen:
+Soft! who comes here?
+
+Second Citizen:
+Worthy Menenius Agrippa; one that hath always loved
+the people.
+
+First Citizen:
+He's one honest enough: would all the rest were so!
+
+MENENIUS:
+What work's, my countrymen, in hand? where go you
+With bats and clubs? The matter? speak, I pray you.
+
+First Citizen:
+Our business is not unknown to the senate; they have
+had inkling this fortnight what we intend to do,
+which now we'll show 'em in deeds. They say poor
+suitors have strong breaths: they shall know we
+have strong arms too.
+
+MENENIUS:
+Why, masters, my good friends, mine honest neighbours,
+Will you undo yourselves?
+
+First Citizen:
+We cannot, sir, we are undone already.
+
+MENENIUS:
+I tell you, friends, most charitable care
+Have the patricians of you. For your wants,
+Your suffering in this dearth, you may as well
+Strike at the heaven with your staves as lift them
+Against the Roman state, whose course will on
+The way it takes, cracking ten thousand curbs
+Of more strong link asunder than can ever
+Appear in your impediment. For the dearth,
+The gods, not the patricians, make it, and
+Your knees to them, not arms, must help. Alack,
+You are transported by calamity
+Thither where more attends you, and you slander
+The helms o' the state, who care for you like fathers,
+When you curse them as enemies.
+
+First Citizen:
+Care for us! True, indeed! They ne'er cared for us
+yet: suffer us to famish, and their store-houses
+crammed with grain; make edicts for usury, to
+support usurers; repeal daily an",3500,,,,,3500,100,100,1,AdamW,0.0003,0,0.01,128,2,128,256,3408,231988,2640,330,330,,"nd their store-houses
+crammed with grain; make edicts for usury, to
+support usurers; repeal daily an",0,nonperiodic_natural_text,0,86c4e6aa9db7c042ec79f339dcb96d42b0075e16b8fc2e86bf0ca57e2dc565ed,66c771da8e9f1eaeed31,text_bridge
+23.176170110702515,15,1.5450780073801675,1374.52392578125,2.6380725701649985,0.22424242424242424,0.84,0.5562962962962963,t t t t at at at at t t t t t at at at at at at t t t t t t t s t he t s s s t s t t he he he he he ,2.3573979763757613,0.2909090909090909,2.6364429791768393,0.20909090909090908,0,text_bridge,Transformer,52,,0,"First Citizen:
+Before we proceed any further, hear me speak.
+
+All:
+Speak, speak.
+
+First Citizen:
+You are all resolved rather to die than to famish?
+
+All:
+Resolved. resolved.
+
+First Citizen:
+First, you know Caius Marcius is chief enemy to the people.
+
+All:
+We know't, we know't.
+
+First Citizen:
+Let us kill him, and we'll have corn at our own price.
+Is't a verdict?
+
+All:
+No more talking on't; let it be done: away, away!
+
+Second Citizen:
+One word, good citizens.
+
+First Citizen:
+We are accounted poor citizens, the patricians good.
+What authority surfeits on would relieve us: if they
+would yield us but the superfluity, while it were
+wholesome, we might guess they relieved us humanely;
+but they think we are too dear: the leanness that
+afflicts us, the object of our misery, is as an
+inventory to particularise their abundance; our
+sufferance is a gain to them Let us revenge this with
+our pikes, ere we become rakes: for the gods know I
+speak this in hunger for bread, not in thirst for revenge.
+
+Second Citizen:
+Would you proceed especially against Caius Marcius?
+
+All:
+Against him first: he's a very dog to the commonalty.
+
+Second Citizen:
+Consider you what services he has done for his country?
+
+First Citizen:
+Very well; and could be content to give him good
+report fort, but that he pays himself with being proud.
+
+Second Citizen:
+Nay, but speak not maliciously.
+
+First Citizen:
+I say unto you, what he hath done famously, he did
+it to that end: though soft-conscienced men can be
+content to say it was for his country he did it to
+please his mother and to be partly proud; which he
+is, even till the altitude of his virtue.
+
+Second Citizen:
+What he cannot help in his nature, you account a
+vice in him. You must in no way say he is covetous.
+
+First Citizen:
+If I must not, I need not be barren of accusations;
+he hath faults, with surplus, to tire in repetition.
+What shouts are these? The other side o' the city
+is risen: why stay we prating here? to the Capitol!
+
+All:
+Come, come.
+
+First Citizen:
+Soft! who comes here?
+
+Second Citizen:
+Worthy Menenius Agrippa; one that hath always loved
+the people.
+
+First Citizen:
+He's one honest enough: would all the rest were so!
+
+MENENIUS:
+What work's, my countrymen, in hand? where go you
+With bats and clubs? The matter? speak, I pray you.
+
+First Citizen:
+Our business is not unknown to the senate; they have
+had inkling this fortnight what we intend to do,
+which now we'll show 'em in deeds. They say poor
+suitors have strong breaths: they shall know we
+have strong arms too.
+
+MENENIUS:
+Why, masters, my good friends, mine honest neighbours,
+Will you undo yourselves?
+
+First Citizen:
+We cannot, sir, we are undone already.
+
+MENENIUS:
+I tell you, friends, most charitable care
+Have the patricians of you. For your wants,
+Your suffering in this dearth, you may as well
+Strike at the heaven with your staves as lift them
+Against the Roman state, whose course will on
+The way it takes, cracking ten thousand curbs
+Of more strong link asunder than can ever
+Appear in your impediment. For the dearth,
+The gods, not the patricians, make it, and
+Your knees to them, not arms, must help. Alack,
+You are transported by calamity
+Thither where more attends you, and you slander
+The helms o' the state, who care for you like fathers,
+When you curse them as enemies.
+
+First Citizen:
+Care for us! True, indeed! They ne'er cared for us
+yet: suffer us to famish, and their store-houses
+crammed with grain; make edicts for usury, to
+support usurers; repeal daily an",3500,,,,,3500,100,100,0,AdamW,0.0003,0,0.01,128,2,1024,256,3407,3714356,2640,330,330,,"nd their store-houses
+crammed with grain; make edicts for usury, to
+support usurers; repeal daily an",0,nonperiodic_natural_text,0,86c4e6aa9db7c042ec79f339dcb96d42b0075e16b8fc2e86bf0ca57e2dc565ed,4dceb99aab7e325dd4fc,text_bridge
+30.61227059364319,20,1.5306135296821595,1374.52392578125,2.5740672747294107,0.2787878787878788,0.82,0.5870588235294119,the the the the the the the the the the the the the the the the the the the the the t t t t t s s s ,2.1230507691701255,0.35984848484848486,2.58828075726827,0.23030303030303031,0,text_bridge,Transformer,52,,0,"First Citizen:
+Before we proceed any further, hear me speak.
+
+All:
+Speak, speak.
+
+First Citizen:
+You are all resolved rather to die than to famish?
+
+All:
+Resolved. resolved.
+
+First Citizen:
+First, you know Caius Marcius is chief enemy to the people.
+
+All:
+We know't, we know't.
+
+First Citizen:
+Let us kill him, and we'll have corn at our own price.
+Is't a verdict?
+
+All:
+No more talking on't; let it be done: away, away!
+
+Second Citizen:
+One word, good citizens.
+
+First Citizen:
+We are accounted poor citizens, the patricians good.
+What authority surfeits on would relieve us: if they
+would yield us but the superfluity, while it were
+wholesome, we might guess they relieved us humanely;
+but they think we are too dear: the leanness that
+afflicts us, the object of our misery, is as an
+inventory to particularise their abundance; our
+sufferance is a gain to them Let us revenge this with
+our pikes, ere we become rakes: for the gods know I
+speak this in hunger for bread, not in thirst for revenge.
+
+Second Citizen:
+Would you proceed especially against Caius Marcius?
+
+All:
+Against him first: he's a very dog to the commonalty.
+
+Second Citizen:
+Consider you what services he has done for his country?
+
+First Citizen:
+Very well; and could be content to give him good
+report fort, but that he pays himself with being proud.
+
+Second Citizen:
+Nay, but speak not maliciously.
+
+First Citizen:
+I say unto you, what he hath done famously, he did
+it to that end: though soft-conscienced men can be
+content to say it was for his country he did it to
+please his mother and to be partly proud; which he
+is, even till the altitude of his virtue.
+
+Second Citizen:
+What he cannot help in his nature, you account a
+vice in him. You must in no way say he is covetous.
+
+First Citizen:
+If I must not, I need not be barren of accusations;
+he hath faults, with surplus, to tire in repetition.
+What shouts are these? The other side o' the city
+is risen: why stay we prating here? to the Capitol!
+
+All:
+Come, come.
+
+First Citizen:
+Soft! who comes here?
+
+Second Citizen:
+Worthy Menenius Agrippa; one that hath always loved
+the people.
+
+First Citizen:
+He's one honest enough: would all the rest were so!
+
+MENENIUS:
+What work's, my countrymen, in hand? where go you
+With bats and clubs? The matter? speak, I pray you.
+
+First Citizen:
+Our business is not unknown to the senate; they have
+had inkling this fortnight what we intend to do,
+which now we'll show 'em in deeds. They say poor
+suitors have strong breaths: they shall know we
+have strong arms too.
+
+MENENIUS:
+Why, masters, my good friends, mine honest neighbours,
+Will you undo yourselves?
+
+First Citizen:
+We cannot, sir, we are undone already.
+
+MENENIUS:
+I tell you, friends, most charitable care
+Have the patricians of you. For your wants,
+Your suffering in this dearth, you may as well
+Strike at the heaven with your staves as lift them
+Against the Roman state, whose course will on
+The way it takes, cracking ten thousand curbs
+Of more strong link asunder than can ever
+Appear in your impediment. For the dearth,
+The gods, not the patricians, make it, and
+Your knees to them, not arms, must help. Alack,
+You are transported by calamity
+Thither where more attends you, and you slander
+The helms o' the state, who care for you like fathers,
+When you curse them as enemies.
+
+First Citizen:
+Care for us! True, indeed! They ne'er cared for us
+yet: suffer us to famish, and their store-houses
+crammed with grain; make edicts for usury, to
+support usurers; repeal daily an",3500,,,,,3500,100,100,1,AdamW,0.0003,0,0.01,128,2,1024,256,3408,3714356,2640,330,330,,"nd their store-houses
+crammed with grain; make edicts for usury, to
+support usurers; repeal daily an",0,nonperiodic_natural_text,0,86c4e6aa9db7c042ec79f339dcb96d42b0075e16b8fc2e86bf0ca57e2dc565ed,7516456f5f872f01726b,text_bridge
+47.62465286254883,36,1.3229070239596896,2471.26806640625,2.371002276738485,0.34545454545454546,0.77,0.277469387755102,nd the pare the pare the peak the pare the peak the pare the peak the pare the peak the pare the pea,1.5564320541563488,0.5170454545454546,2.441917339960734,0.3484848484848485,0,text_bridge,LinearAttention,52,,0,"First Citizen:
+Before we proceed any further, hear me speak.
+
+All:
+Speak, speak.
+
+First Citizen:
+You are all resolved rather to die than to famish?
+
+All:
+Resolved. resolved.
+
+First Citizen:
+First, you know Caius Marcius is chief enemy to the people.
+
+All:
+We know't, we know't.
+
+First Citizen:
+Let us kill him, and we'll have corn at our own price.
+Is't a verdict?
+
+All:
+No more talking on't; let it be done: away, away!
+
+Second Citizen:
+One word, good citizens.
+
+First Citizen:
+We are accounted poor citizens, the patricians good.
+What authority surfeits on would relieve us: if they
+would yield us but the superfluity, while it were
+wholesome, we might guess they relieved us humanely;
+but they think we are too dear: the leanness that
+afflicts us, the object of our misery, is as an
+inventory to particularise their abundance; our
+sufferance is a gain to them Let us revenge this with
+our pikes, ere we become rakes: for the gods know I
+speak this in hunger for bread, not in thirst for revenge.
+
+Second Citizen:
+Would you proceed especially against Caius Marcius?
+
+All:
+Against him first: he's a very dog to the commonalty.
+
+Second Citizen:
+Consider you what services he has done for his country?
+
+First Citizen:
+Very well; and could be content to give him good
+report fort, but that he pays himself with being proud.
+
+Second Citizen:
+Nay, but speak not maliciously.
+
+First Citizen:
+I say unto you, what he hath done famously, he did
+it to that end: though soft-conscienced men can be
+content to say it was for his country he did it to
+please his mother and to be partly proud; which he
+is, even till the altitude of his virtue.
+
+Second Citizen:
+What he cannot help in his nature, you account a
+vice in him. You must in no way say he is covetous.
+
+First Citizen:
+If I must not, I need not be barren of accusations;
+he hath faults, with surplus, to tire in repetition.
+What shouts are these? The other side o' the city
+is risen: why stay we prating here? to the Capitol!
+
+All:
+Come, come.
+
+First Citizen:
+Soft! who comes here?
+
+Second Citizen:
+Worthy Menenius Agrippa; one that hath always loved
+the people.
+
+First Citizen:
+He's one honest enough: would all the rest were so!
+
+MENENIUS:
+What work's, my countrymen, in hand? where go you
+With bats and clubs? The matter? speak, I pray you.
+
+First Citizen:
+Our business is not unknown to the senate; they have
+had inkling this fortnight what we intend to do,
+which now we'll show 'em in deeds. They say poor
+suitors have strong breaths: they shall know we
+have strong arms too.
+
+MENENIUS:
+Why, masters, my good friends, mine honest neighbours,
+Will you undo yourselves?
+
+First Citizen:
+We cannot, sir, we are undone already.
+
+MENENIUS:
+I tell you, friends, most charitable care
+Have the patricians of you. For your wants,
+Your suffering in this dearth, you may as well
+Strike at the heaven with your staves as lift them
+Against the Roman state, whose course will on
+The way it takes, cracking ten thousand curbs
+Of more strong link asunder than can ever
+Appear in your impediment. For the dearth,
+The gods, not the patricians, make it, and
+Your knees to them, not arms, must help. Alack,
+You are transported by calamity
+Thither where more attends you, and you slander
+The helms o' the state, who care for you like fathers,
+When you curse them as enemies.
+
+First Citizen:
+Care for us! True, indeed! They ne'er cared for us
+yet: suffer us to famish, and their store-houses
+crammed with grain; make edicts for usury, to
+support usurers; repeal daily an",3500,,,,,3500,100,100,0,AdamW,0.0003,0,0.01,128,2,1024,256,3407,1604916,2640,330,330,,"nd their store-houses
+crammed with grain; make edicts for usury, to
+support usurers; repeal daily an",0,nonperiodic_natural_text,0,86c4e6aa9db7c042ec79f339dcb96d42b0075e16b8fc2e86bf0ca57e2dc565ed,0c0db02f00ccd48ef010,text_bridge
+41.239121198654175,32,1.288722537457943,2471.26806640625,2.3814233938852944,0.3575757575757576,0.81,0.4922807017543859,re are are are are are are are are are are are are are are are are are are are are are are are are a,1.6630166258130754,0.5022727272727273,2.407104810078939,0.29393939393939394,0,text_bridge,LinearAttention,52,,0,"First Citizen:
+Before we proceed any further, hear me speak.
+
+All:
+Speak, speak.
+
+First Citizen:
+You are all resolved rather to die than to famish?
+
+All:
+Resolved. resolved.
+
+First Citizen:
+First, you know Caius Marcius is chief enemy to the people.
+
+All:
+We know't, we know't.
+
+First Citizen:
+Let us kill him, and we'll have corn at our own price.
+Is't a verdict?
+
+All:
+No more talking on't; let it be done: away, away!
+
+Second Citizen:
+One word, good citizens.
+
+First Citizen:
+We are accounted poor citizens, the patricians good.
+What authority surfeits on would relieve us: if they
+would yield us but the superfluity, while it were
+wholesome, we might guess they relieved us humanely;
+but they think we are too dear: the leanness that
+afflicts us, the object of our misery, is as an
+inventory to particularise their abundance; our
+sufferance is a gain to them Let us revenge this with
+our pikes, ere we become rakes: for the gods know I
+speak this in hunger for bread, not in thirst for revenge.
+
+Second Citizen:
+Would you proceed especially against Caius Marcius?
+
+All:
+Against him first: he's a very dog to the commonalty.
+
+Second Citizen:
+Consider you what services he has done for his country?
+
+First Citizen:
+Very well; and could be content to give him good
+report fort, but that he pays himself with being proud.
+
+Second Citizen:
+Nay, but speak not maliciously.
+
+First Citizen:
+I say unto you, what he hath done famously, he did
+it to that end: though soft-conscienced men can be
+content to say it was for his country he did it to
+please his mother and to be partly proud; which he
+is, even till the altitude of his virtue.
+
+Second Citizen:
+What he cannot help in his nature, you account a
+vice in him. You must in no way say he is covetous.
+
+First Citizen:
+If I must not, I need not be barren of accusations;
+he hath faults, with surplus, to tire in repetition.
+What shouts are these? The other side o' the city
+is risen: why stay we prating here? to the Capitol!
+
+All:
+Come, come.
+
+First Citizen:
+Soft! who comes here?
+
+Second Citizen:
+Worthy Menenius Agrippa; one that hath always loved
+the people.
+
+First Citizen:
+He's one honest enough: would all the rest were so!
+
+MENENIUS:
+What work's, my countrymen, in hand? where go you
+With bats and clubs? The matter? speak, I pray you.
+
+First Citizen:
+Our business is not unknown to the senate; they have
+had inkling this fortnight what we intend to do,
+which now we'll show 'em in deeds. They say poor
+suitors have strong breaths: they shall know we
+have strong arms too.
+
+MENENIUS:
+Why, masters, my good friends, mine honest neighbours,
+Will you undo yourselves?
+
+First Citizen:
+We cannot, sir, we are undone already.
+
+MENENIUS:
+I tell you, friends, most charitable care
+Have the patricians of you. For your wants,
+Your suffering in this dearth, you may as well
+Strike at the heaven with your staves as lift them
+Against the Roman state, whose course will on
+The way it takes, cracking ten thousand curbs
+Of more strong link asunder than can ever
+Appear in your impediment. For the dearth,
+The gods, not the patricians, make it, and
+Your knees to them, not arms, must help. Alack,
+You are transported by calamity
+Thither where more attends you, and you slander
+The helms o' the state, who care for you like fathers,
+When you curse them as enemies.
+
+First Citizen:
+Care for us! True, indeed! They ne'er cared for us
+yet: suffer us to famish, and their store-houses
+crammed with grain; make edicts for usury, to
+support usurers; repeal daily an",3500,,,,,3500,100,100,1,AdamW,0.0003,0,0.01,128,2,1024,256,3408,1604916,2640,330,330,,"nd their store-houses
+crammed with grain; make edicts for usury, to
+support usurers; repeal daily an",0,nonperiodic_natural_text,0,86c4e6aa9db7c042ec79f339dcb96d42b0075e16b8fc2e86bf0ca57e2dc565ed,9524186e41ac3cbb2ffa,text_bridge
+61.59046459197998,55,1.1198266289450907,251.66552734375,2.4866996606191,0.2787878787878788,0.84,0.5782795698924732, the the the the the the the the the the the the the the the the the the the the the the the the the,2.1982460135505315,0.3560606060606061,2.806391795476278,0.24848484848484848,0,text_bridge,GRU,54,,1,"ords.
+
+All The Lords:
+You are most welcome home.
+
+AUFIDIUS:
+I have not deserved it.
+But, worthy lords, have you with heed perused
+What I have written to you?
+
+Lords:
+We have.
+
+First Lord:
+And grieve to hear't.
+What faults he made before the last, I think
+Might have found easy fines: but there to end
+Where he was to begin and give away
+The benefit of our levies, answering us
+With our own charge, making a treaty where
+There was a yielding,--this admits no excuse.
+
+AUFIDIUS:
+He approaches: you shall hear him.
+
+CORIOLANUS:
+Hail, lords! I am return'd your soldier,
+No more infected with my country's love
+Than when I parted hence, but still subsisting
+Under your great command. You are to know
+That prosperously I have attempted and
+With bloody passage led your wars even to
+The gates of Rome. Our spoils we have brought home
+Do more than counterpoise a full third part
+The charges of the action. We have made peace
+With no less honour to the Antiates
+Than shame to the Romans: and we here deliver,
+Subscribed by the consuls and patricians,
+Together with the seal o' the senate, what
+We have compounded on.
+
+AUFIDIUS:
+Read it not, noble lords;
+But tell the traitor, in the high'st degree
+He hath abused your powers.
+
+CORIOLANUS:
+Traitor! how now!
+
+AUFIDIUS:
+Ay, traitor, Marcius!
+
+CORIOLANUS:
+Marcius!
+
+AUFIDIUS:
+Ay, Marcius, Caius Marcius: dost thou think
+I'll grace thee with that robbery, thy stol'n name
+Coriolanus in Corioli?
+You lords and heads o' the state, perfidiously
+He has betray'd your business, and given up,
+For certain drops of salt, your city Rome,
+I say 'your city,' to his wife and mother;
+Breaking his oath and resolution like
+A twist of rotten silk, never admitting
+Counsel o' the war, but at his nurse's tears
+He whined and roar'd away your victory,
+That pages blush'd at him and men of heart
+Look'd wondering each at other.
+
+CORIOLANUS:
+Hear'st thou, Mars?
+
+AUFIDIUS:
+Name not the god, thou boy of tears!
+
+CORIOLANUS:
+Ha!
+
+AUFIDIUS:
+No more.
+
+CORIOLANUS:
+Measureless liar, thou hast made my heart
+Too great for what contains it. Boy! O slave!
+Pardon me, lords, 'tis the first time that ever
+I was forced to scold. Your judgments, my grave lords,
+Must give this cur the lie: and his own notion--
+Who wears my stripes impress'd upon him; that
+Must bear my beating to his grave--shall join
+To thrust the lie unto him.
+
+First Lord:
+Peace, both, and hear me speak.
+
+CORIOLANUS:
+Cut me to pieces, Volsces; men and lads,
+Stain all your edges on me. Boy! false hound!
+If you have writ your annals true, 'tis there,
+That, like an eagle in a dove-cote, I
+Flutter'd your Volscians in Corioli:
+Alone I did it. Boy!
+
+AUFIDIUS:
+Why, noble lords,
+Will you be put in mind of his blind fortune,
+Which was your shame, by this unholy braggart,
+'Fore your own eyes and ears?
+
+All Conspirators:
+Let him die for't.
+
+All The People:
+'Tear him to pieces.' 'Do it presently.' 'He kill'd
+my son.' 'My daughter.' 'He killed my cousin
+Marcus.' 'He killed my father.'
+
+Second Lord:
+Peace, ho! no outrage: peace!
+The man is noble and his fame folds-in
+This orb o' the earth. His last offences to us
+Shall have judicious hearing. Stand, Aufidius,
+And trouble not the peace.
+
+CORIOLANUS:
+O that I had him,
+With six Aufidiuses, or more, his tribe,
+To use my lawful sword!
+
+AUFIDIUS:
+Insolent villain!
+
+All Conspirators:
+Kill, kill, kill, kill, kill him!
+
+Lords:
+Hold, hold, hold, hold!
+
+AUFIDIUS:
+My noble masters, hear me speak.
+
+First Lord:
+O Tullus,--
+
+Second Lord:
+Thou hast done a deed whereat valour wil",3500,,,,,3500,100,100,0,AdamW,0.0003,0,0.01,128,2,128,256,3407,176694,2640,330,330,,"ters, hear me speak.
+
+First Lord:
+O Tullus,--
+
+Second Lord:
+Thou hast done a deed whereat valour wil",0,nonperiodic_natural_text,150000,86c4e6aa9db7c042ec79f339dcb96d42b0075e16b8fc2e86bf0ca57e2dc565ed,3a5a6618a1ac18743df9,text_bridge
+83.13570046424866,74,1.1234554116790358,251.66552734375,2.3178823788960776,0.3424242424242424,0.84,0.5782795698924732, the the the the the the the the the the the the the the the the the the the the the the the the the,1.934097619283767,0.4337121212121212,2.6848387718200684,0.2818181818181818,0,text_bridge,GRU,54,,1,"ords.
+
+All The Lords:
+You are most welcome home.
+
+AUFIDIUS:
+I have not deserved it.
+But, worthy lords, have you with heed perused
+What I have written to you?
+
+Lords:
+We have.
+
+First Lord:
+And grieve to hear't.
+What faults he made before the last, I think
+Might have found easy fines: but there to end
+Where he was to begin and give away
+The benefit of our levies, answering us
+With our own charge, making a treaty where
+There was a yielding,--this admits no excuse.
+
+AUFIDIUS:
+He approaches: you shall hear him.
+
+CORIOLANUS:
+Hail, lords! I am return'd your soldier,
+No more infected with my country's love
+Than when I parted hence, but still subsisting
+Under your great command. You are to know
+That prosperously I have attempted and
+With bloody passage led your wars even to
+The gates of Rome. Our spoils we have brought home
+Do more than counterpoise a full third part
+The charges of the action. We have made peace
+With no less honour to the Antiates
+Than shame to the Romans: and we here deliver,
+Subscribed by the consuls and patricians,
+Together with the seal o' the senate, what
+We have compounded on.
+
+AUFIDIUS:
+Read it not, noble lords;
+But tell the traitor, in the high'st degree
+He hath abused your powers.
+
+CORIOLANUS:
+Traitor! how now!
+
+AUFIDIUS:
+Ay, traitor, Marcius!
+
+CORIOLANUS:
+Marcius!
+
+AUFIDIUS:
+Ay, Marcius, Caius Marcius: dost thou think
+I'll grace thee with that robbery, thy stol'n name
+Coriolanus in Corioli?
+You lords and heads o' the state, perfidiously
+He has betray'd your business, and given up,
+For certain drops of salt, your city Rome,
+I say 'your city,' to his wife and mother;
+Breaking his oath and resolution like
+A twist of rotten silk, never admitting
+Counsel o' the war, but at his nurse's tears
+He whined and roar'd away your victory,
+That pages blush'd at him and men of heart
+Look'd wondering each at other.
+
+CORIOLANUS:
+Hear'st thou, Mars?
+
+AUFIDIUS:
+Name not the god, thou boy of tears!
+
+CORIOLANUS:
+Ha!
+
+AUFIDIUS:
+No more.
+
+CORIOLANUS:
+Measureless liar, thou hast made my heart
+Too great for what contains it. Boy! O slave!
+Pardon me, lords, 'tis the first time that ever
+I was forced to scold. Your judgments, my grave lords,
+Must give this cur the lie: and his own notion--
+Who wears my stripes impress'd upon him; that
+Must bear my beating to his grave--shall join
+To thrust the lie unto him.
+
+First Lord:
+Peace, both, and hear me speak.
+
+CORIOLANUS:
+Cut me to pieces, Volsces; men and lads,
+Stain all your edges on me. Boy! false hound!
+If you have writ your annals true, 'tis there,
+That, like an eagle in a dove-cote, I
+Flutter'd your Volscians in Corioli:
+Alone I did it. Boy!
+
+AUFIDIUS:
+Why, noble lords,
+Will you be put in mind of his blind fortune,
+Which was your shame, by this unholy braggart,
+'Fore your own eyes and ears?
+
+All Conspirators:
+Let him die for't.
+
+All The People:
+'Tear him to pieces.' 'Do it presently.' 'He kill'd
+my son.' 'My daughter.' 'He killed my cousin
+Marcus.' 'He killed my father.'
+
+Second Lord:
+Peace, ho! no outrage: peace!
+The man is noble and his fame folds-in
+This orb o' the earth. His last offences to us
+Shall have judicious hearing. Stand, Aufidius,
+And trouble not the peace.
+
+CORIOLANUS:
+O that I had him,
+With six Aufidiuses, or more, his tribe,
+To use my lawful sword!
+
+AUFIDIUS:
+Insolent villain!
+
+All Conspirators:
+Kill, kill, kill, kill, kill him!
+
+Lords:
+Hold, hold, hold, hold!
+
+AUFIDIUS:
+My noble masters, hear me speak.
+
+First Lord:
+O Tullus,--
+
+Second Lord:
+Thou hast done a deed whereat valour wil",3500,,,,,3500,100,100,1,AdamW,0.0003,0,0.01,128,2,128,256,3408,176694,2640,330,330,,"ters, hear me speak.
+
+First Lord:
+O Tullus,--
+
+Second Lord:
+Thou hast done a deed whereat valour wil",0,nonperiodic_natural_text,150000,86c4e6aa9db7c042ec79f339dcb96d42b0075e16b8fc2e86bf0ca57e2dc565ed,b77ef6671f3777a56cf2,text_bridge
+97.36665940284729,89,1.094007409020756,277.56298828125,2.5806963443756104,0.2696969696969697,0.83,0.5679166666666666,s tor tou tor tor oo tor oo tors oor oor oor oor oor oor oor oor oor oor oor oor oor oor oor oor oor,2.265692251069205,0.35643939393939394,2.891209681828817,0.21515151515151515,0,text_bridge,LSTM,54,,1,"ords.
+
+All The Lords:
+You are most welcome home.
+
+AUFIDIUS:
+I have not deserved it.
+But, worthy lords, have you with heed perused
+What I have written to you?
+
+Lords:
+We have.
+
+First Lord:
+And grieve to hear't.
+What faults he made before the last, I think
+Might have found easy fines: but there to end
+Where he was to begin and give away
+The benefit of our levies, answering us
+With our own charge, making a treaty where
+There was a yielding,--this admits no excuse.
+
+AUFIDIUS:
+He approaches: you shall hear him.
+
+CORIOLANUS:
+Hail, lords! I am return'd your soldier,
+No more infected with my country's love
+Than when I parted hence, but still subsisting
+Under your great command. You are to know
+That prosperously I have attempted and
+With bloody passage led your wars even to
+The gates of Rome. Our spoils we have brought home
+Do more than counterpoise a full third part
+The charges of the action. We have made peace
+With no less honour to the Antiates
+Than shame to the Romans: and we here deliver,
+Subscribed by the consuls and patricians,
+Together with the seal o' the senate, what
+We have compounded on.
+
+AUFIDIUS:
+Read it not, noble lords;
+But tell the traitor, in the high'st degree
+He hath abused your powers.
+
+CORIOLANUS:
+Traitor! how now!
+
+AUFIDIUS:
+Ay, traitor, Marcius!
+
+CORIOLANUS:
+Marcius!
+
+AUFIDIUS:
+Ay, Marcius, Caius Marcius: dost thou think
+I'll grace thee with that robbery, thy stol'n name
+Coriolanus in Corioli?
+You lords and heads o' the state, perfidiously
+He has betray'd your business, and given up,
+For certain drops of salt, your city Rome,
+I say 'your city,' to his wife and mother;
+Breaking his oath and resolution like
+A twist of rotten silk, never admitting
+Counsel o' the war, but at his nurse's tears
+He whined and roar'd away your victory,
+That pages blush'd at him and men of heart
+Look'd wondering each at other.
+
+CORIOLANUS:
+Hear'st thou, Mars?
+
+AUFIDIUS:
+Name not the god, thou boy of tears!
+
+CORIOLANUS:
+Ha!
+
+AUFIDIUS:
+No more.
+
+CORIOLANUS:
+Measureless liar, thou hast made my heart
+Too great for what contains it. Boy! O slave!
+Pardon me, lords, 'tis the first time that ever
+I was forced to scold. Your judgments, my grave lords,
+Must give this cur the lie: and his own notion--
+Who wears my stripes impress'd upon him; that
+Must bear my beating to his grave--shall join
+To thrust the lie unto him.
+
+First Lord:
+Peace, both, and hear me speak.
+
+CORIOLANUS:
+Cut me to pieces, Volsces; men and lads,
+Stain all your edges on me. Boy! false hound!
+If you have writ your annals true, 'tis there,
+That, like an eagle in a dove-cote, I
+Flutter'd your Volscians in Corioli:
+Alone I did it. Boy!
+
+AUFIDIUS:
+Why, noble lords,
+Will you be put in mind of his blind fortune,
+Which was your shame, by this unholy braggart,
+'Fore your own eyes and ears?
+
+All Conspirators:
+Let him die for't.
+
+All The People:
+'Tear him to pieces.' 'Do it presently.' 'He kill'd
+my son.' 'My daughter.' 'He killed my cousin
+Marcus.' 'He killed my father.'
+
+Second Lord:
+Peace, ho! no outrage: peace!
+The man is noble and his fame folds-in
+This orb o' the earth. His last offences to us
+Shall have judicious hearing. Stand, Aufidius,
+And trouble not the peace.
+
+CORIOLANUS:
+O that I had him,
+With six Aufidiuses, or more, his tribe,
+To use my lawful sword!
+
+AUFIDIUS:
+Insolent villain!
+
+All Conspirators:
+Kill, kill, kill, kill, kill him!
+
+Lords:
+Hold, hold, hold, hold!
+
+AUFIDIUS:
+My noble masters, hear me speak.
+
+First Lord:
+O Tullus,--
+
+Second Lord:
+Thou hast done a deed whereat valour wil",3500,,,,,3500,100,100,0,AdamW,0.0003,0,0.01,128,2,128,256,3407,233270,2640,330,330,,"ters, hear me speak.
+
+First Lord:
+O Tullus,--
+
+Second Lord:
+Thou hast done a deed whereat valour wil",0,nonperiodic_natural_text,150000,86c4e6aa9db7c042ec79f339dcb96d42b0075e16b8fc2e86bf0ca57e2dc565ed,3797871b64c946c09507,text_bridge
+101.57475423812866,93,1.0922016584745018,277.56298828125,2.6801069577534995,0.2515151515151515,0.83,0.5380392156862746, to ho tous tor oo oo oo oos oos oos oo oo oo oos oos oo tor oos oos oo tor oos oos oo tor oos oos o,2.305273487454369,0.36022727272727273,2.932868560155233,0.24545454545454545,0,text_bridge,LSTM,54,,1,"ords.
+
+All The Lords:
+You are most welcome home.
+
+AUFIDIUS:
+I have not deserved it.
+But, worthy lords, have you with heed perused
+What I have written to you?
+
+Lords:
+We have.
+
+First Lord:
+And grieve to hear't.
+What faults he made before the last, I think
+Might have found easy fines: but there to end
+Where he was to begin and give away
+The benefit of our levies, answering us
+With our own charge, making a treaty where
+There was a yielding,--this admits no excuse.
+
+AUFIDIUS:
+He approaches: you shall hear him.
+
+CORIOLANUS:
+Hail, lords! I am return'd your soldier,
+No more infected with my country's love
+Than when I parted hence, but still subsisting
+Under your great command. You are to know
+That prosperously I have attempted and
+With bloody passage led your wars even to
+The gates of Rome. Our spoils we have brought home
+Do more than counterpoise a full third part
+The charges of the action. We have made peace
+With no less honour to the Antiates
+Than shame to the Romans: and we here deliver,
+Subscribed by the consuls and patricians,
+Together with the seal o' the senate, what
+We have compounded on.
+
+AUFIDIUS:
+Read it not, noble lords;
+But tell the traitor, in the high'st degree
+He hath abused your powers.
+
+CORIOLANUS:
+Traitor! how now!
+
+AUFIDIUS:
+Ay, traitor, Marcius!
+
+CORIOLANUS:
+Marcius!
+
+AUFIDIUS:
+Ay, Marcius, Caius Marcius: dost thou think
+I'll grace thee with that robbery, thy stol'n name
+Coriolanus in Corioli?
+You lords and heads o' the state, perfidiously
+He has betray'd your business, and given up,
+For certain drops of salt, your city Rome,
+I say 'your city,' to his wife and mother;
+Breaking his oath and resolution like
+A twist of rotten silk, never admitting
+Counsel o' the war, but at his nurse's tears
+He whined and roar'd away your victory,
+That pages blush'd at him and men of heart
+Look'd wondering each at other.
+
+CORIOLANUS:
+Hear'st thou, Mars?
+
+AUFIDIUS:
+Name not the god, thou boy of tears!
+
+CORIOLANUS:
+Ha!
+
+AUFIDIUS:
+No more.
+
+CORIOLANUS:
+Measureless liar, thou hast made my heart
+Too great for what contains it. Boy! O slave!
+Pardon me, lords, 'tis the first time that ever
+I was forced to scold. Your judgments, my grave lords,
+Must give this cur the lie: and his own notion--
+Who wears my stripes impress'd upon him; that
+Must bear my beating to his grave--shall join
+To thrust the lie unto him.
+
+First Lord:
+Peace, both, and hear me speak.
+
+CORIOLANUS:
+Cut me to pieces, Volsces; men and lads,
+Stain all your edges on me. Boy! false hound!
+If you have writ your annals true, 'tis there,
+That, like an eagle in a dove-cote, I
+Flutter'd your Volscians in Corioli:
+Alone I did it. Boy!
+
+AUFIDIUS:
+Why, noble lords,
+Will you be put in mind of his blind fortune,
+Which was your shame, by this unholy braggart,
+'Fore your own eyes and ears?
+
+All Conspirators:
+Let him die for't.
+
+All The People:
+'Tear him to pieces.' 'Do it presently.' 'He kill'd
+my son.' 'My daughter.' 'He killed my cousin
+Marcus.' 'He killed my father.'
+
+Second Lord:
+Peace, ho! no outrage: peace!
+The man is noble and his fame folds-in
+This orb o' the earth. His last offences to us
+Shall have judicious hearing. Stand, Aufidius,
+And trouble not the peace.
+
+CORIOLANUS:
+O that I had him,
+With six Aufidiuses, or more, his tribe,
+To use my lawful sword!
+
+AUFIDIUS:
+Insolent villain!
+
+All Conspirators:
+Kill, kill, kill, kill, kill him!
+
+Lords:
+Hold, hold, hold, hold!
+
+AUFIDIUS:
+My noble masters, hear me speak.
+
+First Lord:
+O Tullus,--
+
+Second Lord:
+Thou hast done a deed whereat valour wil",3500,,,,,3500,100,100,1,AdamW,0.0003,0,0.01,128,2,128,256,3408,233270,2640,330,330,,"ters, hear me speak.
+
+First Lord:
+O Tullus,--
+
+Second Lord:
+Thou hast done a deed whereat valour wil",0,nonperiodic_natural_text,150000,86c4e6aa9db7c042ec79f339dcb96d42b0075e16b8fc2e86bf0ca57e2dc565ed,4b7f71f9638bb5b04290,text_bridge
+30.576697826385498,20,1.5288348913192749,1377.44287109375,2.512763818105062,0.2696969696969697,0.84,0.5772549019607842, sth the the the the the the the the the the the the the the the the the the the the the an the the ,2.054857163202195,0.3723484848484849,2.8400443394978843,0.21515151515151515,0,text_bridge,Transformer,54,,1,"ords.
+
+All The Lords:
+You are most welcome home.
+
+AUFIDIUS:
+I have not deserved it.
+But, worthy lords, have you with heed perused
+What I have written to you?
+
+Lords:
+We have.
+
+First Lord:
+And grieve to hear't.
+What faults he made before the last, I think
+Might have found easy fines: but there to end
+Where he was to begin and give away
+The benefit of our levies, answering us
+With our own charge, making a treaty where
+There was a yielding,--this admits no excuse.
+
+AUFIDIUS:
+He approaches: you shall hear him.
+
+CORIOLANUS:
+Hail, lords! I am return'd your soldier,
+No more infected with my country's love
+Than when I parted hence, but still subsisting
+Under your great command. You are to know
+That prosperously I have attempted and
+With bloody passage led your wars even to
+The gates of Rome. Our spoils we have brought home
+Do more than counterpoise a full third part
+The charges of the action. We have made peace
+With no less honour to the Antiates
+Than shame to the Romans: and we here deliver,
+Subscribed by the consuls and patricians,
+Together with the seal o' the senate, what
+We have compounded on.
+
+AUFIDIUS:
+Read it not, noble lords;
+But tell the traitor, in the high'st degree
+He hath abused your powers.
+
+CORIOLANUS:
+Traitor! how now!
+
+AUFIDIUS:
+Ay, traitor, Marcius!
+
+CORIOLANUS:
+Marcius!
+
+AUFIDIUS:
+Ay, Marcius, Caius Marcius: dost thou think
+I'll grace thee with that robbery, thy stol'n name
+Coriolanus in Corioli?
+You lords and heads o' the state, perfidiously
+He has betray'd your business, and given up,
+For certain drops of salt, your city Rome,
+I say 'your city,' to his wife and mother;
+Breaking his oath and resolution like
+A twist of rotten silk, never admitting
+Counsel o' the war, but at his nurse's tears
+He whined and roar'd away your victory,
+That pages blush'd at him and men of heart
+Look'd wondering each at other.
+
+CORIOLANUS:
+Hear'st thou, Mars?
+
+AUFIDIUS:
+Name not the god, thou boy of tears!
+
+CORIOLANUS:
+Ha!
+
+AUFIDIUS:
+No more.
+
+CORIOLANUS:
+Measureless liar, thou hast made my heart
+Too great for what contains it. Boy! O slave!
+Pardon me, lords, 'tis the first time that ever
+I was forced to scold. Your judgments, my grave lords,
+Must give this cur the lie: and his own notion--
+Who wears my stripes impress'd upon him; that
+Must bear my beating to his grave--shall join
+To thrust the lie unto him.
+
+First Lord:
+Peace, both, and hear me speak.
+
+CORIOLANUS:
+Cut me to pieces, Volsces; men and lads,
+Stain all your edges on me. Boy! false hound!
+If you have writ your annals true, 'tis there,
+That, like an eagle in a dove-cote, I
+Flutter'd your Volscians in Corioli:
+Alone I did it. Boy!
+
+AUFIDIUS:
+Why, noble lords,
+Will you be put in mind of his blind fortune,
+Which was your shame, by this unholy braggart,
+'Fore your own eyes and ears?
+
+All Conspirators:
+Let him die for't.
+
+All The People:
+'Tear him to pieces.' 'Do it presently.' 'He kill'd
+my son.' 'My daughter.' 'He killed my cousin
+Marcus.' 'He killed my father.'
+
+Second Lord:
+Peace, ho! no outrage: peace!
+The man is noble and his fame folds-in
+This orb o' the earth. His last offences to us
+Shall have judicious hearing. Stand, Aufidius,
+And trouble not the peace.
+
+CORIOLANUS:
+O that I had him,
+With six Aufidiuses, or more, his tribe,
+To use my lawful sword!
+
+AUFIDIUS:
+Insolent villain!
+
+All Conspirators:
+Kill, kill, kill, kill, kill him!
+
+Lords:
+Hold, hold, hold, hold!
+
+AUFIDIUS:
+My noble masters, hear me speak.
+
+First Lord:
+O Tullus,--
+
+Second Lord:
+Thou hast done a deed whereat valour wil",3500,,,,,3500,100,100,0,AdamW,0.0003,0,0.01,128,2,1024,256,3407,3715382,2640,330,330,,"ters, hear me speak.
+
+First Lord:
+O Tullus,--
+
+Second Lord:
+Thou hast done a deed whereat valour wil",0,nonperiodic_natural_text,150000,86c4e6aa9db7c042ec79f339dcb96d42b0075e16b8fc2e86bf0ca57e2dc565ed,5ea0187854a736af4df4,text_bridge
+29.09435486793518,19,1.5312818351544832,1377.44287109375,2.5694421927134194,0.2545454545454545,0.85,0.5172727272727273, thar thar thar thar thar the the the the thar thar the thar the the thar thar thar the the the the ,2.15619733220055,0.3378787878787879,2.883458375930786,0.19696969696969696,0,text_bridge,Transformer,54,,1,"ords.
+
+All The Lords:
+You are most welcome home.
+
+AUFIDIUS:
+I have not deserved it.
+But, worthy lords, have you with heed perused
+What I have written to you?
+
+Lords:
+We have.
+
+First Lord:
+And grieve to hear't.
+What faults he made before the last, I think
+Might have found easy fines: but there to end
+Where he was to begin and give away
+The benefit of our levies, answering us
+With our own charge, making a treaty where
+There was a yielding,--this admits no excuse.
+
+AUFIDIUS:
+He approaches: you shall hear him.
+
+CORIOLANUS:
+Hail, lords! I am return'd your soldier,
+No more infected with my country's love
+Than when I parted hence, but still subsisting
+Under your great command. You are to know
+That prosperously I have attempted and
+With bloody passage led your wars even to
+The gates of Rome. Our spoils we have brought home
+Do more than counterpoise a full third part
+The charges of the action. We have made peace
+With no less honour to the Antiates
+Than shame to the Romans: and we here deliver,
+Subscribed by the consuls and patricians,
+Together with the seal o' the senate, what
+We have compounded on.
+
+AUFIDIUS:
+Read it not, noble lords;
+But tell the traitor, in the high'st degree
+He hath abused your powers.
+
+CORIOLANUS:
+Traitor! how now!
+
+AUFIDIUS:
+Ay, traitor, Marcius!
+
+CORIOLANUS:
+Marcius!
+
+AUFIDIUS:
+Ay, Marcius, Caius Marcius: dost thou think
+I'll grace thee with that robbery, thy stol'n name
+Coriolanus in Corioli?
+You lords and heads o' the state, perfidiously
+He has betray'd your business, and given up,
+For certain drops of salt, your city Rome,
+I say 'your city,' to his wife and mother;
+Breaking his oath and resolution like
+A twist of rotten silk, never admitting
+Counsel o' the war, but at his nurse's tears
+He whined and roar'd away your victory,
+That pages blush'd at him and men of heart
+Look'd wondering each at other.
+
+CORIOLANUS:
+Hear'st thou, Mars?
+
+AUFIDIUS:
+Name not the god, thou boy of tears!
+
+CORIOLANUS:
+Ha!
+
+AUFIDIUS:
+No more.
+
+CORIOLANUS:
+Measureless liar, thou hast made my heart
+Too great for what contains it. Boy! O slave!
+Pardon me, lords, 'tis the first time that ever
+I was forced to scold. Your judgments, my grave lords,
+Must give this cur the lie: and his own notion--
+Who wears my stripes impress'd upon him; that
+Must bear my beating to his grave--shall join
+To thrust the lie unto him.
+
+First Lord:
+Peace, both, and hear me speak.
+
+CORIOLANUS:
+Cut me to pieces, Volsces; men and lads,
+Stain all your edges on me. Boy! false hound!
+If you have writ your annals true, 'tis there,
+That, like an eagle in a dove-cote, I
+Flutter'd your Volscians in Corioli:
+Alone I did it. Boy!
+
+AUFIDIUS:
+Why, noble lords,
+Will you be put in mind of his blind fortune,
+Which was your shame, by this unholy braggart,
+'Fore your own eyes and ears?
+
+All Conspirators:
+Let him die for't.
+
+All The People:
+'Tear him to pieces.' 'Do it presently.' 'He kill'd
+my son.' 'My daughter.' 'He killed my cousin
+Marcus.' 'He killed my father.'
+
+Second Lord:
+Peace, ho! no outrage: peace!
+The man is noble and his fame folds-in
+This orb o' the earth. His last offences to us
+Shall have judicious hearing. Stand, Aufidius,
+And trouble not the peace.
+
+CORIOLANUS:
+O that I had him,
+With six Aufidiuses, or more, his tribe,
+To use my lawful sword!
+
+AUFIDIUS:
+Insolent villain!
+
+All Conspirators:
+Kill, kill, kill, kill, kill him!
+
+Lords:
+Hold, hold, hold, hold!
+
+AUFIDIUS:
+My noble masters, hear me speak.
+
+First Lord:
+O Tullus,--
+
+Second Lord:
+Thou hast done a deed whereat valour wil",3500,,,,,3500,100,100,1,AdamW,0.0003,0,0.01,128,2,1024,256,3408,3715382,2640,330,330,,"ters, hear me speak.
+
+First Lord:
+O Tullus,--
+
+Second Lord:
+Thou hast done a deed whereat valour wil",0,nonperiodic_natural_text,150000,86c4e6aa9db7c042ec79f339dcb96d42b0075e16b8fc2e86bf0ca57e2dc565ed,95b43be18579d8555a13,text_bridge
+37.63948702812195,30,1.254649567604065,2473.64599609375,2.3907951513926187,0.34545454545454546,0.83,0.5040310077519379, to here to here to here the wre the wre the wre the wre the wre the wre the wre the wre the wre the,1.791078703744071,0.4484848484848485,2.8160715103149414,0.2909090909090909,0,text_bridge,LinearAttention,54,,1,"ords.
+
+All The Lords:
+You are most welcome home.
+
+AUFIDIUS:
+I have not deserved it.
+But, worthy lords, have you with heed perused
+What I have written to you?
+
+Lords:
+We have.
+
+First Lord:
+And grieve to hear't.
+What faults he made before the last, I think
+Might have found easy fines: but there to end
+Where he was to begin and give away
+The benefit of our levies, answering us
+With our own charge, making a treaty where
+There was a yielding,--this admits no excuse.
+
+AUFIDIUS:
+He approaches: you shall hear him.
+
+CORIOLANUS:
+Hail, lords! I am return'd your soldier,
+No more infected with my country's love
+Than when I parted hence, but still subsisting
+Under your great command. You are to know
+That prosperously I have attempted and
+With bloody passage led your wars even to
+The gates of Rome. Our spoils we have brought home
+Do more than counterpoise a full third part
+The charges of the action. We have made peace
+With no less honour to the Antiates
+Than shame to the Romans: and we here deliver,
+Subscribed by the consuls and patricians,
+Together with the seal o' the senate, what
+We have compounded on.
+
+AUFIDIUS:
+Read it not, noble lords;
+But tell the traitor, in the high'st degree
+He hath abused your powers.
+
+CORIOLANUS:
+Traitor! how now!
+
+AUFIDIUS:
+Ay, traitor, Marcius!
+
+CORIOLANUS:
+Marcius!
+
+AUFIDIUS:
+Ay, Marcius, Caius Marcius: dost thou think
+I'll grace thee with that robbery, thy stol'n name
+Coriolanus in Corioli?
+You lords and heads o' the state, perfidiously
+He has betray'd your business, and given up,
+For certain drops of salt, your city Rome,
+I say 'your city,' to his wife and mother;
+Breaking his oath and resolution like
+A twist of rotten silk, never admitting
+Counsel o' the war, but at his nurse's tears
+He whined and roar'd away your victory,
+That pages blush'd at him and men of heart
+Look'd wondering each at other.
+
+CORIOLANUS:
+Hear'st thou, Mars?
+
+AUFIDIUS:
+Name not the god, thou boy of tears!
+
+CORIOLANUS:
+Ha!
+
+AUFIDIUS:
+No more.
+
+CORIOLANUS:
+Measureless liar, thou hast made my heart
+Too great for what contains it. Boy! O slave!
+Pardon me, lords, 'tis the first time that ever
+I was forced to scold. Your judgments, my grave lords,
+Must give this cur the lie: and his own notion--
+Who wears my stripes impress'd upon him; that
+Must bear my beating to his grave--shall join
+To thrust the lie unto him.
+
+First Lord:
+Peace, both, and hear me speak.
+
+CORIOLANUS:
+Cut me to pieces, Volsces; men and lads,
+Stain all your edges on me. Boy! false hound!
+If you have writ your annals true, 'tis there,
+That, like an eagle in a dove-cote, I
+Flutter'd your Volscians in Corioli:
+Alone I did it. Boy!
+
+AUFIDIUS:
+Why, noble lords,
+Will you be put in mind of his blind fortune,
+Which was your shame, by this unholy braggart,
+'Fore your own eyes and ears?
+
+All Conspirators:
+Let him die for't.
+
+All The People:
+'Tear him to pieces.' 'Do it presently.' 'He kill'd
+my son.' 'My daughter.' 'He killed my cousin
+Marcus.' 'He killed my father.'
+
+Second Lord:
+Peace, ho! no outrage: peace!
+The man is noble and his fame folds-in
+This orb o' the earth. His last offences to us
+Shall have judicious hearing. Stand, Aufidius,
+And trouble not the peace.
+
+CORIOLANUS:
+O that I had him,
+With six Aufidiuses, or more, his tribe,
+To use my lawful sword!
+
+AUFIDIUS:
+Insolent villain!
+
+All Conspirators:
+Kill, kill, kill, kill, kill him!
+
+Lords:
+Hold, hold, hold, hold!
+
+AUFIDIUS:
+My noble masters, hear me speak.
+
+First Lord:
+O Tullus,--
+
+Second Lord:
+Thou hast done a deed whereat valour wil",3500,,,,,3500,100,100,0,AdamW,0.0003,0,0.01,128,2,1024,256,3407,1605942,2640,330,330,,"ters, hear me speak.
+
+First Lord:
+O Tullus,--
+
+Second Lord:
+Thou hast done a deed whereat valour wil",0,nonperiodic_natural_text,150000,86c4e6aa9db7c042ec79f339dcb96d42b0075e16b8fc2e86bf0ca57e2dc565ed,33141ba372892ab991f2,text_bridge
+32.661797285079956,26,1.2562229725030751,2473.64599609375,2.348870277404785,0.3,0.82,0.551965811965812, to the the the the the the the the the tous to the the the the to the the to the the the the the to,2.0874523492086503,0.3587121212121212,2.756933848063151,0.2727272727272727,0,text_bridge,LinearAttention,54,,1,"ords.
+
+All The Lords:
+You are most welcome home.
+
+AUFIDIUS:
+I have not deserved it.
+But, worthy lords, have you with heed perused
+What I have written to you?
+
+Lords:
+We have.
+
+First Lord:
+And grieve to hear't.
+What faults he made before the last, I think
+Might have found easy fines: but there to end
+Where he was to begin and give away
+The benefit of our levies, answering us
+With our own charge, making a treaty where
+There was a yielding,--this admits no excuse.
+
+AUFIDIUS:
+He approaches: you shall hear him.
+
+CORIOLANUS:
+Hail, lords! I am return'd your soldier,
+No more infected with my country's love
+Than when I parted hence, but still subsisting
+Under your great command. You are to know
+That prosperously I have attempted and
+With bloody passage led your wars even to
+The gates of Rome. Our spoils we have brought home
+Do more than counterpoise a full third part
+The charges of the action. We have made peace
+With no less honour to the Antiates
+Than shame to the Romans: and we here deliver,
+Subscribed by the consuls and patricians,
+Together with the seal o' the senate, what
+We have compounded on.
+
+AUFIDIUS:
+Read it not, noble lords;
+But tell the traitor, in the high'st degree
+He hath abused your powers.
+
+CORIOLANUS:
+Traitor! how now!
+
+AUFIDIUS:
+Ay, traitor, Marcius!
+
+CORIOLANUS:
+Marcius!
+
+AUFIDIUS:
+Ay, Marcius, Caius Marcius: dost thou think
+I'll grace thee with that robbery, thy stol'n name
+Coriolanus in Corioli?
+You lords and heads o' the state, perfidiously
+He has betray'd your business, and given up,
+For certain drops of salt, your city Rome,
+I say 'your city,' to his wife and mother;
+Breaking his oath and resolution like
+A twist of rotten silk, never admitting
+Counsel o' the war, but at his nurse's tears
+He whined and roar'd away your victory,
+That pages blush'd at him and men of heart
+Look'd wondering each at other.
+
+CORIOLANUS:
+Hear'st thou, Mars?
+
+AUFIDIUS:
+Name not the god, thou boy of tears!
+
+CORIOLANUS:
+Ha!
+
+AUFIDIUS:
+No more.
+
+CORIOLANUS:
+Measureless liar, thou hast made my heart
+Too great for what contains it. Boy! O slave!
+Pardon me, lords, 'tis the first time that ever
+I was forced to scold. Your judgments, my grave lords,
+Must give this cur the lie: and his own notion--
+Who wears my stripes impress'd upon him; that
+Must bear my beating to his grave--shall join
+To thrust the lie unto him.
+
+First Lord:
+Peace, both, and hear me speak.
+
+CORIOLANUS:
+Cut me to pieces, Volsces; men and lads,
+Stain all your edges on me. Boy! false hound!
+If you have writ your annals true, 'tis there,
+That, like an eagle in a dove-cote, I
+Flutter'd your Volscians in Corioli:
+Alone I did it. Boy!
+
+AUFIDIUS:
+Why, noble lords,
+Will you be put in mind of his blind fortune,
+Which was your shame, by this unholy braggart,
+'Fore your own eyes and ears?
+
+All Conspirators:
+Let him die for't.
+
+All The People:
+'Tear him to pieces.' 'Do it presently.' 'He kill'd
+my son.' 'My daughter.' 'He killed my cousin
+Marcus.' 'He killed my father.'
+
+Second Lord:
+Peace, ho! no outrage: peace!
+The man is noble and his fame folds-in
+This orb o' the earth. His last offences to us
+Shall have judicious hearing. Stand, Aufidius,
+And trouble not the peace.
+
+CORIOLANUS:
+O that I had him,
+With six Aufidiuses, or more, his tribe,
+To use my lawful sword!
+
+AUFIDIUS:
+Insolent villain!
+
+All Conspirators:
+Kill, kill, kill, kill, kill him!
+
+Lords:
+Hold, hold, hold, hold!
+
+AUFIDIUS:
+My noble masters, hear me speak.
+
+First Lord:
+O Tullus,--
+
+Second Lord:
+Thou hast done a deed whereat valour wil",3500,,,,,3500,100,100,1,AdamW,0.0003,0,0.01,128,2,1024,256,3408,1605942,2640,330,330,,"ters, hear me speak.
+
+First Lord:
+O Tullus,--
+
+Second Lord:
+Thou hast done a deed whereat valour wil",0,nonperiodic_natural_text,150000,86c4e6aa9db7c042ec79f339dcb96d42b0075e16b8fc2e86bf0ca57e2dc565ed,ad7ccc19a256b0ed6eb7,text_bridge
+41.72663927078247,37,1.1277470073184452,256.92041015625,2.958268642425537,0.2909090909090909,0.73,0.5092307692307692,the the the the the the the the the the the the the the the the the the the the the the the the the ,2.549088194256737,0.284469696969697,3.216916084289551,0.22727272727272727,0,text_bridge,GRU,58,,2," Blunt,
+And Rice ap Thomas with a valiant crew;
+And many more of noble fame and worth:
+And towards London they do bend their course,
+If by the way they be not fought withal.
+
+DERBY:
+Return unto thy lord; commend me to him:
+Tell him the queen hath heartily consented
+He shall espouse Elizabeth her daughter.
+These letters will resolve him of my mind. Farewell.
+
+BUCKINGHAM:
+Will not King Richard let me speak with him?
+
+Sheriff:
+No, my good lord; therefore be patient.
+
+BUCKINGHAM:
+Hastings, and Edward's children, Rivers, Grey,
+Holy King Henry, and thy fair son Edward,
+Vaughan, and all that have miscarried
+By underhand corrupted foul injustice,
+If that your moody discontented souls
+Do through the clouds behold this present hour,
+Even for revenge mock my destruction!
+This is All-Souls' day, fellows, is it not?
+
+Sheriff:
+It is, my lord.
+
+BUCKINGHAM:
+Why, then All-Souls' day is my body's doomsday.
+This is the day that, in King Edward's time,
+I wish't might fall on me, when I was found
+False to his children or his wife's allies
+This is the day wherein I wish'd to fall
+By the false faith of him I trusted most;
+This, this All-Souls' day to my fearful soul
+Is the determined respite of my wrongs:
+That high All-Seer that I dallied with
+Hath turn'd my feigned prayer on my head
+And given in earnest what I begg'd in jest.
+Thus doth he force the swords of wicked men
+To turn their own points on their masters' bosoms:
+Now Margaret's curse is fallen upon my head;
+'When he,' quoth she, 'shall split thy heart with sorrow,
+Remember Margaret was a prophetess.'
+Come, sirs, convey me to the block of shame;
+Wrong hath but wrong, and blame the due of blame.
+
+RICHMOND:
+Fellows in arms, and my most loving friends,
+Bruised underneath the yoke of tyranny,
+Thus far into the bowels of the land
+Have we march'd on without impediment;
+And here receive we from our father Stanley
+Lines of fair comfort and encouragement.
+The wretched, bloody, and usurping boar,
+That spoil'd your summer fields and fruitful vines,
+Swills your warm blood like wash, and makes his trough
+In your embowell'd bosoms, this foul swine
+Lies now even in the centre of this isle,
+Near to the town of Leicester, as we learn
+From Tamworth thither is but one day's march.
+In God's name, cheerly on, courageous friends,
+To reap the harvest of perpetual peace
+By this one bloody trial of sharp war.
+
+OXFORD:
+Every man's conscience is a thousand swords,
+To fight against that bloody homicide.
+
+HERBERT:
+I doubt not but his friends will fly to us.
+
+BLUNT:
+He hath no friends but who are friends for fear.
+Which in his greatest need will shrink from him.
+
+RICHMOND:
+All for our vantage. Then, in God's name, march:
+True hope is swift, and flies with swallow's wings:
+Kings it makes gods, and meaner creatures kings.
+
+KING RICHARD III:
+Here pitch our tents, even here in Bosworth field.
+My Lord of Surrey, why look you so sad?
+
+SURREY:
+My heart is ten times lighter than my looks.
+
+KING RICHARD III:
+My Lord of Norfolk,--
+
+NORFOLK:
+Here, most gracious liege.
+
+KING RICHARD III:
+Norfolk, we must have knocks; ha! must we not?
+
+NORFOLK:
+We must both give and take, my gracious lord.
+
+KING RICHARD III:
+Up with my tent there! here will I lie tonight;
+But where to-morrow?  Well, all's one for that.
+Who hath descried the number of the foe?
+
+NORFOLK:
+Six or seven thousand is their utmost power.
+
+KING RICHARD III:
+Why, our battalion trebles that account:
+Besides, the king's name is a tower of strength,
+Which they upon the adverse party want.
+Up",3500,,,,,3500,100,100,0,AdamW,0.0003,0,0.01,128,2,128,256,3407,178746,2640,330,330,,"account:
+Besides, the king's name is a tower of strength,
+Which they upon the adverse party want.
+Up",0,nonperiodic_natural_text,300000,86c4e6aa9db7c042ec79f339dcb96d42b0075e16b8fc2e86bf0ca57e2dc565ed,14346570255f3c444eb3,text_bridge
+51.63953137397766,46,1.1225985081299492,256.92041015625,2.87464706103007,0.3,0.73,0.5092307692307692,the the the the the the the the the the the the the the the the the the the the the the the the the ,2.3575647444952104,0.3231060606060606,3.133756399154663,0.22727272727272727,0,text_bridge,GRU,58,,2," Blunt,
+And Rice ap Thomas with a valiant crew;
+And many more of noble fame and worth:
+And towards London they do bend their course,
+If by the way they be not fought withal.
+
+DERBY:
+Return unto thy lord; commend me to him:
+Tell him the queen hath heartily consented
+He shall espouse Elizabeth her daughter.
+These letters will resolve him of my mind. Farewell.
+
+BUCKINGHAM:
+Will not King Richard let me speak with him?
+
+Sheriff:
+No, my good lord; therefore be patient.
+
+BUCKINGHAM:
+Hastings, and Edward's children, Rivers, Grey,
+Holy King Henry, and thy fair son Edward,
+Vaughan, and all that have miscarried
+By underhand corrupted foul injustice,
+If that your moody discontented souls
+Do through the clouds behold this present hour,
+Even for revenge mock my destruction!
+This is All-Souls' day, fellows, is it not?
+
+Sheriff:
+It is, my lord.
+
+BUCKINGHAM:
+Why, then All-Souls' day is my body's doomsday.
+This is the day that, in King Edward's time,
+I wish't might fall on me, when I was found
+False to his children or his wife's allies
+This is the day wherein I wish'd to fall
+By the false faith of him I trusted most;
+This, this All-Souls' day to my fearful soul
+Is the determined respite of my wrongs:
+That high All-Seer that I dallied with
+Hath turn'd my feigned prayer on my head
+And given in earnest what I begg'd in jest.
+Thus doth he force the swords of wicked men
+To turn their own points on their masters' bosoms:
+Now Margaret's curse is fallen upon my head;
+'When he,' quoth she, 'shall split thy heart with sorrow,
+Remember Margaret was a prophetess.'
+Come, sirs, convey me to the block of shame;
+Wrong hath but wrong, and blame the due of blame.
+
+RICHMOND:
+Fellows in arms, and my most loving friends,
+Bruised underneath the yoke of tyranny,
+Thus far into the bowels of the land
+Have we march'd on without impediment;
+And here receive we from our father Stanley
+Lines of fair comfort and encouragement.
+The wretched, bloody, and usurping boar,
+That spoil'd your summer fields and fruitful vines,
+Swills your warm blood like wash, and makes his trough
+In your embowell'd bosoms, this foul swine
+Lies now even in the centre of this isle,
+Near to the town of Leicester, as we learn
+From Tamworth thither is but one day's march.
+In God's name, cheerly on, courageous friends,
+To reap the harvest of perpetual peace
+By this one bloody trial of sharp war.
+
+OXFORD:
+Every man's conscience is a thousand swords,
+To fight against that bloody homicide.
+
+HERBERT:
+I doubt not but his friends will fly to us.
+
+BLUNT:
+He hath no friends but who are friends for fear.
+Which in his greatest need will shrink from him.
+
+RICHMOND:
+All for our vantage. Then, in God's name, march:
+True hope is swift, and flies with swallow's wings:
+Kings it makes gods, and meaner creatures kings.
+
+KING RICHARD III:
+Here pitch our tents, even here in Bosworth field.
+My Lord of Surrey, why look you so sad?
+
+SURREY:
+My heart is ten times lighter than my looks.
+
+KING RICHARD III:
+My Lord of Norfolk,--
+
+NORFOLK:
+Here, most gracious liege.
+
+KING RICHARD III:
+Norfolk, we must have knocks; ha! must we not?
+
+NORFOLK:
+We must both give and take, my gracious lord.
+
+KING RICHARD III:
+Up with my tent there! here will I lie tonight;
+But where to-morrow?  Well, all's one for that.
+Who hath descried the number of the foe?
+
+NORFOLK:
+Six or seven thousand is their utmost power.
+
+KING RICHARD III:
+Why, our battalion trebles that account:
+Besides, the king's name is a tower of strength,
+Which they upon the adverse party want.
+Up",3500,,,,,3500,100,100,1,AdamW,0.0003,0,0.01,128,2,128,256,3408,178746,2640,330,330,,"account:
+Besides, the king's name is a tower of strength,
+Which they upon the adverse party want.
+Up",0,nonperiodic_natural_text,300000,86c4e6aa9db7c042ec79f339dcb96d42b0075e16b8fc2e86bf0ca57e2dc565ed,38b2fe417a4b8df2d6b7,text_bridge
+63.43334364891052,58,1.0936783387743194,282.82373046875,3.013655344645182,0.21212121212121213,0.77,0.49627906976744185,"he iie 
+hie 
+he he he oe oo to oe oo to he io the he he he he he he he he he he he he he he he oe he",2.738276470275152,0.23484848484848486,3.2312800884246826,0.18484848484848485,0,text_bridge,LSTM,58,,2," Blunt,
+And Rice ap Thomas with a valiant crew;
+And many more of noble fame and worth:
+And towards London they do bend their course,
+If by the way they be not fought withal.
+
+DERBY:
+Return unto thy lord; commend me to him:
+Tell him the queen hath heartily consented
+He shall espouse Elizabeth her daughter.
+These letters will resolve him of my mind. Farewell.
+
+BUCKINGHAM:
+Will not King Richard let me speak with him?
+
+Sheriff:
+No, my good lord; therefore be patient.
+
+BUCKINGHAM:
+Hastings, and Edward's children, Rivers, Grey,
+Holy King Henry, and thy fair son Edward,
+Vaughan, and all that have miscarried
+By underhand corrupted foul injustice,
+If that your moody discontented souls
+Do through the clouds behold this present hour,
+Even for revenge mock my destruction!
+This is All-Souls' day, fellows, is it not?
+
+Sheriff:
+It is, my lord.
+
+BUCKINGHAM:
+Why, then All-Souls' day is my body's doomsday.
+This is the day that, in King Edward's time,
+I wish't might fall on me, when I was found
+False to his children or his wife's allies
+This is the day wherein I wish'd to fall
+By the false faith of him I trusted most;
+This, this All-Souls' day to my fearful soul
+Is the determined respite of my wrongs:
+That high All-Seer that I dallied with
+Hath turn'd my feigned prayer on my head
+And given in earnest what I begg'd in jest.
+Thus doth he force the swords of wicked men
+To turn their own points on their masters' bosoms:
+Now Margaret's curse is fallen upon my head;
+'When he,' quoth she, 'shall split thy heart with sorrow,
+Remember Margaret was a prophetess.'
+Come, sirs, convey me to the block of shame;
+Wrong hath but wrong, and blame the due of blame.
+
+RICHMOND:
+Fellows in arms, and my most loving friends,
+Bruised underneath the yoke of tyranny,
+Thus far into the bowels of the land
+Have we march'd on without impediment;
+And here receive we from our father Stanley
+Lines of fair comfort and encouragement.
+The wretched, bloody, and usurping boar,
+That spoil'd your summer fields and fruitful vines,
+Swills your warm blood like wash, and makes his trough
+In your embowell'd bosoms, this foul swine
+Lies now even in the centre of this isle,
+Near to the town of Leicester, as we learn
+From Tamworth thither is but one day's march.
+In God's name, cheerly on, courageous friends,
+To reap the harvest of perpetual peace
+By this one bloody trial of sharp war.
+
+OXFORD:
+Every man's conscience is a thousand swords,
+To fight against that bloody homicide.
+
+HERBERT:
+I doubt not but his friends will fly to us.
+
+BLUNT:
+He hath no friends but who are friends for fear.
+Which in his greatest need will shrink from him.
+
+RICHMOND:
+All for our vantage. Then, in God's name, march:
+True hope is swift, and flies with swallow's wings:
+Kings it makes gods, and meaner creatures kings.
+
+KING RICHARD III:
+Here pitch our tents, even here in Bosworth field.
+My Lord of Surrey, why look you so sad?
+
+SURREY:
+My heart is ten times lighter than my looks.
+
+KING RICHARD III:
+My Lord of Norfolk,--
+
+NORFOLK:
+Here, most gracious liege.
+
+KING RICHARD III:
+Norfolk, we must have knocks; ha! must we not?
+
+NORFOLK:
+We must both give and take, my gracious lord.
+
+KING RICHARD III:
+Up with my tent there! here will I lie tonight;
+But where to-morrow?  Well, all's one for that.
+Who hath descried the number of the foe?
+
+NORFOLK:
+Six or seven thousand is their utmost power.
+
+KING RICHARD III:
+Why, our battalion trebles that account:
+Besides, the king's name is a tower of strength,
+Which they upon the adverse party want.
+Up",3500,,,,,3500,100,100,0,AdamW,0.0003,0,0.01,128,2,128,256,3407,235834,2640,330,330,,"account:
+Besides, the king's name is a tower of strength,
+Which they upon the adverse party want.
+Up",0,nonperiodic_natural_text,300000,86c4e6aa9db7c042ec79f339dcb96d42b0075e16b8fc2e86bf0ca57e2dc565ed,408bed9578306e28ef8d,text_bridge
+14.763455390930176,13,1.1356504146869366,282.82373046875,3.5047711531321206,0.15151515151515152,0.86,0.5733333333333333,                                                                                                    ,3.277936890011742,0.15,3.6943827470143638,0.1393939393939394,0,text_bridge,LSTM,58,,2," Blunt,
+And Rice ap Thomas with a valiant crew;
+And many more of noble fame and worth:
+And towards London they do bend their course,
+If by the way they be not fought withal.
+
+DERBY:
+Return unto thy lord; commend me to him:
+Tell him the queen hath heartily consented
+He shall espouse Elizabeth her daughter.
+These letters will resolve him of my mind. Farewell.
+
+BUCKINGHAM:
+Will not King Richard let me speak with him?
+
+Sheriff:
+No, my good lord; therefore be patient.
+
+BUCKINGHAM:
+Hastings, and Edward's children, Rivers, Grey,
+Holy King Henry, and thy fair son Edward,
+Vaughan, and all that have miscarried
+By underhand corrupted foul injustice,
+If that your moody discontented souls
+Do through the clouds behold this present hour,
+Even for revenge mock my destruction!
+This is All-Souls' day, fellows, is it not?
+
+Sheriff:
+It is, my lord.
+
+BUCKINGHAM:
+Why, then All-Souls' day is my body's doomsday.
+This is the day that, in King Edward's time,
+I wish't might fall on me, when I was found
+False to his children or his wife's allies
+This is the day wherein I wish'd to fall
+By the false faith of him I trusted most;
+This, this All-Souls' day to my fearful soul
+Is the determined respite of my wrongs:
+That high All-Seer that I dallied with
+Hath turn'd my feigned prayer on my head
+And given in earnest what I begg'd in jest.
+Thus doth he force the swords of wicked men
+To turn their own points on their masters' bosoms:
+Now Margaret's curse is fallen upon my head;
+'When he,' quoth she, 'shall split thy heart with sorrow,
+Remember Margaret was a prophetess.'
+Come, sirs, convey me to the block of shame;
+Wrong hath but wrong, and blame the due of blame.
+
+RICHMOND:
+Fellows in arms, and my most loving friends,
+Bruised underneath the yoke of tyranny,
+Thus far into the bowels of the land
+Have we march'd on without impediment;
+And here receive we from our father Stanley
+Lines of fair comfort and encouragement.
+The wretched, bloody, and usurping boar,
+That spoil'd your summer fields and fruitful vines,
+Swills your warm blood like wash, and makes his trough
+In your embowell'd bosoms, this foul swine
+Lies now even in the centre of this isle,
+Near to the town of Leicester, as we learn
+From Tamworth thither is but one day's march.
+In God's name, cheerly on, courageous friends,
+To reap the harvest of perpetual peace
+By this one bloody trial of sharp war.
+
+OXFORD:
+Every man's conscience is a thousand swords,
+To fight against that bloody homicide.
+
+HERBERT:
+I doubt not but his friends will fly to us.
+
+BLUNT:
+He hath no friends but who are friends for fear.
+Which in his greatest need will shrink from him.
+
+RICHMOND:
+All for our vantage. Then, in God's name, march:
+True hope is swift, and flies with swallow's wings:
+Kings it makes gods, and meaner creatures kings.
+
+KING RICHARD III:
+Here pitch our tents, even here in Bosworth field.
+My Lord of Surrey, why look you so sad?
+
+SURREY:
+My heart is ten times lighter than my looks.
+
+KING RICHARD III:
+My Lord of Norfolk,--
+
+NORFOLK:
+Here, most gracious liege.
+
+KING RICHARD III:
+Norfolk, we must have knocks; ha! must we not?
+
+NORFOLK:
+We must both give and take, my gracious lord.
+
+KING RICHARD III:
+Up with my tent there! here will I lie tonight;
+But where to-morrow?  Well, all's one for that.
+Who hath descried the number of the foe?
+
+NORFOLK:
+Six or seven thousand is their utmost power.
+
+KING RICHARD III:
+Why, our battalion trebles that account:
+Besides, the king's name is a tower of strength,
+Which they upon the adverse party want.
+Up",3500,,,,,3500,100,100,1,AdamW,0.0003,0,0.01,128,2,128,256,3408,235834,2640,330,330,,"account:
+Besides, the king's name is a tower of strength,
+Which they upon the adverse party want.
+Up",0,nonperiodic_natural_text,300000,86c4e6aa9db7c042ec79f339dcb96d42b0075e16b8fc2e86bf0ca57e2dc565ed,b1808df894f9539e8e10,text_bridge
+25.818983554840088,17,1.5187637385200052,1381.71484375,2.7608445485432944,0.27575757575757576,0.72,0.5350387596899224,my my the the the the the me my my the the the the the the the the the o the o the the the the the m,2.347865592865717,0.2943181818181818,2.976886590321859,0.20909090909090908,0,text_bridge,Transformer,58,,2," Blunt,
+And Rice ap Thomas with a valiant crew;
+And many more of noble fame and worth:
+And towards London they do bend their course,
+If by the way they be not fought withal.
+
+DERBY:
+Return unto thy lord; commend me to him:
+Tell him the queen hath heartily consented
+He shall espouse Elizabeth her daughter.
+These letters will resolve him of my mind. Farewell.
+
+BUCKINGHAM:
+Will not King Richard let me speak with him?
+
+Sheriff:
+No, my good lord; therefore be patient.
+
+BUCKINGHAM:
+Hastings, and Edward's children, Rivers, Grey,
+Holy King Henry, and thy fair son Edward,
+Vaughan, and all that have miscarried
+By underhand corrupted foul injustice,
+If that your moody discontented souls
+Do through the clouds behold this present hour,
+Even for revenge mock my destruction!
+This is All-Souls' day, fellows, is it not?
+
+Sheriff:
+It is, my lord.
+
+BUCKINGHAM:
+Why, then All-Souls' day is my body's doomsday.
+This is the day that, in King Edward's time,
+I wish't might fall on me, when I was found
+False to his children or his wife's allies
+This is the day wherein I wish'd to fall
+By the false faith of him I trusted most;
+This, this All-Souls' day to my fearful soul
+Is the determined respite of my wrongs:
+That high All-Seer that I dallied with
+Hath turn'd my feigned prayer on my head
+And given in earnest what I begg'd in jest.
+Thus doth he force the swords of wicked men
+To turn their own points on their masters' bosoms:
+Now Margaret's curse is fallen upon my head;
+'When he,' quoth she, 'shall split thy heart with sorrow,
+Remember Margaret was a prophetess.'
+Come, sirs, convey me to the block of shame;
+Wrong hath but wrong, and blame the due of blame.
+
+RICHMOND:
+Fellows in arms, and my most loving friends,
+Bruised underneath the yoke of tyranny,
+Thus far into the bowels of the land
+Have we march'd on without impediment;
+And here receive we from our father Stanley
+Lines of fair comfort and encouragement.
+The wretched, bloody, and usurping boar,
+That spoil'd your summer fields and fruitful vines,
+Swills your warm blood like wash, and makes his trough
+In your embowell'd bosoms, this foul swine
+Lies now even in the centre of this isle,
+Near to the town of Leicester, as we learn
+From Tamworth thither is but one day's march.
+In God's name, cheerly on, courageous friends,
+To reap the harvest of perpetual peace
+By this one bloody trial of sharp war.
+
+OXFORD:
+Every man's conscience is a thousand swords,
+To fight against that bloody homicide.
+
+HERBERT:
+I doubt not but his friends will fly to us.
+
+BLUNT:
+He hath no friends but who are friends for fear.
+Which in his greatest need will shrink from him.
+
+RICHMOND:
+All for our vantage. Then, in God's name, march:
+True hope is swift, and flies with swallow's wings:
+Kings it makes gods, and meaner creatures kings.
+
+KING RICHARD III:
+Here pitch our tents, even here in Bosworth field.
+My Lord of Surrey, why look you so sad?
+
+SURREY:
+My heart is ten times lighter than my looks.
+
+KING RICHARD III:
+My Lord of Norfolk,--
+
+NORFOLK:
+Here, most gracious liege.
+
+KING RICHARD III:
+Norfolk, we must have knocks; ha! must we not?
+
+NORFOLK:
+We must both give and take, my gracious lord.
+
+KING RICHARD III:
+Up with my tent there! here will I lie tonight;
+But where to-morrow?  Well, all's one for that.
+Who hath descried the number of the foe?
+
+NORFOLK:
+Six or seven thousand is their utmost power.
+
+KING RICHARD III:
+Why, our battalion trebles that account:
+Besides, the king's name is a tower of strength,
+Which they upon the adverse party want.
+Up",3500,,,,,3500,100,100,0,AdamW,0.0003,0,0.01,128,2,1024,256,3407,3717434,2640,330,330,,"account:
+Besides, the king's name is a tower of strength,
+Which they upon the adverse party want.
+Up",0,nonperiodic_natural_text,300000,86c4e6aa9db7c042ec79f339dcb96d42b0075e16b8fc2e86bf0ca57e2dc565ed,f0d91d4e42fd362fd508,text_bridge
+30.39633798599243,20,1.5198168992996215,1381.71484375,2.7631356716156006,0.2636363636363636,0.83,0.4597163120567376,wis war wis wis t t t t t t t th thallllllllllllllllllllllllll the the the the the the me me the the,2.1877521446772983,0.3333333333333333,3.0233092308044434,0.22424242424242424,0,text_bridge,Transformer,58,,2," Blunt,
+And Rice ap Thomas with a valiant crew;
+And many more of noble fame and worth:
+And towards London they do bend their course,
+If by the way they be not fought withal.
+
+DERBY:
+Return unto thy lord; commend me to him:
+Tell him the queen hath heartily consented
+He shall espouse Elizabeth her daughter.
+These letters will resolve him of my mind. Farewell.
+
+BUCKINGHAM:
+Will not King Richard let me speak with him?
+
+Sheriff:
+No, my good lord; therefore be patient.
+
+BUCKINGHAM:
+Hastings, and Edward's children, Rivers, Grey,
+Holy King Henry, and thy fair son Edward,
+Vaughan, and all that have miscarried
+By underhand corrupted foul injustice,
+If that your moody discontented souls
+Do through the clouds behold this present hour,
+Even for revenge mock my destruction!
+This is All-Souls' day, fellows, is it not?
+
+Sheriff:
+It is, my lord.
+
+BUCKINGHAM:
+Why, then All-Souls' day is my body's doomsday.
+This is the day that, in King Edward's time,
+I wish't might fall on me, when I was found
+False to his children or his wife's allies
+This is the day wherein I wish'd to fall
+By the false faith of him I trusted most;
+This, this All-Souls' day to my fearful soul
+Is the determined respite of my wrongs:
+That high All-Seer that I dallied with
+Hath turn'd my feigned prayer on my head
+And given in earnest what I begg'd in jest.
+Thus doth he force the swords of wicked men
+To turn their own points on their masters' bosoms:
+Now Margaret's curse is fallen upon my head;
+'When he,' quoth she, 'shall split thy heart with sorrow,
+Remember Margaret was a prophetess.'
+Come, sirs, convey me to the block of shame;
+Wrong hath but wrong, and blame the due of blame.
+
+RICHMOND:
+Fellows in arms, and my most loving friends,
+Bruised underneath the yoke of tyranny,
+Thus far into the bowels of the land
+Have we march'd on without impediment;
+And here receive we from our father Stanley
+Lines of fair comfort and encouragement.
+The wretched, bloody, and usurping boar,
+That spoil'd your summer fields and fruitful vines,
+Swills your warm blood like wash, and makes his trough
+In your embowell'd bosoms, this foul swine
+Lies now even in the centre of this isle,
+Near to the town of Leicester, as we learn
+From Tamworth thither is but one day's march.
+In God's name, cheerly on, courageous friends,
+To reap the harvest of perpetual peace
+By this one bloody trial of sharp war.
+
+OXFORD:
+Every man's conscience is a thousand swords,
+To fight against that bloody homicide.
+
+HERBERT:
+I doubt not but his friends will fly to us.
+
+BLUNT:
+He hath no friends but who are friends for fear.
+Which in his greatest need will shrink from him.
+
+RICHMOND:
+All for our vantage. Then, in God's name, march:
+True hope is swift, and flies with swallow's wings:
+Kings it makes gods, and meaner creatures kings.
+
+KING RICHARD III:
+Here pitch our tents, even here in Bosworth field.
+My Lord of Surrey, why look you so sad?
+
+SURREY:
+My heart is ten times lighter than my looks.
+
+KING RICHARD III:
+My Lord of Norfolk,--
+
+NORFOLK:
+Here, most gracious liege.
+
+KING RICHARD III:
+Norfolk, we must have knocks; ha! must we not?
+
+NORFOLK:
+We must both give and take, my gracious lord.
+
+KING RICHARD III:
+Up with my tent there! here will I lie tonight;
+But where to-morrow?  Well, all's one for that.
+Who hath descried the number of the foe?
+
+NORFOLK:
+Six or seven thousand is their utmost power.
+
+KING RICHARD III:
+Why, our battalion trebles that account:
+Besides, the king's name is a tower of strength,
+Which they upon the adverse party want.
+Up",3500,,,,,3500,100,100,1,AdamW,0.0003,0,0.01,128,2,1024,256,3408,3717434,2640,330,330,,"account:
+Besides, the king's name is a tower of strength,
+Which they upon the adverse party want.
+Up",0,nonperiodic_natural_text,300000,86c4e6aa9db7c042ec79f339dcb96d42b0075e16b8fc2e86bf0ca57e2dc565ed,b9daf7bed54eb3ae66de,text_bridge
+37.635316610336304,30,1.254510553677877,2478.90478515625,2.594420909881592,0.3424242424242424,0.73,0.5092307692307692,the the the the the the the the the the the the the the the the the the the the the the the the the ,1.9916856288909912,0.38636363636363635,2.8862363497416177,0.26666666666666666,0,text_bridge,LinearAttention,58,,2," Blunt,
+And Rice ap Thomas with a valiant crew;
+And many more of noble fame and worth:
+And towards London they do bend their course,
+If by the way they be not fought withal.
+
+DERBY:
+Return unto thy lord; commend me to him:
+Tell him the queen hath heartily consented
+He shall espouse Elizabeth her daughter.
+These letters will resolve him of my mind. Farewell.
+
+BUCKINGHAM:
+Will not King Richard let me speak with him?
+
+Sheriff:
+No, my good lord; therefore be patient.
+
+BUCKINGHAM:
+Hastings, and Edward's children, Rivers, Grey,
+Holy King Henry, and thy fair son Edward,
+Vaughan, and all that have miscarried
+By underhand corrupted foul injustice,
+If that your moody discontented souls
+Do through the clouds behold this present hour,
+Even for revenge mock my destruction!
+This is All-Souls' day, fellows, is it not?
+
+Sheriff:
+It is, my lord.
+
+BUCKINGHAM:
+Why, then All-Souls' day is my body's doomsday.
+This is the day that, in King Edward's time,
+I wish't might fall on me, when I was found
+False to his children or his wife's allies
+This is the day wherein I wish'd to fall
+By the false faith of him I trusted most;
+This, this All-Souls' day to my fearful soul
+Is the determined respite of my wrongs:
+That high All-Seer that I dallied with
+Hath turn'd my feigned prayer on my head
+And given in earnest what I begg'd in jest.
+Thus doth he force the swords of wicked men
+To turn their own points on their masters' bosoms:
+Now Margaret's curse is fallen upon my head;
+'When he,' quoth she, 'shall split thy heart with sorrow,
+Remember Margaret was a prophetess.'
+Come, sirs, convey me to the block of shame;
+Wrong hath but wrong, and blame the due of blame.
+
+RICHMOND:
+Fellows in arms, and my most loving friends,
+Bruised underneath the yoke of tyranny,
+Thus far into the bowels of the land
+Have we march'd on without impediment;
+And here receive we from our father Stanley
+Lines of fair comfort and encouragement.
+The wretched, bloody, and usurping boar,
+That spoil'd your summer fields and fruitful vines,
+Swills your warm blood like wash, and makes his trough
+In your embowell'd bosoms, this foul swine
+Lies now even in the centre of this isle,
+Near to the town of Leicester, as we learn
+From Tamworth thither is but one day's march.
+In God's name, cheerly on, courageous friends,
+To reap the harvest of perpetual peace
+By this one bloody trial of sharp war.
+
+OXFORD:
+Every man's conscience is a thousand swords,
+To fight against that bloody homicide.
+
+HERBERT:
+I doubt not but his friends will fly to us.
+
+BLUNT:
+He hath no friends but who are friends for fear.
+Which in his greatest need will shrink from him.
+
+RICHMOND:
+All for our vantage. Then, in God's name, march:
+True hope is swift, and flies with swallow's wings:
+Kings it makes gods, and meaner creatures kings.
+
+KING RICHARD III:
+Here pitch our tents, even here in Bosworth field.
+My Lord of Surrey, why look you so sad?
+
+SURREY:
+My heart is ten times lighter than my looks.
+
+KING RICHARD III:
+My Lord of Norfolk,--
+
+NORFOLK:
+Here, most gracious liege.
+
+KING RICHARD III:
+Norfolk, we must have knocks; ha! must we not?
+
+NORFOLK:
+We must both give and take, my gracious lord.
+
+KING RICHARD III:
+Up with my tent there! here will I lie tonight;
+But where to-morrow?  Well, all's one for that.
+Who hath descried the number of the foe?
+
+NORFOLK:
+Six or seven thousand is their utmost power.
+
+KING RICHARD III:
+Why, our battalion trebles that account:
+Besides, the king's name is a tower of strength,
+Which they upon the adverse party want.
+Up",3500,,,,,3500,100,100,0,AdamW,0.0003,0,0.01,128,2,1024,256,3407,1607994,2640,330,330,,"account:
+Besides, the king's name is a tower of strength,
+Which they upon the adverse party want.
+Up",0,nonperiodic_natural_text,300000,86c4e6aa9db7c042ec79f339dcb96d42b0075e16b8fc2e86bf0ca57e2dc565ed,5012cf442368f764fb74,text_bridge
+31.141250371932983,25,1.2456500148773193,2478.90478515625,2.646700700124105,0.30303030303030304,0.88,0.585432098765432,fous fous fous fous fous fous fous fous fous fous fous fous fous fous fous fous fous fous fous fous ,2.1566982042221796,0.3462121212121212,2.8772621949513755,0.2636363636363636,0,text_bridge,LinearAttention,58,,2," Blunt,
+And Rice ap Thomas with a valiant crew;
+And many more of noble fame and worth:
+And towards London they do bend their course,
+If by the way they be not fought withal.
+
+DERBY:
+Return unto thy lord; commend me to him:
+Tell him the queen hath heartily consented
+He shall espouse Elizabeth her daughter.
+These letters will resolve him of my mind. Farewell.
+
+BUCKINGHAM:
+Will not King Richard let me speak with him?
+
+Sheriff:
+No, my good lord; therefore be patient.
+
+BUCKINGHAM:
+Hastings, and Edward's children, Rivers, Grey,
+Holy King Henry, and thy fair son Edward,
+Vaughan, and all that have miscarried
+By underhand corrupted foul injustice,
+If that your moody discontented souls
+Do through the clouds behold this present hour,
+Even for revenge mock my destruction!
+This is All-Souls' day, fellows, is it not?
+
+Sheriff:
+It is, my lord.
+
+BUCKINGHAM:
+Why, then All-Souls' day is my body's doomsday.
+This is the day that, in King Edward's time,
+I wish't might fall on me, when I was found
+False to his children or his wife's allies
+This is the day wherein I wish'd to fall
+By the false faith of him I trusted most;
+This, this All-Souls' day to my fearful soul
+Is the determined respite of my wrongs:
+That high All-Seer that I dallied with
+Hath turn'd my feigned prayer on my head
+And given in earnest what I begg'd in jest.
+Thus doth he force the swords of wicked men
+To turn their own points on their masters' bosoms:
+Now Margaret's curse is fallen upon my head;
+'When he,' quoth she, 'shall split thy heart with sorrow,
+Remember Margaret was a prophetess.'
+Come, sirs, convey me to the block of shame;
+Wrong hath but wrong, and blame the due of blame.
+
+RICHMOND:
+Fellows in arms, and my most loving friends,
+Bruised underneath the yoke of tyranny,
+Thus far into the bowels of the land
+Have we march'd on without impediment;
+And here receive we from our father Stanley
+Lines of fair comfort and encouragement.
+The wretched, bloody, and usurping boar,
+That spoil'd your summer fields and fruitful vines,
+Swills your warm blood like wash, and makes his trough
+In your embowell'd bosoms, this foul swine
+Lies now even in the centre of this isle,
+Near to the town of Leicester, as we learn
+From Tamworth thither is but one day's march.
+In God's name, cheerly on, courageous friends,
+To reap the harvest of perpetual peace
+By this one bloody trial of sharp war.
+
+OXFORD:
+Every man's conscience is a thousand swords,
+To fight against that bloody homicide.
+
+HERBERT:
+I doubt not but his friends will fly to us.
+
+BLUNT:
+He hath no friends but who are friends for fear.
+Which in his greatest need will shrink from him.
+
+RICHMOND:
+All for our vantage. Then, in God's name, march:
+True hope is swift, and flies with swallow's wings:
+Kings it makes gods, and meaner creatures kings.
+
+KING RICHARD III:
+Here pitch our tents, even here in Bosworth field.
+My Lord of Surrey, why look you so sad?
+
+SURREY:
+My heart is ten times lighter than my looks.
+
+KING RICHARD III:
+My Lord of Norfolk,--
+
+NORFOLK:
+Here, most gracious liege.
+
+KING RICHARD III:
+Norfolk, we must have knocks; ha! must we not?
+
+NORFOLK:
+We must both give and take, my gracious lord.
+
+KING RICHARD III:
+Up with my tent there! here will I lie tonight;
+But where to-morrow?  Well, all's one for that.
+Who hath descried the number of the foe?
+
+NORFOLK:
+Six or seven thousand is their utmost power.
+
+KING RICHARD III:
+Why, our battalion trebles that account:
+Besides, the king's name is a tower of strength,
+Which they upon the adverse party want.
+Up",3500,,,,,3500,100,100,1,AdamW,0.0003,0,0.01,128,2,1024,256,3408,1607994,2640,330,330,,"account:
+Besides, the king's name is a tower of strength,
+Which they upon the adverse party want.
+Up",0,nonperiodic_natural_text,300000,86c4e6aa9db7c042ec79f339dcb96d42b0075e16b8fc2e86bf0ca57e2dc565ed,7962b174fdf62547e751,text_bridge

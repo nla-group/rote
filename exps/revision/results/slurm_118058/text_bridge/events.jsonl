@@ -1,0 +1,26 @@
+{"completed": 0, "event": "stage_started", "time": "2026-11-22T03:46:33+00:00"}
+{"case_id": "962e82bda58881ea86f5", "event": "case_completed", "time": "2026-11-22T03:47:58+00:00"}
+{"case_id": "90049a55726c6ffb4f32", "event": "case_completed", "time": "2026-11-22T03:49:26+00:00"}
+{"case_id": "d7dfdbb91bbb358d5c44", "event": "case_completed", "time": "2026-11-22T03:50:57+00:00"}
+{"case_id": "66c771da8e9f1eaeed31", "event": "case_completed", "time": "2026-11-22T03:52:46+00:00"}
+{"case_id": "4dceb99aab7e325dd4fc", "event": "case_completed", "time": "2026-11-22T03:53:09+00:00"}
+{"case_id": "7516456f5f872f01726b", "event": "case_completed", "time": "2026-11-22T03:53:41+00:00"}
+{"case_id": "0c0db02f00ccd48ef010", "event": "case_completed", "time": "2026-11-22T03:54:29+00:00"}
+{"case_id": "9524186e41ac3cbb2ffa", "event": "case_completed", "time": "2026-11-22T03:55:11+00:00"}
+{"case_id": "3a5a6618a1ac18743df9", "event": "case_completed", "time": "2026-11-22T03:56:13+00:00"}
+{"case_id": "b77ef6671f3777a56cf2", "event": "case_completed", "time": "2026-11-22T03:57:36+00:00"}
+{"case_id": "3797871b64c946c09507", "event": "case_completed", "time": "2026-11-22T03:59:14+00:00"}
+{"case_id": "4b7f71f9638bb5b04290", "event": "case_completed", "time": "2026-11-22T04:00:56+00:00"}
+{"case_id": "5ea0187854a736af4df4", "event": "case_completed", "time": "2026-11-22T04:01:27+00:00"}
+{"case_id": "95b43be18579d8555a13", "event": "case_completed", "time": "2026-11-22T04:01:57+00:00"}
+{"case_id": "33141ba372892ab991f2", "event": "case_completed", "time": "2026-11-22T04:02:35+00:00"}
+{"case_id": "ad7ccc19a256b0ed6eb7", "event": "case_completed", "time": "2026-11-22T04:03:08+00:00"}
+{"case_id": "14346570255f3c444eb3", "event": "case_completed", "time": "2026-11-22T04:03:50+00:00"}
+{"case_id": "38b2fe417a4b8df2d6b7", "event": "case_completed", "time": "2026-11-22T04:04:42+00:00"}
+{"case_id": "408bed9578306e28ef8d", "event": "case_completed", "time": "2026-11-22T04:05:46+00:00"}
+{"case_id": "b1808df894f9539e8e10", "event": "case_completed", "time": "2026-11-22T04:06:01+00:00"}
+{"case_id": "f0d91d4e42fd362fd508", "event": "case_completed", "time": "2026-11-22T04:06:27+00:00"}
+{"case_id": "b9daf7bed54eb3ae66de", "event": "case_completed", "time": "2026-11-22T04:06:58+00:00"}
+{"case_id": "5012cf442368f764fb74", "event": "case_completed", "time": "2026-11-22T04:07:36+00:00"}
+{"case_id": "7962b174fdf62547e751", "event": "case_completed", "time": "2026-11-22T04:08:08+00:00"}
+{"event": "stage_completed", "time": "2026-11-22T04:08:08+00:00"}

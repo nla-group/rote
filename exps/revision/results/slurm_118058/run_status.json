@@ -1,0 +1,56 @@
+{
+  "baseline": {
+    "completed": 320,
+    "status": "complete",
+    "total": 320,
+    "updated_at": "2026-11-21T13:41:06+00:00"
+  },
+  "capacity": {
+    "completed": 144,
+    "status": "complete",
+    "total": 144,
+    "updated_at": "2026-11-22T03:46:22+00:00"
+  },
+  "context": {
+    "completed": 192,
+    "status": "complete",
+    "total": 192,
+    "updated_at": "2026-11-21T19:30:51+00:00"
+  },
+  "convergence": {
+    "completed": 64,
+    "status": "complete",
+    "total": 64,
+    "updated_at": "2026-11-21T21:31:11+00:00"
+  },
+  "exposure": {
+    "completed": 72,
+    "status": "complete",
+    "total": 72,
+    "updated_at": "2026-11-21T20:01:41+00:00"
+  },
+  "fixed_length": {
+    "completed": 192,
+    "status": "complete",
+    "total": 192,
+    "updated_at": "2026-11-21T18:34:23+00:00"
+  },
+  "sensitivity": {
+    "completed": 132,
+    "status": "complete",
+    "total": 132,
+    "updated_at": "2026-11-22T00:34:54+00:00"
+  },
+  "text_bridge": {
+    "completed": 24,
+    "status": "complete",
+    "total": 24,
+    "updated_at": "2026-11-22T04:08:08+00:00"
+  },
+  "tuned": {
+    "completed": 32,
+    "status": "complete",
+    "total": 32,
+    "updated_at": "2026-11-22T00:58:31+00:00"
+  }
+}

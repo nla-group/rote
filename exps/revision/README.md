@@ -62,6 +62,77 @@ The bundled file has SHA-256
 Its exact bytes are checked before use. Nonperiodic text is never interpreted
 using the periodic ambiguity or predictive-order diagnostics.
 
+## Learning-rate follow-up on independent strings
+
+The follow-up tests how a validation-selected recipe compares with the original
+shared recipe at LZW score 90 for alphabet sizes 4 and 8. It reuses the 132 completed
+sensitivity trials under `results/slurm_118058` and adds 88 trials at learning
+rates `3e-3` and `1e-2`. The combined grid is
+`1e-4, 3e-4, 1e-3, 3e-3, 1e-2`. All eight architectures share the learning-rate
+grid. Transformer, LinearAttention, and Performer also try 0 and 10 warmup epochs.
+Each recipe is evaluated on the same two tuning strings with two initializations
+per string. The training protocol, width for each architecture, and split follow
+the archived sensitivity stage.
+
+A recipe is eligible when all four validation losses are finite. Selection
+minimizes their mean, with ties broken by fewer warmup epochs and then lower
+learning rate. The grid flags selections at the upper learning-rate boundary.
+This design estimates sensitivity to the tested learning rates and warmup
+lengths. Statistical summaries are descriptive and the training budget is a
+common epoch cap with early stopping.
+
+Confirmation freezes the selected recipes and compares them with the shared
+recipe (`3e-4`, zero warmup). It uses six fresh primitive strings, three per
+alphabet, each with exact LZW score 90 and unambiguous 100-symbol contexts.
+The generator rejects duplicates and cyclic rotations of strings in the
+fixed-budget, matched-size, fixed-length, and capacity archives. Both recipes
+train from scratch on the same prefix and initialization seed for each pair
+and predict on the same chronological test block and held-out suffix. There
+are 96 pairs and at most 192 confirmation fits. When the recipes coincide,
+both arms use the same fitted model and timing observation.
+
+Run the follow-up on Convergence from the revision directory.
+
+```bash
+cd ~/rote/exps/revision
+sbatch run_tuning_followup_slurm.sh
+```
+
+The job reuses `.venv` from the revision experiment when available. On first use
+it installs the recorded package versions and expects Python 3.12. Set
+`PYTHON=python3.12` at submission if the default interpreter is a different
+version. Before training, the runner checks the archived training code, data,
+protocol, and installed runtime. Use the original environment for a resumed
+run. Outputs default to `results/tuning_followup_slurm_<job_id>/`. For a job
+interrupted by the time limit, resubmit with its output directory.
+
+```bash
+REVISION_OUTPUT_ROOT="$PWD/results/tuning_followup_slurm_<job_id>" \
+  sbatch run_tuning_followup_slurm.sh
+```
+
+When `run_status.json` records `"status": "complete"`, the main output files are
+
+- `tuning_trials.csv` and `tuning_grid.csv` for per-fit validation losses and
+  selection decisions, plus `selected_recipes.json` for the frozen recipes.
+- `confirmation_seeds.csv` for generator seeds, strings, and predictive orders.
+- `confirmation_pairs.csv` for paired outcomes and selected-minus-shared
+  differences. `confirmation/results.csv` holds the full fit records.
+- `confirmation_by_seed.csv` and `summary_by_model.csv` for the per-string
+  means and the summary across strings, pooled and by alphabet. Standard
+  deviations use the per-string means. Paired differences use pairs with two
+  successful fits. The CSVs report the denominators and numerical failures.
+
+From the repository root, use the same Python environment to validate inputs
+and list the six new strings without training. A CPU smoke test runs the
+workflow on one model, one string per stage, and one epoch per fit.
+
+```bash
+python -m exps.revision.tuning_followup.runner --plan
+python -m exps.revision.tuning_followup.runner --smoke --device cpu \
+  --output-dir /tmp/rote-tuning-followup-smoke
+```
+
 ## Local verification and individual stages
 
 ```bash

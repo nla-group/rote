@@ -1,0 +1,17 @@
+{
+  "archived_search_fits": 132,
+  "confirmation_fits": 180,
+  "confirmation_pairs": 96,
+  "new_search_fits": 88,
+  "numerical_failures": {
+    "confirmation": 0,
+    "search": 0
+  },
+  "selected_at_upper_bound": [
+    "GRU",
+    "LSTM",
+    "minGRU",
+    "minLSTM"
+  ],
+  "status": "complete"
+}

@@ -1,0 +1,82 @@
+{
+  "GRU": {
+    "at_upper_bound": true,
+    "learning_rate": 0.01,
+    "mean_valid_loss": 0.015923787645685177,
+    "model": "GRU",
+    "planned_fits": 4,
+    "selected": true,
+    "valid_fits": 4,
+    "warmup_epochs": 0
+  },
+  "LSTM": {
+    "at_upper_bound": true,
+    "learning_rate": 0.01,
+    "mean_valid_loss": 0.022429812389115494,
+    "model": "LSTM",
+    "planned_fits": 4,
+    "selected": true,
+    "valid_fits": 4,
+    "warmup_epochs": 0
+  },
+  "LinearAttention": {
+    "at_upper_bound": false,
+    "learning_rate": 0.003,
+    "mean_valid_loss": 0.007772440051970382,
+    "model": "LinearAttention",
+    "planned_fits": 4,
+    "selected": true,
+    "valid_fits": 4,
+    "warmup_epochs": 0
+  },
+  "Performer": {
+    "at_upper_bound": false,
+    "learning_rate": 0.003,
+    "mean_valid_loss": 0.019690030409644045,
+    "model": "Performer",
+    "planned_fits": 4,
+    "selected": true,
+    "valid_fits": 4,
+    "warmup_epochs": 0
+  },
+  "RWKV": {
+    "at_upper_bound": false,
+    "learning_rate": 0.001,
+    "mean_valid_loss": 0.020562690837929647,
+    "model": "RWKV",
+    "planned_fits": 4,
+    "selected": true,
+    "valid_fits": 4,
+    "warmup_epochs": 0
+  },
+  "Transformer": {
+    "at_upper_bound": false,
+    "learning_rate": 0.0003,
+    "mean_valid_loss": 0.03245414141565561,
+    "model": "Transformer",
+    "planned_fits": 4,
+    "selected": true,
+    "valid_fits": 4,
+    "warmup_epochs": 0
+  },
+  "minGRU": {
+    "at_upper_bound": true,
+    "learning_rate": 0.01,
+    "mean_valid_loss": 0.037574591813609004,
+    "model": "minGRU",
+    "planned_fits": 4,
+    "selected": true,
+    "valid_fits": 4,
+    "warmup_epochs": 0
+  },
+  "minLSTM": {
+    "at_upper_bound": true,
+    "learning_rate": 0.01,
+    "mean_valid_loss": 0.030555610389759146,
+    "model": "minLSTM",
+    "planned_fits": 4,
+    "selected": true,
+    "valid_fits": 4,
+    "warmup_epochs": 0
+  }
+}

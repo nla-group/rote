@@ -1,0 +1,64 @@
+{
+  "followup_source": {
+    "__init__.py": "bba0dcf969be55abc0a167f566f572e0dc815fe45d1bbe78586e790767e705f5",
+    "report.py": "6cabe3715676df341cf8763941242f548a70f501a2d455ed1bd1a000cf80c2ce",
+    "runner.py": "1a79ba75d3c349684e5240c3ac89ba858ec2f7e21a8bc09ae68cdb5d181b60d9"
+  },
+  "inputs": {
+    "/home/xinye/rote/exps/revision/results/slurm_118058/capacity/seeds.csv": "49e8d0582adf9174b64abac30817a0e0b277d99d316a6041fd88c94da0a7f68d",
+    "/home/xinye/rote/exps/revision/results/slurm_118058/fixed_length/seeds.csv": "bd1efc89fd54fb7818304a4f7b12f5e13c9cf083bedbd7f6d2b3c543c9c210ef",
+    "/home/xinye/rote/exps/revision/results/slurm_118058/sensitivity/config.json": "f94f58ba013a0a8ee80c94ac06a71a3230dbfd149d3257b809d921cb54382027",
+    "/home/xinye/rote/exps/revision/results/slurm_118058/sensitivity/manifest.json": "75acea4c13c25eea9b8eeb105fe1965244e4cd9d1e8edf23be5ad303f4a6409a",
+    "/home/xinye/rote/exps/revision/results/slurm_118058/sensitivity/results.csv": "34778c770adb8edf3e99c9cadd6edec2e29a1cd18c356d4b78a9021fa63a2dc8",
+    "/home/xinye/rote/legacy/exps/results_symbolic/slurm_102076/results_merged.csv": "7d623531209084ac544fc87d0d269192b0202252f7bc3ba869bc36a75e9891c1",
+    "/home/xinye/rote/legacy/exps/results_symbolic_matched_size/slurm_104393/results_merged.csv": "b9f176641175d3693baf079fb3f92ee77a136b508b147179946394635627fbd7"
+  },
+  "new_rates": [
+    0.003,
+    0.01
+  ],
+  "protocol": {
+    "batch_size": 128,
+    "d_model": 256,
+    "device": "cuda",
+    "horizon": 100,
+    "layers": 2,
+    "learning_rate": 0.0003,
+    "lr_gamma": 0.5,
+    "lr_step_size": 100,
+    "max_epochs": 200,
+    "optimizer": "AdamW",
+    "patience": 10,
+    "seed": 3407,
+    "stopping_loss": 0.05,
+    "units": 128,
+    "weight_decay": 0.01
+  },
+  "rates": [
+    0.0001,
+    0.0003,
+    0.001,
+    0.003,
+    0.01
+  ],
+  "runtime": {
+    "cuda": "13.0",
+    "cudnn": 92400,
+    "cudnn_enabled": false,
+    "gpu": "NVIDIA A100 80GB PCIe MIG 3g.40gb",
+    "packages": {
+      "linear-attention-transformer": "0.19.1",
+      "minGRU-pytorch": "0.2.1",
+      "numpy": "2.5.5",
+      "pandas": "3.1.1",
+      "performer-pytorch": "1.1.4",
+      "torch": "2.14.0+cu130"
+    },
+    "python": "3.12.11",
+    "torch": "2.14.0+cu130"
+  },
+  "sequence_length": 3500,
+  "smoke": false,
+  "source_sha256": "6b8136cef601a4fed2edf809e6deb9a5354f03287ba93f7b800c9118718ea445",
+  "window": 100
+}

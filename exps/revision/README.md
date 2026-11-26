@@ -162,3 +162,76 @@ reviewer response, report both the shared-recipe and validation-selected
 results, and state explicitly when a control changes data volume or model
 parameter count. Keep claims about real-language relevance conditional on
 the observed `text_bridge` results.
+
+## Rikc follow-up
+
+Submit from the revision directory on Convergence. The launcher reuses the
+revision environment and installs the experiment extra on first use.
+
+```bash
+cd ~/rote/exps/revision
+sbatch run_rikc_slurm.sh
+```
+
+If the cluster default Python differs from the archived setup, use
+`PYTHON=python3.12 sbatch run_rikc_slurm.sh` for the initial environment setup.
+The job runs on one A100 3g.40gb GPU slice with a 48-hour limit. It saves
+each evaluation as it completes. Logs go to `logs/rote-rikc-<job_id>.out`
+and `logs/rote-rikc-<job_id>.err`. The output appears under
+`results/rikc_slurm_<job_id>/`.
+
+| Stage | Design | Evaluations |
+|---|---|---:|
+| `period` | Detect the shortest compatible period using only the training prefix from each of 40 archived strings. Forecast by absolute phase at the original split. | 40 CPU |
+| `matched_order` | Compare LZW scores 80 and 90 in 12 pairs for each of `n=4,8`. A pair shares period length, symbol histogram, and minimal predictive order. Both members use the same sequence length and the same initialization index. The four models and training settings follow the previous fixed-length control. | 192 fits |
+| `common_budget` | Use 12 fresh strings at score 90 for each of `n=2,4,8`. Match the six model sizes within 5% of 185,000 trainable parameters. Use identical ordered batches per string, 40 complete epochs, and the final checkpoint. | 216 fits |
+
+Both neural stages use one initialization per string and architecture,
+`N=3500`, and `w=k=100`. The common-budget stage uses AdamW with learning
+rate `3e-4`, batch size 128, weight decay 0.01, and zero warmup. With 2,640
+training windows per string and the final partial batch included, each fit
+completes 840 updates and sees 10,560,000 input-symbol positions. These counts
+refer to training. Elapsed seconds include final validation, testing, and
+rollout. Equal input-token counts can entail different computation across the
+architectures.
+
+The new strings are generated before fitting. Duplicate patterns and cyclic
+rotations of patterns from either new stage or the archived benchmark,
+matched-size, fixed-length, capacity, and independent confirmation sets are
+excluded. The matched-order contrast applies to strings in the predictive-order
+overlap of the two LZW groups.
+
+Each stage exposes its progress and cases in `manifest.json`, `seeds.csv`,
+and `results.csv`. The period stage also writes `summary.json`. The neural
+stages write `comparison_units.csv` and `confidence_intervals.csv`. The
+interval file reports DL and Exact means by model, paired score differences
+(90 minus 80), and the paired GRU-minus-LinearAttention contrast in the
+common-budget stage. It gives the numbers of independent units and rollouts
+separately. The 95% percentile bootstrap resamples strings or entire matched
+pairs within each alphabet and weights alphabets equally in pooled estimates.
+If a bootstrap interval collapses, a conservative bounded-mean Hoeffding
+interval is reported and labeled. `matched_widths.csv` records the parameter
+counts, and `common_budget/budget_counts.json` verifies the common realized
+update and input-token counts.
+
+If the job hits its time limit, resubmit with the original output path and
+the same arguments. The runner checks the environment, input checksums,
+configuration, and seed manifests before skipping completed evaluations.
+
+```bash
+REVISION_OUTPUT_ROOT="$PWD/results/rikc_slurm_<job_id>" sbatch run_rikc_slurm.sh
+```
+
+For a full design check without training, or a reduced CPU integration run,
+use these commands from the revision directory with the dependencies available.
+
+```bash
+REVISION_DEVICE=cpu bash rikc/run.sh --plan
+REVISION_DEVICE=cpu REVISION_OUTPUT_ROOT="$(mktemp -d)" bash rikc/run.sh --smoke
+```
+
+A complete run has `"status": "complete"` in its root `run_status.json`.
+For the manuscript, use the three stage result CSVs, both confidence interval
+CSVs, `matched_widths.csv`, and the two JSON summaries with the counts.
+The results directory is ignored by Git, so archive these outputs explicitly
+if you want to share them through the repository.

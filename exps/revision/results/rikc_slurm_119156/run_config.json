@@ -1,0 +1,238 @@
+{
+  "fixed_budget_epochs": 40,
+  "input_sha256": {
+    "exps/revision/results/slurm_118058/capacity/seeds.csv": "49e8d0582adf9174b64abac30817a0e0b277d99d316a6041fd88c94da0a7f68d",
+    "exps/revision/results/slurm_118058/fixed_length/seeds.csv": "bd1efc89fd54fb7818304a4f7b12f5e13c9cf083bedbd7f6d2b3c543c9c210ef",
+    "exps/revision/results/tuning_followup_slurm_118144/confirmation_seeds.csv": "09b744a36816e48e9eb77235d09959db5aa303b85e438242df7d5b45e75d03ed",
+    "legacy/exps/results_symbolic/slurm_102076/results_merged.csv": "7d623531209084ac544fc87d0d269192b0202252f7bc3ba869bc36a75e9891c1",
+    "legacy/exps/results_symbolic_matched_size/slurm_104393/results_merged.csv": "b9f176641175d3693baf079fb3f92ee77a136b508b147179946394635627fbd7"
+  },
+  "matched_widths": [
+    {
+      "d_model": 0,
+      "layers": 2,
+      "model": "GRU",
+      "model_params": 184318,
+      "parameter_rel_error": -0.0036864864864864866,
+      "symbols": 2,
+      "target_params": 185000,
+      "units": 142
+    },
+    {
+      "d_model": 0,
+      "layers": 2,
+      "model": "LSTM",
+      "model_params": 187738,
+      "parameter_rel_error": 0.0148,
+      "symbols": 2,
+      "target_params": 185000,
+      "units": 124
+    },
+    {
+      "d_model": 88,
+      "layers": 2,
+      "model": "LinearAttention",
+      "model_params": 188058,
+      "parameter_rel_error": 0.01652972972972973,
+      "symbols": 2,
+      "target_params": 185000,
+      "units": 352
+    },
+    {
+      "d_model": 56,
+      "layers": 2,
+      "model": "Transformer",
+      "model_params": 179706,
+      "parameter_rel_error": -0.028616216216216215,
+      "symbols": 2,
+      "target_params": 185000,
+      "units": 224
+    },
+    {
+      "d_model": 80,
+      "layers": 2,
+      "model": "Performer",
+      "model_params": 187090,
+      "parameter_rel_error": 0.011297297297297297,
+      "symbols": 2,
+      "target_params": 185000,
+      "units": 320
+    },
+    {
+      "d_model": 88,
+      "layers": 2,
+      "model": "RWKV",
+      "model_params": 189466,
+      "parameter_rel_error": 0.02414054054054054,
+      "symbols": 2,
+      "target_params": 185000,
+      "units": 352
+    },
+    {
+      "d_model": 0,
+      "layers": 2,
+      "model": "GRU",
+      "model_params": 185456,
+      "parameter_rel_error": 0.002464864864864865,
+      "symbols": 4,
+      "target_params": 185000,
+      "units": 142
+    },
+    {
+      "d_model": 0,
+      "layers": 2,
+      "model": "LSTM",
+      "model_params": 183004,
+      "parameter_rel_error": -0.01078918918918919,
+      "symbols": 4,
+      "target_params": 185000,
+      "units": 122
+    },
+    {
+      "d_model": 88,
+      "layers": 2,
+      "model": "LinearAttention",
+      "model_params": 188412,
+      "parameter_rel_error": 0.018443243243243243,
+      "symbols": 4,
+      "target_params": 185000,
+      "units": 352
+    },
+    {
+      "d_model": 56,
+      "layers": 2,
+      "model": "Transformer",
+      "model_params": 179932,
+      "parameter_rel_error": -0.027394594594594594,
+      "symbols": 4,
+      "target_params": 185000,
+      "units": 224
+    },
+    {
+      "d_model": 80,
+      "layers": 2,
+      "model": "Performer",
+      "model_params": 187412,
+      "parameter_rel_error": 0.013037837837837837,
+      "symbols": 4,
+      "target_params": 185000,
+      "units": 320
+    },
+    {
+      "d_model": 88,
+      "layers": 2,
+      "model": "RWKV",
+      "model_params": 189820,
+      "parameter_rel_error": 0.026054054054054053,
+      "symbols": 4,
+      "target_params": 185000,
+      "units": 352
+    },
+    {
+      "d_model": 0,
+      "layers": 2,
+      "model": "GRU",
+      "model_params": 182568,
+      "parameter_rel_error": -0.013145945945945946,
+      "symbols": 8,
+      "target_params": 185000,
+      "units": 140
+    },
+    {
+      "d_model": 0,
+      "layers": 2,
+      "model": "LSTM",
+      "model_params": 185448,
+      "parameter_rel_error": 0.0024216216216216215,
+      "symbols": 8,
+      "target_params": 185000,
+      "units": 122
+    },
+    {
+      "d_model": 88,
+      "layers": 2,
+      "model": "LinearAttention",
+      "model_params": 189120,
+      "parameter_rel_error": 0.02227027027027027,
+      "symbols": 8,
+      "target_params": 185000,
+      "units": 352
+    },
+    {
+      "d_model": 56,
+      "layers": 2,
+      "model": "Transformer",
+      "model_params": 180384,
+      "parameter_rel_error": -0.02495135135135135,
+      "symbols": 8,
+      "target_params": 185000,
+      "units": 224
+    },
+    {
+      "d_model": 80,
+      "layers": 2,
+      "model": "Performer",
+      "model_params": 188056,
+      "parameter_rel_error": 0.01651891891891892,
+      "symbols": 8,
+      "target_params": 185000,
+      "units": 320
+    },
+    {
+      "d_model": 88,
+      "layers": 2,
+      "model": "RWKV",
+      "model_params": 190528,
+      "parameter_rel_error": 0.02988108108108108,
+      "symbols": 8,
+      "target_params": 185000,
+      "units": 352
+    }
+  ],
+  "pairs_per_alphabet": 12,
+  "parameter_target": 185000,
+  "parameter_tolerance": 0.05,
+  "protocol": {
+    "batch_size": 128,
+    "d_model": 256,
+    "device": "cuda",
+    "horizon": 100,
+    "layers": 2,
+    "learning_rate": 0.0003,
+    "lr_gamma": 0.5,
+    "lr_step_size": 100,
+    "max_epochs": 200,
+    "optimizer": "AdamW",
+    "patience": 10,
+    "seed": 3407,
+    "stopping_loss": 0.05,
+    "units": 128,
+    "weight_decay": 0.01
+  },
+  "runtime": {
+    "cuda": "13.0",
+    "cudnn": 92400,
+    "cudnn_enabled": false,
+    "gpu": "NVIDIA A100 80GB PCIe MIG 3g.40gb",
+    "packages": {
+      "linear-attention-transformer": "0.19.1",
+      "minGRU-pytorch": "0.2.1",
+      "numpy": "2.5.5",
+      "pandas": "3.1.1",
+      "performer-pytorch": "1.1.4",
+      "torch": "2.14.0+cu130"
+    },
+    "python": "3.12.11",
+    "torch": "2.14.0+cu130"
+  },
+  "sequence_length": 3500,
+  "smoke": false,
+  "source_sha256": "d74cf168c030f4804dd9d1edc2ba219192495f53ec53b4e07b66f8098fc13eff",
+  "stages": [
+    "period",
+    "matched_order",
+    "common_budget"
+  ],
+  "strings_per_alphabet": 12,
+  "window": 100
+}

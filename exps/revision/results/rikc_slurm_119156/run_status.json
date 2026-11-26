@@ -1,0 +1,13 @@
+{
+  "completed_stages": [
+    "period",
+    "matched_order",
+    "common_budget"
+  ],
+  "planned": {
+    "common_budget": 216,
+    "matched_order": 192,
+    "period": 40
+  },
+  "status": "complete"
+}

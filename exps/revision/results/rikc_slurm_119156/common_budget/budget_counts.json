@@ -1,0 +1,4 @@
+{
+  "input_tokens_per_fit": 10560000,
+  "optimizer_updates_per_fit": 840
+}

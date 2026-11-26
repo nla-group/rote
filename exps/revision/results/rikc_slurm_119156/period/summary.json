@@ -1,0 +1,5 @@
+{
+  "exact_periods": 40,
+  "exact_rollouts": 40,
+  "n_strings": 40
+}
